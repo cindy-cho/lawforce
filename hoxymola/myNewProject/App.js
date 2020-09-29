@@ -6,8 +6,8 @@ export default function App() {
   const [first, setFirst] = useState('?????');
   const [second, setSecond] = useState('?????');
   const clickHandler = () => {
-    setFirst('Hello');
-    setSecond('World');
+    setFirst('HIHI');
+    setSecond('I Changes');
   }
   const clickHandler2 = () => {
     setFirst('?????');
