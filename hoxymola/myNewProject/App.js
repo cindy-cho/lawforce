@@ -1,41 +1,64 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 
 export default function App() {
-  const [state, changeState] = useState({ first: '?????', second: '?????' });
-
+  const [first, setFirst] = useState('?????');
+  const [second, setSecond] = useState('?????');
   const clickHandler = () => {
-    changeState({ first: 'Hello', second: 'World' });
+    setFirst('Hello');
+    setSecond('World');
   }
   const clickHandler2 = () => {
-    changeState({ first: '?????', second: '?????' });
+    setFirst('?????');
+    setSecond('?????');
   }
   
   return (
+
     <View style={styles.container}>
-      <Text style={styles.bigText}>{state.first}, {state.second}!</Text>
+      <Text style={styles.bigText}>{first}, {second}!</Text>
       <View style={styles.buttonContainer}>
-        <Button title='update state' onPress={clickHandler} />
-        <Button title='initialize' onPress={clickHandler2} />
+        <Button title='UPDATE' onPress={clickHandler} color='blue'/>
+        <Button title='INITIALIZE' onPress={clickHandler2} color='red'/>
       </View>
+      <Text></Text>
+      <TextInput 
+        clearTextOnFocus='ture'
+        style={styles.input}
+        placeholder='first'
+        onChangeText={(val) => setFirst(val)}/>
+      <TextInput 
+        clearTextOnFocus='ture'
+        style={styles.input}
+        placeholder='second'
+        onChangeText={(val) => setSecond(val)}/>
     </View>
+
   );
 }
 
 const styles = StyleSheet.create({
-  bigText: {
-    fontSize: 20,
-    textAlign: 'center',
-  },
-  buttonContainer: {
-    marginTop: 20,
-  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  buttonContainer: {
+    marginTop: 20,
+    marginBottom: 20,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#777',
+    padding: 8,
+    margin: 5,
+    width: 200,
+  },
+  bigText: {
+    fontSize: 20,
+    textAlign: 'center',
   },
   header: {
     backgroundColor: 'pink',
@@ -47,11 +70,13 @@ const styles = StyleSheet.create({
   boldText: {
     fontWeight: 'bold',
     textAlign: 'center',
+    textTransform: 'uppercase',
   },
   normalText: {
     fontWeight: 'normal',
-    fontSize: 10,
+    fontSize: 15,
     textAlign: 'center',
+    color: 'violet'
   },
   body: {
     backgroundColor: 'yellow',
