@@ -1,124 +1,60 @@
 import { apisAreAvailable } from 'expo';
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, TextInput, ScrollView, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
+import Header from './components/header'
+import TodoItem from './components/todoitem'
+
 
 export default function App() {
-  const [first, setFirst] = useState('?????');
-  const [second, setSecond] = useState('?????');
-  const clickHandler = () => {
-    setPeople([
-      { name: 'AA', key: '2'},
-      { name: 'BB', key: '1'},
-    ]);
-  }
-  const clickHandler2 = () => {
-    setFirst('?????');
-    setSecond('?????');
-  }
-  const [people, setPeople] = useState([
-    { name: 'mario', id: '1' },
-    { name: 'luigi', id: '2' },
-    { name: 'goomba', id: '3' },
-    { name: 'yoshi', id: '4' },
-    { name: 'peach', id: '5' },
-    { name: 'bowser', id: '6' },
-  ]);
+  const [todo, setTodo] = useState([
+    {text: '노동법의 법원', key: '1'},
+    {text: '노동법상 권리 · 의무의 주체', key: '2'},
+    {text: '근로기준법상 근로자', key: '3'},
+    {text: '근로계약 당사자의 권리 · 의무', key: '10'},
+    {text: '근로자의 취업청구권', key: '11'},
+    {text: '근로계약의 효력', key: '12'},
+    {text: '기간제 근로자 근로계약기간의 보호', key: '51'},
+    {text: '기간제 근로자 차별적 처우 금지 및 기타 보호', key: '52'},
+    {text: '단시간근로자에 대한 보호', key: '53'},
+    {text: '근로3권', key: '58'},
+    {text: '단결권 (단결강제 · 소극적 단결권)', key: '59'},
+    {text: '노동조합의 설립 요건', key: '60'},
+  ])
 
-  const pressHandler = (id) => {
-    console.log(id);
-    setPeople((prevPeople) => {
-      return prevPeople.filter(person => person.id != id)
+  const pressHandler = (key) => {
+    setTodo((prevTodo) => {
+      return prevTodo.filter(todo => todo.key != key);
     })
-  }
-  
+  };
+
   return (
-
-
-
     <View style={styles.container}>
-
-      <FlatList
-        numColumns={2}
-        keyExtractor={(item) => item.id}
-        data={people}
-        renderItem={({item}) => (
-          <TouchableOpacity onPress={() => pressHandler(item.id)}>
-            <Text style={styles.item}>{item.name}</Text>
-          </TouchableOpacity>
-        )}
-        
-      />
-
-      {/* <ScrollView>
-        
-        {people.map(item => (
-           <View key={item.key}>
-             <Text style={styles.item}>{item.name}</Text>
-          </View>
-        ))}
-
-      </ScrollView> */}
+      <Header />
+       <View style={styles.content}>
+        {/* to form */}
+        <View style={styles.list}>
+          <FlatList 
+            data={todo}
+            renderItem={({item}) => (
+              <TodoItem item={item} pressHandler={pressHandler}/>
+            )}
+          />
+        </View>
+      </View>
     </View>
-
   );
 }
 
 const styles = StyleSheet.create({
-  item: {
-    marginTop: 24,
-    padding: 30,
-    backgroundColor: 'pink',
-    fontSize: 24,
-    marginHorizontal: 10,
-  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingTop: 40,
-    paddingHorizontal: 20,
-    //alignItems: 'center',
-    //justifyContent: 'center',
   },
-  buttonContainer: {
+  content: {
+    padding: 40,
+  },
+  list: {
     marginTop: 20,
-    marginBottom: 20,
   },
-  input: {
-    borderWidth: 1,
-    borderColor: '#777',
-    padding: 8,
-    margin: 5,
-    width: 200,
-  },
-  bigText: {
-    fontSize: 20,
-    textAlign: 'center',
-  },
-  header: {
-    backgroundColor: 'pink',
-    borderTopWidth: 2,
-    borderRightWidth: 2,
-    borderLeftWidth: 2,
-    padding: 20,
-  },
-  boldText: {
-    fontWeight: 'bold',
-    textAlign: 'center',
-    textTransform: 'uppercase',
-  },
-  normalText: {
-    fontWeight: 'normal',
-    fontSize: 15,
-    textAlign: 'center',
-    color: 'violet'
-  },
-  body: {
-    backgroundColor: 'yellow',
-    borderTopWidth: 2,
-    borderRightWidth: 2,
-    borderBottomWidth: 2,
-    borderLeftWidth: 2,
-    padding: 20,
-  }
 });
