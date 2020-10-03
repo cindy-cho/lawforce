@@ -1,10 +1,7 @@
-import { apisAreAvailable } from 'expo';
-import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, View, FlatList } from 'react-native';
 import Header from './components/header'
 import TodoItem from './components/todoitem'
-
 
 export default function App() {
   const [todo, setTodo] = useState([
@@ -31,16 +28,14 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Header />
-       <View style={styles.content}>
-        {/* to form */}
         <View style={styles.list}>
           <FlatList 
+            showsVerticalScrollIndicator={false}
             data={todo}
             renderItem={({item}) => (
               <TodoItem item={item} pressHandler={pressHandler}/>
             )}
           />
-        </View>
       </View>
     </View>
   );
@@ -51,10 +46,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  content: {
-    padding: 40,
-  },
   list: {
+    paddingHorizontal: 40,
     marginTop: 20,
+    marginBottom: 100,
   },
 });
