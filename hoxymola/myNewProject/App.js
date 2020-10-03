@@ -1,49 +1,84 @@
+import { apisAreAvailable } from 'expo';
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, ScrollView, FlatList, TouchableOpacity } from 'react-native';
 
 export default function App() {
   const [first, setFirst] = useState('?????');
   const [second, setSecond] = useState('?????');
   const clickHandler = () => {
-    setFirst('Hello');
-    setSecond('World');
+    setPeople([
+      { name: 'AA', key: '2'},
+      { name: 'BB', key: '1'},
+    ]);
   }
   const clickHandler2 = () => {
     setFirst('?????');
     setSecond('?????');
   }
+  const [people, setPeople] = useState([
+    { name: 'mario', id: '1' },
+    { name: 'luigi', id: '2' },
+    { name: 'goomba', id: '3' },
+    { name: 'yoshi', id: '4' },
+    { name: 'peach', id: '5' },
+    { name: 'bowser', id: '6' },
+  ]);
+
+  const pressHandler = (id) => {
+    console.log(id);
+    setPeople((prevPeople) => {
+      return prevPeople.filter(person => person.id != id)
+    })
+  }
   
   return (
 
+
+
     <View style={styles.container}>
-      <Text style={styles.bigText}>{first}, {second}!</Text>
-      <View style={styles.buttonContainer}>
-        <Button title='UPDATE' onPress={clickHandler} color='blue'/>
-        <Button title='INITIALIZE' onPress={clickHandler2} color='red'/>
-      </View>
-      <Text></Text>
-      <TextInput 
-        clearTextOnFocus='ture'
-        style={styles.input}
-        placeholder='first'
-        onChangeText={(val) => setFirst(val)}/>
-      <TextInput 
-        clearTextOnFocus='ture'
-        style={styles.input}
-        placeholder='second'
-        onChangeText={(val) => setSecond(val)}/>
+
+      <FlatList
+        numColumns={2}
+        keyExtractor={(item) => item.id}
+        data={people}
+        renderItem={({item}) => (
+          <TouchableOpacity onPress={() => pressHandler(item.id)}>
+            <Text style={styles.item}>{item.name}</Text>
+          </TouchableOpacity>
+        )}
+        
+      />
+
+      {/* <ScrollView>
+        
+        {people.map(item => (
+           <View key={item.key}>
+             <Text style={styles.item}>{item.name}</Text>
+          </View>
+        ))}
+
+      </ScrollView> */}
     </View>
 
   );
 }
 
 const styles = StyleSheet.create({
+  item: {
+    marginTop: 24,
+    padding: 30,
+    backgroundColor: 'pink',
+    fontSize: 24,
+    marginHorizontal: 10,
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: 40,
+    paddingHorizontal: 20,
+    //alignItems: 'center',
+    //justifyContent: 'center',
   },
   buttonContainer: {
     marginTop: 20,
