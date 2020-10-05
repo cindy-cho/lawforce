@@ -19,7 +19,10 @@ export default function App() {
     {text: '노동조합의 설립 요건', key: '60'},
   ]);
 
+  
+
   const pressHandler = (key) => {
+    alert('할 일 다하셨나여 ?');
     setTodo((prevTodo) => {
       return prevTodo.filter(todo => todo.key != key);
     })
@@ -44,7 +47,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F9F286',
   },
   list: {
     paddingHorizontal: 40,
