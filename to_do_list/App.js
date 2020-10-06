@@ -53,7 +53,7 @@ export default function App() {
       });
     }
     else{
-      Alert.alert('OPPS!', 'Todos must be over 3 chars long.', [
+      Alert.alert('OPPS!', 'Contents must be over 3 chars long.', [
         {text: 'Understood', onPress: () => console.log('alert closed')}
       ])
     }

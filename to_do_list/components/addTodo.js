@@ -12,14 +12,15 @@ export default function AddTodo({ submitHandler }) {
         <View>
             <TextInput
                 style={styles.input} 
-                placeholder='new todo...'
+                placeholder='new content...'
                 onChangeText={changeHandler}
                 clearButtonMode='always'
             />
-            <View style={styles.button}>
-                <TouchableOpacity
+            <View>
+                <TouchableOpacity 
                     onPress={() => submitHandler(text)}
                     style={styles.button}
+                    activeOpacity={true}
                 >
                     <Text style={styles.text}>ADD CONTENT</Text>
                 </TouchableOpacity>
@@ -30,7 +31,7 @@ export default function AddTodo({ submitHandler }) {
 
 const styles = StyleSheet.create({
     button: {
-        padding: 6,
+        padding: 12,
         backgroundColor: 'coral',
         borderRadius: 3,
     },
