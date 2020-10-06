@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, FlatList, Button, Alert } from 'react-native';
+import { StyleSheet, View, FlatList, Button, Alert, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import Header from './components/header'
 import TodoItem from './components/todoitem'
 import AddTodo from './components/addTodo'
@@ -53,29 +53,35 @@ export default function App() {
       });
     }
     else{
-      Alert.alert('OPPS!', 'Todos must be over 3 chars long', [
+      Alert.alert('OPPS!', 'Todos must be over 3 chars long.', [
         {text: 'Understood', onPress: () => console.log('alert closed')}
       ])
     }
   };
 
   return (
-    <View style={styles.container}>
-      <Header />
-        <View style={styles.content}>
-          <AddTodo submitHandler={submitHandler}/>
-          <View style={styles.list}>
-            <FlatList 
-              showsVerticalScrollIndicator={false}
-              data={todo}
-              renderItem={({item}) => (
-                <TodoItem item={item} pressHandler={pressHandler}/>
-              )}
-            />
+    <TouchableWithoutFeedback onPress={() => {
+      Keyboard.dismiss();
+      console.log('dismissed keyboard');
+    }}>
+      <View style={styles.container}>
+        <Header />
+          <View style={styles.content}>
+            <AddTodo submitHandler={submitHandler}/>
+            <View style={styles.list}>
+              <FlatList 
+                showsVerticalScrollIndicator={false}
+                data={todo}
+                renderItem={({item}) => (
+                  <TodoItem item={item} pressHandler={pressHandler}/>
+                )}
+              />
+            </View>
+            <Button title='INITIATE' onPress={initiate}/>
           </View>
-          <Button title='initiate' onPress={initiate}/>
-        </View>
-    </View>
+      </View>
+    </TouchableWithoutFeedback>
+
   );
 }
 
