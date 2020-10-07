@@ -23,6 +23,6 @@ const styles=StyleSheet.create({
       flexDirection: 'row'
   },
   itemText: {
-    marginLeft: 10,
+    marginHorizontal: 5,
   }
 })
