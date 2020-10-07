@@ -18,6 +18,7 @@ export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
   const [todo, setTodo] = useState([
+    {text: '한덕규규규규규규', key: '62'},
     {text: '노동법의 법원', key: '1'},
     {text: '노동법상 권리 · 의무의 주체', key: '2'},
     {text: '근로기준법상 근로자', key: '3'},
