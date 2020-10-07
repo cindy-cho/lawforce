@@ -1,11 +1,22 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard, TouchableOpacity, Text } from 'react-native';
+import * as Font from 'expo-font';
 import Header from './components/header'
 import TodoItem from './components/todoitem'
 import AddTodo from './components/addTodo'
+import { AppLoading } from 'expo';
 //import Sandbox from './components/sandbox'
 
+const getFonts = () => Font.loadAsync({
+  'gothic': require('./assets/fonts/NanumBarunGothic.ttf'),
+  'gothic-bold': require('./assets/fonts/NanumBarunGothicBold.ttf'),
+  'gothic-light': require('./assets/fonts/NanumBarunGothicLight.ttf'),
+  'gothic-ultralight': require('./assets/fonts/NanumBarunGothicUltraLight.ttf')
+});
+
 export default function App() {
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+
   const [todo, setTodo] = useState([
     {text: '노동법의 법원', key: '1'},
     {text: '노동법상 권리 · 의무의 주체', key: '2'},
@@ -60,36 +71,46 @@ export default function App() {
     }
   };
 
-  return (
-    //<Sandbox />
-    <TouchableWithoutFeedback onPress={() => {
-      Keyboard.dismiss();
-      console.log('dismissed keyboard');
-    }}>
-      <View style={styles.container}>
-        <Header />
-          <View style={styles.content}>
-            <AddTodo submitHandler={submitHandler}/>
-            <View style={styles.list}>
-              <FlatList 
-                showsVerticalScrollIndicator={false}
-                data={todo}
-                renderItem={({item}) => (
-                  <TodoItem item={item} pressHandler={pressHandler}/>
-                )}
-              />
+  if(fontsLoaded){
+    return (
+      //<Sandbox />
+      <TouchableWithoutFeedback onPress={() => {
+        Keyboard.dismiss();
+        console.log('dismissed keyboard');
+      }}>
+        <View style={styles.container}>
+          <Header />
+            <View style={styles.content}>
+              <AddTodo submitHandler={submitHandler}/>
+              <View style={styles.list}>
+                <FlatList 
+                  showsVerticalScrollIndicator={false}
+                  data={todo}
+                  renderItem={({item}) => (
+                    <TodoItem item={item} pressHandler={pressHandler}/>
+                  )}
+                />
+              </View>
+              <TouchableOpacity 
+                style={styles.button}
+                onPress={initiate}
+                activeOpacity={true}
+              >
+                <Text style={styles.text}>INITIATE</Text>
+              </TouchableOpacity>
             </View>
-            <TouchableOpacity 
-              style={styles.button}
-              onPress={initiate}
-              activeOpacity={true}
-            >
-              <Text style={styles.text}>INITIATE</Text>
-            </TouchableOpacity>
-          </View>
-      </View>
-    </TouchableWithoutFeedback>
-  );
+        </View>
+      </TouchableWithoutFeedback>
+    );
+  }
+  else{
+    return (
+      <AppLoading
+        startAsync={getFonts}
+        onFinish={() => setFontsLoaded(true)}
+      />
+    )
+  }
 }
 
 const styles = StyleSheet.create({
@@ -111,6 +132,7 @@ const styles = StyleSheet.create({
     borderRadius: 3,
   },
   text: {
+    fontFamily: 'gothic-bold',
     textAlign: 'center',
     fontWeight: 'bold',
     color: 'white',
