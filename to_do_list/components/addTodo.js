@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
         borderRadius: 3,
     },
     text: {
+        fontFamily: 'gothic-bold',
         textAlign: 'center',
         fontWeight: 'bold',
         color: 'white',

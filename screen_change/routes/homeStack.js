@@ -1,15 +1,23 @@
 import { createStackNavigator } from 'react-navigation-stack';
-//import { createAppContainer } from 'react-navigation';
+import { createAppContainer } from 'react-navigation';
 import Home from '../screens/home';
-import ReviewDetails from '../screens/reviewDetails';
+import A from '../screens/A';
+import B from '../screens/B';
+import C from '../screens/C';
 
 const screens = {
     Home: {
         screen: Home
     },
-    ReviewDetails: {
-        screen: ReviewDetails
-    }
+    A: {
+        screen: A
+    },
+    B: {
+        screen: B
+    },
+    C: {
+        screen: C
+    },
 }
 
 const HomeStack = createStackNavigator(screens);
