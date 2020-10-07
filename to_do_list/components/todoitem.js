@@ -23,6 +23,7 @@ const styles=StyleSheet.create({
       flexDirection: 'row'
   },
   itemText: {
-    marginHorizontal: 5,
+    fontFamily: 'gothic-bold',
+    marginHorizontal: 3,
   }
 })
