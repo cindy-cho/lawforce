@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, FlatList, Button, Alert, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { StyleSheet, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard, TouchableOpacity, Text } from 'react-native';
 import Header from './components/header'
 import TodoItem from './components/todoitem'
 import AddTodo from './components/addTodo'
+import Sandbox from './components/sandbox'
 
 export default function App() {
   const [todo, setTodo] = useState([
@@ -60,6 +61,7 @@ export default function App() {
   };
 
   return (
+    //<Sandbox />
     <TouchableWithoutFeedback onPress={() => {
       Keyboard.dismiss();
       console.log('dismissed keyboard');
@@ -77,11 +79,16 @@ export default function App() {
                 )}
               />
             </View>
-            <Button title='INITIATE' onPress={initiate}/>
+            <TouchableOpacity 
+              style={styles.button}
+              onPress={initiate}
+              activeOpacity={true}
+            >
+              <Text style={styles.text}>INITIATE</Text>
+            </TouchableOpacity>
           </View>
       </View>
     </TouchableWithoutFeedback>
-
   );
 }
 
@@ -92,9 +99,20 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: 40,
+    flex: 1,
   },
   list: {
-    marginTop: 20,
-    marginBottom: 240,
+    flex: 1,
+    marginVertical: 20,
+  },
+  button: {
+    padding: 12,
+    backgroundColor: 'coral',
+    borderRadius: 3,
+  },
+  text: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: 'white',
   },
 });
