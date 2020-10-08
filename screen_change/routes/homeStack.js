@@ -1,25 +1,36 @@
 import { createStackNavigator } from 'react-navigation-stack';
-import { createAppContainer } from 'react-navigation';
 import Home from '../screens/home';
-import A from '../screens/A';
-import B from '../screens/B';
-import C from '../screens/C';
+import MenuDetails from '../screens/menuDetails';
+import Header from '../shared/header'
+import React from 'react';
+import { createDrawerNavigator } from 'react-navigation-drawer';
+import { createAppContainer } from 'react-navigation';
 
 const screens = {
     Home: {
-        screen: Home
+        screen: Home,
+        navigationOptions: ({ navigation }) => {
+            return {
+                header: () => <Header navigation={navigation} title='Santa' />,
+            }
+        }
     },
-    A: {
-        screen: A
-    },
-    B: {
-        screen: B
-    },
-    C: {
-        screen: C
+    MenuDetails: {
+        screen: MenuDetails,
+        navigationOptions: ({ navigation }) => {
+            return {
+                header: () => <Header navigation={navigation} title='Santa' />,
+            }
+        }
     },
 }
 
-const HomeStack = createStackNavigator(screens);
+
+const HomeStack = createStackNavigator(screens, {
+    defaultNavigationOptions: {
+        headerTintColor: '#444',
+        headerStyle: { backgroundColor: '#eee', height: 60 },
+    }
+});
 
 export default createAppContainer(HomeStack);

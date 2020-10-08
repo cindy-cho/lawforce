@@ -3,13 +3,11 @@ import { StyleSheet } from 'react-native';
 export const globalStyles = StyleSheet.create({
     container:{
         flex: 1,
-        padding: 20,
     },
     titleText: {
         fontFamily: 'gothic-bold',
         fontSize: 18,
         color: '#333',
-        textAlign: 'center'
     },
     paragraph: {
         marginVertical: 8,
@@ -26,4 +24,32 @@ export const globalStyles = StyleSheet.create({
         color: 'white',
         textAlign: 'center',
     },
+    menuContainer:{
+        padding: 20
+    },
+    menuText: {
+        fontFamily: 'gothic-bold',
+        fontSize: 30
+    },
+    adContainer: {
+        backgroundColor: '#DF6881',
+        height: 50,
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingLeft: 30,
+    },
+    adText: {
+        fontFamily: 'gothic',
+        fontSize: 13,
+        color: 'white'
+    },
+    underscore: {
+        fontFamily: 'gothic',
+        fontSize: 13,
+        textDecorationLine: 'underline',
+        color: 'white'
+    },
+    icon: {
+        paddingLeft: 110
+    }
 });

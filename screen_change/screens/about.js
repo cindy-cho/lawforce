@@ -11,13 +11,7 @@ export default function B({ navigation }){
 
     return (
         <View style={globalStyles.container}>
-            <Text style={globalStyles.titleText}>BBBBB</Text>
-            <TouchableOpacity
-                style={globalStyles.button}
-                onPress={pressHandler}
-            >
-                <Text style={globalStyles.buttonText}>BACK TO HOME SCREEN</Text>
-            </TouchableOpacity>            
+            <Text style={globalStyles.titleText}>ABOUT SCREEN</Text>
         </View>
     )
 }
