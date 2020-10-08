@@ -4,8 +4,9 @@ import { globalStyles } from '../styles/global';
 
 export default function drawer1 ({ navigation }){
     return (
-        <View style={globalStyles.container}>
-            <Text style={globalStyles.titleText}>학습하기</Text>
+        <View style={globalStyles.drawerContainer}>
+            <Text style={globalStyles.drawerText}>학습하기</Text>
+            <Text style={globalStyles.drawerText}>OPENING SOON..</Text>
         </View>
     )
 }

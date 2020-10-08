@@ -10,7 +10,7 @@ export default function Home({ navigation }){
         ]);
     };
 
-     const [menu, setMenu] = useState([
+    const [menu, setMenu] = useState([
          {title: '오늘의 학습', body: '오늘은 무엇을 공부할까요 ?', key: '1'},
          {title: 'Part1', body: "What's Part 1 ?", key: '2'},
          {title: 'Part2', body: "What's Part 2 ?", key: '3'},
@@ -19,7 +19,7 @@ export default function Home({ navigation }){
          {title: 'Part5', body: "What's Part 5 ?", key: '6'},
          {title: 'Part6', body: "What's Part 6 ?", key: '7'},
          {title: 'Part7', body: "What's Part 7 ?", key: '8'},
-     ])
+    ]);
 
     return (
         <View style={globalStyles.container}>

@@ -51,5 +51,16 @@ export const globalStyles = StyleSheet.create({
     },
     icon: {
         paddingLeft: 110
+    },
+    drawerContainer: {
+            flex: 1,
+            backgroundColor: '#363636',
+            padding: 30
+    },
+    drawerText: {
+            paddingTop: 20,
+            fontFamily: 'gothic-bold',
+            fontSize: 20,
+            color: 'white'
     }
 });

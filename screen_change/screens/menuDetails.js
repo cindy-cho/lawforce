@@ -90,9 +90,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#363636',
         height: 290,
     },
-    name: {
-
-    },
     study: {
         borderRadius: 30,
         width: 130,

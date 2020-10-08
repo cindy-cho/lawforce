@@ -3,7 +3,6 @@ import Home from '../screens/home';
 import MenuDetails from '../screens/menuDetails';
 import Header from '../shared/header'
 import React from 'react';
-import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
 
 const screens = {
