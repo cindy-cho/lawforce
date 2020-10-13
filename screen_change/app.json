@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "to_do_list",
-    "slug": "to_do_list",
+    "name": "screen_change",
+    "slug": "screen_change",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

@@ -18,7 +18,6 @@ export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
   const [todo, setTodo] = useState([
-    {text: '한덕규규규규규규', key: '62'},
     {text: '노동법의 법원', key: '1'},
     {text: '노동법상 권리 · 의무의 주체', key: '2'},
     {text: '근로기준법상 근로자', key: '3'},
@@ -30,7 +29,7 @@ export default function App() {
     {text: '단시간근로자에 대한 보호', key: '53'},
     {text: '근로3권', key: '58'},
     {text: '단결권 (단결강제 · 소극적 단결권)', key: '59'},
-    {text: '오우예', key: '60'},
+    {text: '노동조합의 설립 요건', key: '60'}
   ]);
 
   const initiate = () => {
