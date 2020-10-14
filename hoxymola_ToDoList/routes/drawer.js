@@ -1,15 +1,15 @@
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
 import HomeStack from './homeStack';
-import drawer1 from '../screens/drawer1';
-import drawer2 from '../screens/drawer2';
-import drawer3 from '../screens/drawer3';
-import drawer4 from '../screens/drawer4';
-import drawer5 from '../screens/drawer5';
-import drawer6 from '../screens/drawer6';
-import drawer7 from '../screens/drawer7';
-import drawer8 from '../screens/drawer8';
-import drawer9 from '../screens/drawer9';
+import drawer1 from '../drawers/drawer1';
+import drawer2 from '../drawers/drawer2';
+import drawer3 from '../drawers/drawer3';
+import drawer4 from '../drawers/drawer4';
+import drawer5 from '../drawers/drawer5';
+import drawer6 from '../drawers/drawer6';
+import drawer7 from '../drawers/drawer7';
+import drawer8 from '../drawers/drawer8';
+import drawer9 from '../drawers/drawer9';
 
 const RootDrawerNavigator = createDrawerNavigator({
     Home: {

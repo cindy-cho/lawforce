@@ -53,14 +53,21 @@ export const globalStyles = StyleSheet.create({
         paddingLeft: 110
     },
     drawerContainer: {
-            flex: 1,
-            backgroundColor: '#363636',
-            padding: 30
+        flex: 1,
+        backgroundColor: '#363636',
+        padding: 30
     },
     drawerText: {
-            paddingTop: 20,
-            fontFamily: 'gothic-bold',
-            fontSize: 20,
-            color: 'white'
+        paddingTop: 20,
+        fontFamily: 'gothic-bold',
+        fontSize: 20,
+        color: 'white'
+    },
+    input: {
+        borderWidth: 1,
+        borderColor: '#ddd',
+        padding: 10,
+        fontSize: 18,
+        borderRadius: 6,
     }
 });
