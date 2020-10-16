@@ -110,6 +110,55 @@ export default function Home({ navigation }){
                         </View>
                         <Text style={styles.preText2}>오차범위 ±20점</Text>
                     </Card>
+                    <Card>
+                        <View style={{flexDirection: 'row'}}>
+                            <View style={{alignItems: 'center', paddingHorizontal: 3}}>
+                                <View style={{borderRightColor: 'gray', borderRightWidth: 2, height: 40, marginTop: 25}}></View>
+                                <View style={{borderRightColor: 'white', borderRightWidth: 2, height: 3}}></View>
+                                <Text style={{marginTop: 10, color: 'gray', fontSize: 13}}>P1</Text>
+                            </View>
+                            <View style={{alignItems: 'center', paddingHorizontal: 3}}>
+                                <View style={{borderRightColor: 'gray', borderRightWidth: 2, height: 40, marginTop: 25}}></View>
+                                <View style={{borderRightColor: 'white', borderRightWidth: 2, height: 3}}></View>
+                                <Text style={{marginTop: 10, color: 'gray', fontSize: 13}}>P2</Text>
+                            </View>
+                            <View style={{alignItems: 'center', paddingHorizontal: 3}}>
+                                <View style={{borderRightColor: 'gray', borderRightWidth: 2, height: 40, marginTop: 25}}></View>
+                                <View style={{borderRightColor: 'white', borderRightWidth: 2, height: 3}}></View>
+                                <Text style={{marginTop: 10, color: 'gray', fontSize: 13}}>P3</Text>
+                            </View>
+                            <View style={{alignItems: 'center', paddingHorizontal: 3}}>
+                                <View style={{borderRightColor: 'gray', borderRightWidth: 2, height: 40, marginTop: 25}}></View>
+                                <View style={{borderRightColor: 'white', borderRightWidth: 2, height: 3}}></View>
+                                <Text style={{marginTop: 10, color: 'gray', fontSize: 13}}>P4</Text>
+                            </View>
+                            <View style={{alignItems: 'center', paddingHorizontal: 3}}>
+                                <View style={{borderRightColor: 'gray', borderRightWidth: 2, height: 40, marginTop: 25}}></View>
+                                <View style={{borderRightColor: 'white', borderRightWidth: 2, height: 3}}></View>
+                                <Text style={{marginTop: 10, color: 'gray', fontSize: 13}}>P5</Text>
+                            </View>
+                            <View style={{alignItems: 'center', paddingHorizontal: 3}}>
+                                <View style={{borderRightColor: 'gray', borderRightWidth: 2, height: 40, marginTop: 25}}></View>
+                                <View style={{borderRightColor: 'white', borderRightWidth: 2, height: 3}}></View>
+                                <Text style={{marginTop: 10, color: 'gray', fontSize: 13}}>P6</Text>
+                            </View>
+                            <View style={{alignItems: 'center', paddingHorizontal: 3}}>
+                                <View style={{borderRightColor: 'gray', borderRightWidth: 2, height: 40, marginTop: 25}}></View>
+                                <View style={{borderRightColor: 'white', borderRightWidth: 2, height: 3}}></View>
+                                <Text style={{marginTop: 10, color: 'gray', fontSize: 13}}>P7</Text>
+                            </View>
+                        </View>
+                        <View style={{flexDirection: 'row', marginTop: 16}}>
+                            <View style={{flexDirection: 'row', marginRight: 15}}>
+                                <Text style={{color: 'white', fontSize: 11}}>현재등급</Text>
+                                <View style={{borderTopColor: 'white', borderTopWidth: 2, width: 12, alignSelf: 'center', marginLeft: 10}}></View>
+                            </View>
+                            <View style={{flexDirection: 'row', marginLeft: 15}}>
+                                <Text style={{color: '#C54D4E', fontSize: 11}}>목표등급</Text>
+                                <View style={{borderTopColor: '#C54D4E', borderTopWidth: 2, width: 12, alignSelf: 'center', marginLeft: 10}}></View>
+                            </View>
+                        </View> 
+                    </Card>
                     <Card>  
                     <View style={styles.preContainer1}>
                             <View style={styles.preContainer2}>

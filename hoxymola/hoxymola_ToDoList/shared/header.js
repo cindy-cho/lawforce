@@ -37,7 +37,10 @@ export default function Header({ navigation, title }) {
             </View>
             <View style={styles.bottom}>
                 <View style={styles.menuContainer}>
-                    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+                    <ScrollView 
+                        horizontal={true}
+                        showsHorizontalScrollIndicator={false}
+                    >
                         <TouchableOpacity
                             onPress={() => navigation.navigate('Home')}
                             style={styles.menu}
