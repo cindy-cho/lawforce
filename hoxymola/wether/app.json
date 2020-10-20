@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "wether",
+    "name": "Wether",
     "slug": "wether",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -17,10 +17,16 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.hoxymolacompany.weather",
+      "buildNumber": "1.0.0"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "android": {
+      "package": "com.hoxymolacompany.weather",
+      "versionCode": 1
     }
   }
 }
