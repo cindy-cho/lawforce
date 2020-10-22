@@ -1,11 +1,7 @@
-import React from 'react';
-import { View } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator} from 'react-navigation-stack';
 import QuizIndex from './screens/QuizIndex';
 import Quiz from './screens/Quiz';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 
 const MainStack = createStackNavigator({
   QuizIndex: {
@@ -19,17 +15,10 @@ const MainStack = createStackNavigator({
     navigationOptions: ({ navigation }) => ({
       headerTitle: navigation.getParam('title'),
       headerTintColor: 'white',
-      headerStyle: { backgroundColor: '#242424' },
-      headerTitleStyle: { left: 10, fontSize: 20, paddingBottom: 10 },
-      headerStatusBarHeight: 35,
-      headerTitleAlign: 'left',
-      headerLeft: () => false,
-      headerRight: () => (
-        <TouchableOpacity activeOpacity={1} onPress={() => { navigation.goBack() }}>
-            <MaterialCommunityIcons name='close' size={25} style={{color: 'white'}}/>
-        </TouchableOpacity>
-      ),
-      headerRightContainerStyle: {right: 30, paddingBottom: 10}
+      headerStyle: { 
+        backgroundColor: navigation.getParam('color'),
+        borderBottomColor: navigation.getParam('color')
+      }
     })
   }
 });
