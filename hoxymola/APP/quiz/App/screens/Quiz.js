@@ -5,6 +5,9 @@ import { Alert } from '../components/Alert';
 
 class Quiz extends React.Component {
   state = {
+    timer: null,
+    sec: 0,
+    min: 0,
     questionCount: 1,
     correctCount: 0,
     totalCount: this.props.navigation.getParam('questions', []).length,
@@ -12,6 +15,24 @@ class Quiz extends React.Component {
     answered: false,
     answerCorrect: false
   };
+
+  componentDidMount() {
+    let timer = setInterval(this.tick, 1000);
+    this.setState({timer});
+  }
+  
+  tick = () => {
+    if (this.state.sec == 59) {
+      this.setState({
+        sec: 0,
+        min: this.state.min + 1
+      });
+    } else {
+      this.setState({
+        sec: this.state.sec + 1
+      });
+    }
+  }
 
   answer = correct => {
     this.setState(
@@ -53,6 +74,7 @@ class Quiz extends React.Component {
   render() {
     const questions = this.props.navigation.getParam('questions', []);
     const question = questions[this.state.activeQuestionIndex];
+    const pad = (n) => n < 10 ? '0' + n : n;
 
     return(
       <View style={styles.container}>
@@ -63,7 +85,7 @@ class Quiz extends React.Component {
             <View style={styles.HLine}></View>
 
             <View style={styles.Qbox}>
-              <Text style={styles.Q}>Q{`${this.state.questionCount}`}</Text>
+              <Text style={styles.Q}>Q{`${this.state.activeQuestionIndex + 1}`}</Text>
             </View>
             <ButtonContainer>
               {question.answers.map(answer => (
@@ -78,7 +100,7 @@ class Quiz extends React.Component {
           </View>
           <View style={[styles.HLine, {position:'absolute', bottom: 50}]}></View>
           <View style={styles.btm}>
-            <Text style={styles.time}>02:40</Text>
+            <Text style={[styles.time, {letterSpacing: 1}]}>{pad(`${this.state.min}`)}:{pad(`${this.state.sec}`)}</Text>
             <Text style={styles.next}>채점하기</Text>
           </View>
         </SafeAreaView>
