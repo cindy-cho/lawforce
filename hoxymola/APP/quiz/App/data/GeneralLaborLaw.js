@@ -1,47 +1,56 @@
 const questions = [
   {
-    question: "The department scored well on most of the evaluation's categories, but there is still room for ---------.",
+    question: 'The excavation crew _________ the dusty remains of and ancient species of dinosaur in northern Iran last month.',
     answers: [
-      { id: '1', text: 'compromise'},
-      { id: '2', text: 'improvement', correct: true},
-      { id: '3', text: 'optimism'},
-      { id: '4', text: 'maneuver'},
+      {index: 'A', id: '1', text: 'to examine'},
+      {index: 'B', id: '2', text: 'are examining'},
+      {index: 'C', id: '3', text: 'examined', correct: true},
+      {index: 'D', id: '4', text: 'examination'},
     ]
   },
   {
-    question: 'The purpose of the building tour on orientation day is to help new employees become --------- with the various departments.',
+    question: "The department scored well on most of the evaluation's categories, but there is still room for _________.",
     answers: [
-      { id: '1', text: 'customary'},
-      { id: '2', text: 'involved'},
-      { id: '3', text: 'acquainted', correct: true},
-      { id: '4', text: 'compliant'},
+      {index: 'A', id: '1', text: 'compromise'},
+      {index: 'B', id: '2', text: 'improvement', correct: true},
+      {index: 'C', id: '3', text: 'optimism'},
+      {index: 'D', id: '4', text: 'maneuver'},
     ]
   },
   {
-    question: 'The --------- of the trees blocking the pavement should be executed as soon as possible.',
+    question: 'The purpose of the building tour on orientation day is to help new employees become _________ with the various departments.',
     answers: [
-      { id: '1', text: 'removed'},
-      { id: '2', text: 'removing'},
-      { id: '3', text: 'removal', correct: true},
-      { id: '4', text: 'removes'},
+      {index: 'A', id: '1', text: 'customary'},
+      {index: 'B', id: '2', text: 'involved'},
+      {index: 'C', id: '3', text: 'acquainted', correct: true},
+      {index: 'D', id: '4', text: 'compliant'},
     ]
   },
   {
-    question: 'Redwaste Inc. was fined five million dollars for allowing --------- to flow into nearby streams.',
+    question: 'The _________ of the trees blocking the pavement should be executed as soon as possible.',
     answers: [
-      { id: '1', text: 'profits'},
-      { id: '2', text: 'devices'},
-      { id: '3', text: 'pollutants', correct: true},
-      { id: '4', text: 'concepts'},
+      {index: 'A', id: '1', text: 'removed'},
+      {index: 'B', id: '2', text: 'removing'},
+      {index: 'C', id: '3', text: 'removal', correct: true},
+      {index: 'D', id: '4', text: 'removes'},
     ]
   },
   {
-    question: 'Crimson Soft claims its accounting application is compatible with major computer operating systems, but comments from clients suggest ---------.',
+    question: 'Redwaste Inc. was fined five million dollars for allowing _________ to flow into nearby streams.',
     answers: [
-      { id: '1', text: 'otherwise', correct: true},
-      { id: '2', text: 'in contrast'},
-      { id: '3', text: 'on the contrary'},
-      { id: '4', text: 'instead'},
+      {index: 'A', id: '1', text: 'profits'},
+      {index: 'B', id: '2', text: 'devices'},
+      {index: 'C', id: '3', text: 'pollutants', correct: true},
+      {index: 'D', id: '4', text: 'concepts'},
+    ]
+  },
+  {
+    question: 'Crimson Soft claims its accounting application is compatible with major computer operating systems, but comments from clients suggest _________.',
+    answers: [
+      {index: 'A', id: '1', text: 'otherwise', correct: true},
+      {index: 'B', id: '2', text: 'in contrast'},
+      {index: 'C', id: '3', text: 'on the contrary'},
+      {index: 'D', id: '4', text: 'instead'},
     ]
   },
 ];

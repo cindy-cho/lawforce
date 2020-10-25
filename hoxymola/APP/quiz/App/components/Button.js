@@ -1,9 +1,14 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
 
-export const Button = ({ text, onPress = () => {} }) => (
+export const Button = ({ index, text, onPress = () => {} }) => (
   <TouchableOpacity onPress={onPress} style={styles.button}>
+    <View style={styles.idxBox}>
+      <Text style={styles.idx}>{index}</Text>
+    </View>
     <Text style={styles.text}>{text}</Text>
+    <MaterialIcons name="cancel" size={17} color="#D2D2D2" style={{position: 'absolute', right: -5}} />
   </TouchableOpacity>
 );
 
@@ -13,23 +18,28 @@ export const ButtonContainer = ({ children }) => (
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
-    borderRadius: 10,
-    paddingVertical: 15,
+    flexDirection: 'row',
+    marginTop: 20,
     alignItems: 'center',
-    justifyContent: 'center',
-    width: '46%',
-    marginTop: 20
+    paddingVertical: 4
   },
   text: {
-    color: 'white',
-    fontSize: 20,
-    textAlign: 'center'
+    fontSize: 14,
   },
   ButtonContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    marginTop: 20,
-    justifyContent: 'space-between'
+    marginVertical: 12,
+  },
+  idxBox: {
+    backgroundColor: 'black',
+    width: 40,
+    height: 40,
+    borderRadius: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 15
+  },
+  idx: {
+    color: 'white',
+    fontSize: 15
   }
 })
