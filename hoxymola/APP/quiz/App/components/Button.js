@@ -7,6 +7,7 @@ export const Button = ({ index, text, onPress = () => {} }) => {
   const [icon, setIcon] = useState('close-circle');
   const [idxBox, setIdxBox] = useState([styles.idxBox]);
   const [text2, setText2] = useState([styles.text]);
+  const [sel, setSel] = useState(5);
 
   const triger = () => {
     if (flag) {
@@ -14,8 +15,6 @@ export const Button = ({ index, text, onPress = () => {} }) => {
       setIcon('close-circle');
       setIdxBox(styles.idxBox);
       setText2(styles.text);
-      
-
     } else {
       setFlag(true);
       setIcon('restore');
@@ -24,8 +23,11 @@ export const Button = ({ index, text, onPress = () => {} }) => {
     }
   }
 
+  const onSelect = () => {
+  }
+
   return(
-    <TouchableOpacity onPress={onPress} style={styles.button}>
+    <TouchableOpacity onPress={onSelect} style={styles.button}>
       <View style={idxBox}>
         <Text style={styles.idx}>{index}</Text>
       </View>
