@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "todolist_FB",
+    "name": "TO DO",
     "slug": "todolist_FB",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -17,13 +17,17 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.hoxymola.todo",
+      "buildNumber": "1.0.0"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.hoxymola.todo",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"
