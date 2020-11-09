@@ -58,7 +58,8 @@ export default function App() {
               <TabBar 
                 underlineColor='white' 
                 tabBarTextStyle={{paddingBottom: 11, fontSize: 15}}
-                tabBarStyle={{marginTop: 0, marginBottom: -1}}
+                tabBarStyle={{marginBottom: -1}}
+                tabBarTextStyle={{fontSize: 15, paddingTop: 10, paddingBottom: 10}}
                 tabMargin={18}
                 underlineHeight={3}
                 tabBadgeColor='red'
@@ -95,6 +96,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#242424',
+    marginBottom: -15
   },
   headerText: {
     fontFamily: 'gothic-light',
