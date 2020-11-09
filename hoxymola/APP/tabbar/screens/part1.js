@@ -15,7 +15,8 @@ export default function Part1({ label }) {
         <TouchableOpacity
           onPress={payAlert}
           style={styles.adContainer}
-          activeOpacity={1}
+          activeOpacity={0.8}
+          
         >
           <Text style={styles.adText}>{label} 학습을 하고 싶다면? </Text>
           <Text style={styles.underscore}>구매하기</Text>

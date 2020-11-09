@@ -65,13 +65,13 @@ export default function App() {
               />}
           >
             <Home tabLabel={{label: "  오늘의 학습  "}} label="오늘의 학습"/>
-            <Part1 tabLabel={{label: "  🛑 Part1  "}} label="Part1"/>
-            <Part1 tabLabel={{label: "  Part2  "}} label="Part2"/>
-            <Part1 tabLabel={{label: "  🛑 Part3  "}} label="Part3"/>
-            <Part1 tabLabel={{label: "  🛑 Part4  "}} label="Part4"/>
-            <Part1 tabLabel={{label: "  Part5  "}} label="Part5"/>
-            <Part1 tabLabel={{label: "  🛑 Part6  "}} label="Part6"/>
-            <Part1 tabLabel={{label: "  🛑 Part7  "}} label="Part7"/>
+            <Part1 tabLabel={{label: " 🔒 Part1  "}} label="Part1"/>
+            <Part1 tabLabel={{label: " 🔒Part2  "}} label="Part2"/>
+            <Part1 tabLabel={{label: " 🔒 Part3  "}} label="Part3"/>
+            <Part1 tabLabel={{label: " 🔒 Part4  "}} label="Part4"/>
+            <Part1 tabLabel={{label: " 🔒 Part5  "}} label="Part5"/>
+            <Part1 tabLabel={{label: " 🔒 Part6  "}} label="Part6"/>
+            <Part1 tabLabel={{label: " 🔒 Part7  "}} label="Part7"/>
           </ScrollableTabView>
         </View>
       </View>
