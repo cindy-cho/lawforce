@@ -30,6 +30,12 @@ const Page = ({label}) => (
     </View>
 );
 
+const part1 = 
+<View style={{flexDirection: 'row', alignItems: 'center'}}>
+  <MaterialCommunityIcons name='lock' size={15} style={{color: '#7B7B7B'}}/>
+  <Text style={{fontSize: 15, color: '#7B7B7B', fontWeight: '600'}}> Part1</Text>
+</View>
+
 const payAlert = () => {
   Alert.alert('PREMIUM UPGRADE', '596402-01-383562 국민 조재국', [
       {text: '송금하기'}
@@ -38,6 +44,7 @@ const payAlert = () => {
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
+  const locked = <MaterialCommunityIcons name='lock' size={15} color='#7B7B7B'/>;
 
   if (fontsLoaded) {
     return (
@@ -66,13 +73,11 @@ export default function App() {
               />}
           >
             <Home tabLabel={{label: "  오늘의 학습  "}} label="오늘의 학습"/>
-            <Part1 tabLabel={{label: "  🛑 Part1  "}} label="Part1"/>
+            <Part1 tabLabel={{label: "  Part1  "}} label="Part1"/>
             <Part1 tabLabel={{label: "  Part2  "}} label="Part2"/>
-            <Part1 tabLabel={{label: "  🛑 Part3  "}} label="Part3"/>
-            <Part1 tabLabel={{label: "  🛑 Part4  "}} label="Part4"/>
+            <Part1 tabLabel={{label: "  Part3  "}} label="Part3"/>
+            <Part1 tabLabel={{label: "  Part4  "}} label="Part4"/>
             <Part1 tabLabel={{label: "  Part5  "}} label="Part5"/>
-            <Part1 tabLabel={{label: "  🛑 Part6  "}} label="Part6"/>
-            <Part1 tabLabel={{label: "  🛑 Part7  "}} label="Part7"/>
           </ScrollableTabView>
         </View>
       </View>

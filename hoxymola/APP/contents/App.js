@@ -152,7 +152,7 @@ export default function App() {
                   <Text style={styles.bodyText}>[CHAP 58] 근로3권</Text>
                   <Text style={styles.bodyText}>[CHAP 59] 단결권(단결강제·소극적 단결권)</Text>
                   <Text style={styles.bodyText}>[CHAP 60] 노동조합의 설립요건</Text>
-                  <Text style={styles.bodyText}>[CHAP 61] "노조법 제2조 제4호 라목"에 대한 논의</Text>
+                  <Text style={styles.bodyText}>[CHAP 61] 노조법 제2조 제4호 라목"에 대한 논의</Text>
                   <Text style={styles.bodyText}>[CHAP 62] 법외조합(근로자단체)의 법적 지위</Text>
                   <Text style={styles.bodyText}>[CHAP 63] 노동조합의 민주적·자주적 운영</Text>
                   <Text style={styles.bodyText}>[CHAP 64] 노동조합 기관</Text>
