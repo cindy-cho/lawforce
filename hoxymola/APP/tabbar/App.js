@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, Alert } from 'react-native';
+import { Text, View, Alert } from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import TabBar from "react-native-underline-tabbar";
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
@@ -7,6 +7,8 @@ import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 import Home from './screens/todayStudy';
 import Part1 from './screens/part1';
+import Global from './shared/Global';
+import { StatusBar } from 'expo-status-bar';
 
 const getFonts = () => Font.loadAsync({
   'gothic': require('./assets/fonts/NanumBarunGothic.ttf'),
@@ -14,27 +16,6 @@ const getFonts = () => Font.loadAsync({
   'gothic-light': require('./assets/fonts/NanumBarunGothicLight.ttf'),
   'gothic-ultralight': require('./assets/fonts/NanumBarunGothicUltraLight.ttf'),
 });
-
-const Page = ({label}) => (
-    <View style={styles.container}>
-      <Text style={styles.welcome}>
-        {label}
-      </Text>
-      <Text style={styles.instructions}>
-        To get started, edit index.ios.js
-      </Text>
-      <Text style={styles.instructions}>
-        Press Cmd+R to reload,{'\n'}
-        Cmd+D or shake for dev menu
-      </Text>
-    </View>
-);
-
-const part1 = 
-<View style={{flexDirection: 'row', alignItems: 'center'}}>
-  <MaterialCommunityIcons name='lock' size={15} style={{color: '#7B7B7B'}}/>
-  <Text style={{fontSize: 15, color: '#7B7B7B', fontWeight: '600'}}> Part1</Text>
-</View>
 
 const payAlert = () => {
   Alert.alert('PREMIUM UPGRADE', '596402-01-383562 국민 조재국', [
@@ -44,19 +25,18 @@ const payAlert = () => {
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
-  const locked = <MaterialCommunityIcons name='lock' size={15} color='#7B7B7B'/>;
 
   if (fontsLoaded) {
     return (
-      <View style={{flex: 1}}>
-        <View style={styles.header}>
-          <MaterialCommunityIcons name='menu' size={23} style={styles.leftIcon} />
+      <View style={Global.container}>
+        <View style={Global.header}>
+          <MaterialCommunityIcons name='menu' size={23} style={Global.icon} />
           <View>
-              <Text style={styles.headerText}>Santa</Text>
+              <Text style={[Global.text, {fontSize: 25}]}>노동법</Text>
           </View>
-          <MaterialCommunityIcons name='cash-usd' size={28} onPress={payAlert} style={styles.rightIcon} />
+          <MaterialCommunityIcons name='cash-usd' size={28} onPress={payAlert} style={Global.icon} />
         </View>
-        <View style={{flex: 1}}>
+        <View style={[Global.container, {marginTop: -15}]}>
           <ScrollableTabView
             tabBarActiveTextColor='white'
             tabBarInactiveTextColor='#7B7B7B'
@@ -64,22 +44,21 @@ export default function App() {
             renderTabBar={() => 
               <TabBar 
                 underlineColor='white' 
-                tabBarTextStyle={{paddingBottom: 11, fontSize: 15}}
-                tabBarStyle={{marginBottom: -1}}
-                tabBarTextStyle={{fontSize: 15, paddingTop: 10, paddingBottom: 10}}
+                tabBarStyle={{marginBottom: -2}}
+                tabBarTextStyle={{fontFamily: 'gothic-bold', fontSize: 15, paddingTop: 10, paddingBottom: 10}}
                 tabMargin={18}
                 underlineHeight={3}
                 tabBadgeColor='red'
               />}
           >
-            <Home tabLabel={{label: "  오늘의 학습  "}} label="오늘의 학습"/>
-            <Part1 tabLabel={{label: "  Part1  "}} label="Part1"/>
-            <Part1 tabLabel={{label: "  Part2  "}} label="Part2"/>
-            <Part1 tabLabel={{label: "  Part3  "}} label="Part3"/>
-            <Part1 tabLabel={{label: "  Part4  "}} label="Part4"/>
-            <Part1 tabLabel={{label: "  Part5  "}} label="Part5"/>
+            <Home tabLabel={{label: "  HOME  "}} label="오늘의 학습"/>
+            <Part1 tabLabel={{label: "  제1편  "}} label="노동법총론"/>
+            <Part1 tabLabel={{label: "  제2편  "}} label="개별적 근로관계법"/>
+            <Part1 tabLabel={{label: "  제3편  "}} label="비정규 근로자에 관한 특별법"/>
+            <Part1 tabLabel={{label: "  제4편  "}} label="집단적 노사관계법"/>
           </ScrollableTabView>
         </View>
+        <StatusBar style={'light'}/>
       </View>
     );
   } else {
@@ -91,34 +70,3 @@ export default function App() {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  header: {
-    paddingTop: 20,
-    width: '100%',
-    height: 70,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#242424',
-    marginBottom: -15
-  },
-  headerText: {
-    fontFamily: 'gothic-light',
-    fontSize: 25,
-    color: 'white',
-    letterSpacing: 1,
-  },
-  leftIcon: {
-    paddingTop: 20,
-    position: 'absolute',
-    left: 16,
-    color: 'white',
-  },
-  rightIcon: {
-    paddingTop: 20,
-    position: 'absolute',
-    right: 16,
-    color: 'white',
-  },
-})
