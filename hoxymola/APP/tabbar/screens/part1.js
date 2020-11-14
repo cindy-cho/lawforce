@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ImageBackground, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, ImageBackground, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import Global from '../shared/Global';
 

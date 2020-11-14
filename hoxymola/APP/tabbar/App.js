@@ -36,7 +36,7 @@ export default function App() {
           </View>
           <MaterialCommunityIcons name='cash-usd' size={28} onPress={payAlert} style={Global.icon} />
         </SafeAreaView>
-        <View style={[Global.container, {marginTop: -15}]}>
+        <SafeAreaView style={[Global.container, {marginTop: -15}]}>
           <ScrollableTabView
             tabBarActiveTextColor='white'
             tabBarInactiveTextColor='#7B7B7B'
@@ -57,7 +57,7 @@ export default function App() {
             <Part1 tabLabel={{label: "  제3편  "}} label="비정규 근로자에 관한 특별법"/>
             <Part1 tabLabel={{label: "  제4편  "}} label="집단적 노사관계법"/>
           </ScrollableTabView>
-        </View>
+        </SafeAreaView>
         <StatusBar style={'light'}/>
       </View>
     );
