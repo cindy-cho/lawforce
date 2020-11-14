@@ -58,7 +58,7 @@ export default function HomeScreen() {
         </View>
       </Modal>
 
-      <View style={[Global.container]}>
+      <SafeAreaView style={[Global.container]}>
         <View style={{paddingBottom: 10}}>
         <ScrollView 
           horizontal 
@@ -183,7 +183,7 @@ export default function HomeScreen() {
         >
           <Text style={{color: '#D7595A', marginTop: 48}}>터치 가능한 텍스트 {'>'}</Text>
         </TouchableOpacity>
-      </View>
+      </SafeAreaView>
       <SafeAreaView>
           <MaterialCommunityIcons
             name='star-face'
