@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, Alert } from 'react-native';
+import { Text, View, Alert, SafeAreaView } from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import TabBar from "react-native-underline-tabbar";
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
@@ -28,14 +28,14 @@ export default function App() {
 
   if (fontsLoaded) {
     return (
-      <View style={Global.container}>
-        <View style={Global.header}>
+      <View style={[Global.container]}>
+        <SafeAreaView style={Global.header}>
           <MaterialCommunityIcons name='menu' size={23} style={Global.icon} />
           <View>
               <Text style={[Global.text, {fontSize: 25}]}>노동법</Text>
           </View>
           <MaterialCommunityIcons name='cash-usd' size={28} onPress={payAlert} style={Global.icon} />
-        </View>
+        </SafeAreaView>
         <View style={[Global.container, {marginTop: -15}]}>
           <ScrollableTabView
             tabBarActiveTextColor='white'

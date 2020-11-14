@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Modal, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, Modal, TouchableOpacity, Alert, SafeAreaView } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import Card from '../shared/card';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -183,14 +183,16 @@ export default function HomeScreen() {
         >
           <Text style={{color: '#D7595A', marginTop: 48}}>터치 가능한 텍스트 {'>'}</Text>
         </TouchableOpacity>
-        <MaterialCommunityIcons
-          name='star-face'
-          color='white'
-          size={35}
-          style={Global.modalToggle}
-          onPress={() => setModalOpen(true)}
-        />
       </View>
+      <SafeAreaView>
+          <MaterialCommunityIcons
+            name='star-face'
+            color='white'
+            size={35}
+            style={Global.modalToggle}
+            onPress={() => setModalOpen(true)}
+          />
+      </SafeAreaView>
   </View>
   );
 }

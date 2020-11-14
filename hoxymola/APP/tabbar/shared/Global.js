@@ -14,7 +14,6 @@ export default StyleSheet.create({
         justifyContent: 'space-between',
         backgroundColor: '#242424',
         paddingTop: 20,
-        paddingHorizontal: 16
     },
     text: {
         fontFamily: 'gothic-bold',
@@ -22,7 +21,8 @@ export default StyleSheet.create({
         fontSize: 15
     },
     icon: {
-        color: 'white'
+        color: 'white',
+        padding: 16
     },
     adContainer: {
         backgroundColor: '#DF6881',
