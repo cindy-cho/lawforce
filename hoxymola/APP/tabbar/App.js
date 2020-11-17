@@ -7,6 +7,11 @@ import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 import Home from './screens/todayStudy';
 import Part1 from './screens/part1';
+import Part2 from './screens/part2';
+import Part3 from './screens/part3';
+import Part4 from './screens/part4';
+import Quiz from './screens/quiz';
+
 import Global from './shared/Global';
 import { StatusBar } from 'expo-status-bar';
 
@@ -53,9 +58,10 @@ export default function App() {
           >
             <Home tabLabel={{label: "  HOME  "}} label="오늘의 학습"/>
             <Part1 tabLabel={{label: "  제1편  "}} label="노동법총론"/>
-            <Part1 tabLabel={{label: "  제2편  "}} label="개별적 근로관계법"/>
-            <Part1 tabLabel={{label: "  제3편  "}} label="비정규 근로자에 관한 특별법"/>
-            <Part1 tabLabel={{label: "  제4편  "}} label="집단적 노사관계법"/>
+            <Part2 tabLabel={{label: "  제2편  "}} label="개별적 근로관계법"/>
+            <Part3 tabLabel={{label: "  제3편  "}} label="비정규 근로자에 관한 특별법"/>
+            <Part4 tabLabel={{label: "  제4편  "}} label="집단적 노사관계법"/>
+            <Quiz tabLabel={{label: "  진단평가  "}} label="진단평가"/>
           </ScrollableTabView>
         </SafeAreaView>
         <StatusBar style={'light'}/>

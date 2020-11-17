@@ -9,7 +9,7 @@ const payAlert = () => {
   ]);
 };
 
-export default function Part1({ label }) {
+export default function Part3({ label }) {
   return (
     <View style={[Global.container, {backgroundColor: '#2E2E2E'}]}>
       <View>
@@ -26,7 +26,7 @@ export default function Part1({ label }) {
         {/* 빼버려도 상관 없음 */}
       </View>
       
-      { <View style={styles.contents}>
+      {/* <View style={styles.contents}>
         <ImageBackground source={require('../assets/waveBackground.png')} style={styles.image}>
           <View style={styles.up}>
             <View style={styles.name}>
@@ -50,11 +50,92 @@ export default function Part1({ label }) {
             </View>
           </View>
         </ImageBackground>
-      </View> }
+      </View> */}
     </View>
   );
 }
 
 
 //위에 주석된 부분 사용하지 않을거면 이부분 싹다 지워도 상관없음
- 
+// const styles = StyleSheet.create({
+//   Container: {
+//     flex: 1
+//   },
+//   adContainer: {
+//     backgroundColor: '#DF6881',
+//     height: 50,
+//     flexDirection: 'row',
+//     alignItems: 'center',
+//     paddingLeft: 30,
+//   },
+//   adText: {
+//     fontFamily: 'gothic',
+//     fontSize: 13,
+//     color: 'white'
+//   },
+//   underscore: {
+//     fontFamily: 'gothic',
+//     fontSize: 13,
+//     textDecorationLine: 'underline',
+//     color: 'white'
+//   },
+//   icon: {
+//     paddingLeft: 110
+//   },
+//   menuContainer: {
+//     backgroundColor: '#242424',
+//     height: 40,
+//     padding: 10,
+//     alignItems: 'center',
+//   },
+//   menuText:{
+//     color: 'white',
+//     fontFamily: 'gothic-bold',
+//     paddingTop: 5
+//   },
+//   up: {
+//     paddingTop: 40,
+//     flexDirection: 'row',
+//     paddingBottom: 40,
+//     paddingHorizontal: 25,
+//     justifyContent: 'space-between'
+//   },
+//   down: {
+//     paddingTop: 10,
+//     paddingHorizontal: 25,
+//   },
+//   text: {
+//     textTransform: 'uppercase',
+//     fontFamily: 'gothic-bold',
+//     fontSize: 25,
+//     color: 'white',
+//     padding: 5
+//   },
+//   contents: {
+//     //paddingTop: 40,
+//     backgroundColor: '#242424',
+//     height: 290,
+//   },
+//   study: {
+//     marginTop: 10,
+//     borderRadius: 30,
+//     width: 120,
+//     height: 50,
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     backgroundColor: '#5D5D5D',
+//   },
+//   studyText:{
+//     fontSize: 17,
+//     fontFamily: 'gothic-bold',
+//   },
+//   premiumText: {
+//     color: '#E66A84',
+//     paddingVertical: 5,
+//     fontSize: 19
+//   },
+//   image: {
+//     width: '100%',
+//     height: '100%'
+//   }
+// });
