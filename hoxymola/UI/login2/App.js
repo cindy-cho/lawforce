@@ -15,13 +15,13 @@ export default function App() {
           <TouchableOpacity>
             <View style={styles.socialButton}>
               <Image source={require('./assets/facebook.png')} style={styles.socialLogo}></Image>
-              <Text style={[styles.text, {color: 'white'}]}>Facebook</Text>
+              <Text style={styles.text}>Facebook</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity>
             <View style={styles.socialButton}>
               <Image source={require('./assets/google.png')} style={styles.socialLogo}></Image>
-              <Text style={[styles.text, {color: 'white'}]}>Google</Text>
+              <Text style={styles.text}>Google</Text>
             </View>
           </TouchableOpacity>
 
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: 'rgba(171, 180, 189, 0.65)',
     borderRadius: 4,
-    backgroundColor: '#242424',
+    backgroundColor: '#FFF',
     shadowColor: 'rgba(171, 180, 189, 0.35)',
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 1,
@@ -86,12 +86,12 @@ const styles = StyleSheet.create({
     marginRight: 8
   },
   link: {
-    color: '#242424',
+    color: '#FF1654',
     fontSize: 14,
     fontWeight: '500'
   },
   submitContainer: {
-    backgroundColor: '#242424',
+    backgroundColor: '#FF1654',
     fontSize: 16,
     borderRadius: 4,
     paddingVertical: 12,

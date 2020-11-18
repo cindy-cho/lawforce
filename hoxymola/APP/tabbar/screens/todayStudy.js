@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Modal, TouchableOpacity, Alert, SafeAreaView, Platform } from 'react-native';
+import { View, Text, Modal, TouchableOpacity, Alert, SafeAreaView } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import Card from '../shared/card';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -19,7 +19,7 @@ export default function HomeScreen() {
   gap = Math.floor(gap / (1000 * 60 * 60 * 24) + 1);
 
   return (
-    <SafeAreaView style={[Global.container, {backgroundColor: '#2E2E2E'}]}>
+    <View style={[Global.container, {backgroundColor: '#2E2E2E'}]}>
       
       <Modal
         transparent={true}
@@ -58,7 +58,7 @@ export default function HomeScreen() {
         </View>
       </Modal>
 
-      <View style={Global.container}>
+      <SafeAreaView style={[Global.container]}>
         <View style={{paddingBottom: 10}}>
         <ScrollView 
           horizontal 
@@ -69,43 +69,122 @@ export default function HomeScreen() {
           showsHorizontalScrollIndicator={false}
         >
           <Card>
-            <Text style={[Global.text, {fontSize: 17, marginTop: 30}]}>2020.12.31</Text>
-            <Text style={[Global.text, {fontSize: 17, marginTop: 14}]}>D-{gap}</Text>
-            <Text style={[Global.text, {fontSize: 11, marginTop: 25}]}>시험일</Text>
+            {/* <Text style={styles.ddayText1}>2020.12.31</Text>
+            <Text style={styles.ddayText2}>D-{gap}</Text>
+            <Text style={styles.ddayText3}>시험일</Text> */}
           </Card>
           <Card>  
-            
+            {/* <Text style={styles.tdayText1}>오늘의 학습</Text>
+            <Text style={styles.tdayText2}>0% 완료</Text>
+            <Text style={styles.tdayText3}>••••</Text>
+            <Text style={styles.tdayText4}>누적 학습 세트0개</Text> */}
           </Card>
           <Card>
-            
+            {/* <View style={styles.preContainer1}>
+              <View style={styles.preContainer2}>
+                <Text style={styles.preText1}>0</Text>
+                <Text style={styles.preText2}>예측점수</Text>
+              </View>
+                <View style={styles.HLine}></View>
+                <View style={styles.preContainer2}>
+                  <Text style={styles.preText1}>840</Text>
+                  <Text style={styles.preText2}>목표점수</Text>
+                </View>
+            </View>
+            <Text style={styles.preText2}>오차범위 ±20점</Text> */}
           </Card>
           <Card>  
-            
+            {/* <View style={styles.LCRCContainer}>
+              <View style={{flexDirection: 'row', justifyContent:"space-between"}}>
+                <Text style={styles.LCRC}>LC 0</Text>
+                <View style={styles.VLine}></View>
+              </View>
+              <View style={{flexDirection: 'row', justifyContent:"space-between"}}>
+                <Text style={styles.LCRC}>RC 0</Text>
+                <View style={styles.VLine}></View>
+              </View>
+            </View>
+            <Text style={styles.preText2}>오차범위 ±20점</Text> */}
           </Card>
           <Card>
-            
+            {/* <View style={{flexDirection: 'row'}}>
+              <View style={{alignItems: 'center', paddingHorizontal: 3}}>
+                <View style={{borderRightColor: 'gray', borderRightWidth: 2, height: 40, marginTop: 25}}></View>
+                <View style={{borderRightColor: 'white', borderRightWidth: 2, height: 3}}></View>
+                <Text style={{marginTop: 10, color: 'gray', fontSize: 13}}>P1</Text>
+              </View>
+              <View style={{alignItems: 'center', paddingHorizontal: 3}}>
+                <View style={{borderRightColor: 'gray', borderRightWidth: 2, height: 40, marginTop: 25}}></View>
+                <View style={{borderRightColor: 'white', borderRightWidth: 2, height: 3}}></View>
+                <Text style={{marginTop: 10, color: 'gray', fontSize: 13}}>P2</Text>
+              </View>
+              <View style={{alignItems: 'center', paddingHorizontal: 3}}>
+                <View style={{borderRightColor: 'gray', borderRightWidth: 2, height: 40, marginTop: 25}}></View>
+                <View style={{borderRightColor: 'white', borderRightWidth: 2, height: 3}}></View>
+                <Text style={{marginTop: 10, color: 'gray', fontSize: 13}}>P3</Text>
+              </View>
+              <View style={{alignItems: 'center', paddingHorizontal: 3}}>
+                <View style={{borderRightColor: 'gray', borderRightWidth: 2, height: 40, marginTop: 25}}></View>
+                <View style={{borderRightColor: 'white', borderRightWidth: 2, height: 3}}></View>
+                <Text style={{marginTop: 10, color: 'gray', fontSize: 13}}>P4</Text>
+              </View>
+              <View style={{alignItems: 'center', paddingHorizontal: 3}}>
+                <View style={{borderRightColor: 'gray', borderRightWidth: 2, height: 40, marginTop: 25}}></View>
+                <View style={{borderRightColor: 'white', borderRightWidth: 2, height: 3}}></View>
+                <Text style={{marginTop: 10, color: 'gray', fontSize: 13}}>P5</Text>
+              </View>
+              <View style={{alignItems: 'center', paddingHorizontal: 3}}>
+                <View style={{borderRightColor: 'gray', borderRightWidth: 2, height: 40, marginTop: 25}}></View>
+                <View style={{borderRightColor: 'white', borderRightWidth: 2, height: 3}}></View>
+                <Text style={{marginTop: 10, color: 'gray', fontSize: 13}}>P6</Text>
+              </View>
+              <View style={{alignItems: 'center', paddingHorizontal: 3}}>
+                <View style={{borderRightColor: 'gray', borderRightWidth: 2, height: 40, marginTop: 25}}></View>
+                <View style={{borderRightColor: 'white', borderRightWidth: 2, height: 3}}></View>
+                <Text style={{marginTop: 10, color: 'gray', fontSize: 13}}>P7</Text>
+              </View>
+            </View>
+            <View style={{flexDirection: 'row', marginTop: 16}}>
+              <View style={{flexDirection: 'row', marginRight: 15}}>
+                <Text style={{color: 'white', fontSize: 11}}>현재등급</Text>
+                <View style={{borderTopColor: 'white', borderTopWidth: 2, width: 12, alignSelf: 'center', marginLeft: 10}}></View>
+              </View>
+              <View style={{flexDirection: 'row', marginLeft: 15}}>
+                <Text style={{color: '#C54D4E', fontSize: 11}}>목표등급</Text>
+                <View style={{borderTopColor: '#C54D4E', borderTopWidth: 2, width: 12, alignSelf: 'center', marginLeft: 10}}></View>
+              </View>
+            </View>  */}
           </Card>
           <Card>  
-            
+            {/* <View style={styles.preContainer1}>
+              <View style={styles.preContainer2}>
+                <Text style={styles.preText1}>1</Text>
+                <Text style={styles.preText2}>일 연속</Text>
+              </View>
+              <View style={styles.HLine}></View>
+              <View style={styles.preContainer2}>
+                <Text style={styles.preText1}>1</Text>
+                <Text style={styles.preText2}>최고기록</Text>
+              </View>
+            </View>
+            <Text style={styles.preText2}>연속학습 달성 중</Text> */}
           </Card>
         </ScrollView> 
         </View>
-        <View style={[Global.container, {paddingHorizontal: 20}]}>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <Text style={[Global.text, {fontSize: 12, color:'gray'}]}>T O D A Y</Text>
-            <Text style={[Global.text, {fontSize: 12, color:'gray'}]}>1 / 6</Text>
-          </View>
-          <Text style={[Global.text, {fontSize: 18}]}>홈화면텍스트홈화면텍스트</Text>
-          <Text style={[Global.text, {fontSize: 18}]}>홈화면텍스트홈화면텍스트</Text>
-          <TouchableOpacity
-            onPress={payAlert}
-            activeOpacity={1}
-          >
-            <Text style={{color: '#D7595A', marginTop: 48}}>터치 가능한 텍스트 {'>'}</Text>
-          </TouchableOpacity>
+        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <Text style={[Global.text, {fontSize: 12, color:'gray'}]}>T O D A Y</Text>
+          <Text style={[Global.text, {fontSize: 12, color:'gray'}]}>1 / 6</Text>
         </View>
-      </View>
-      <View>
+        <Text style={[Global.text, {fontSize: 18}]}>홈화면텍스트홈화면텍스트</Text>
+        <Text style={[Global.text, {fontSize: 18}]}>홈화면텍스트홈화면텍스트</Text>
+        <TouchableOpacity
+          onPress={payAlert}
+          activeOpacity={1}
+        >
+          <Text style={{color: '#D7595A', marginTop: 48}}>터치 가능한 텍스트 {'>'}</Text>
+        </TouchableOpacity>
+      </SafeAreaView>
+      <SafeAreaView>
           <MaterialCommunityIcons
             name='star-face'
             color='white'
@@ -113,8 +192,8 @@ export default function HomeScreen() {
             style={Global.modalToggle}
             onPress={() => setModalOpen(true)}
           />
-      </View>
-  </SafeAreaView>
+      </SafeAreaView>
+  </View>
   );
 }
 
