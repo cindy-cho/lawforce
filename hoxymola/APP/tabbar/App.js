@@ -10,6 +10,20 @@ import Part1 from './screens/part1';
 import Global from './shared/Global';
 import { StatusBar } from 'expo-status-bar';
 
+
+import {createStackNavigator} from 'react-navigation-stack';
+import todayStudy from './screens/todayStudy';
+import part1 from './screens/part1';
+import {createAppContainer} from 'react-navigation'
+const stackNav = createStackNavigator(
+{
+  today:{screen:todayStudy},
+  part:{screen:part1},
+}
+);
+
+const container=createAppContainer(stackNav);
+
 const getFonts = () => Font.loadAsync({
   'gothic': require('./assets/fonts/NanumBarunGothic.ttf'),
   'gothic-bold': require('./assets/fonts/NanumBarunGothicBold.ttf'),

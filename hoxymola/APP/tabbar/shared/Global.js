@@ -35,7 +35,7 @@ export default StyleSheet.create({
         top: screen.height / 10,
         backgroundColor: '#EFEFEF',
         width: screen.width * 3 / 4,
-        height: screen.height / 2,
+        height: screen.height / 5,
         alignSelf: 'center',
         paddingTop: 30,
         paddingHorizontal: 35,
