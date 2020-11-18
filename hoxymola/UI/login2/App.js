@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
   },
   text: {
-    fontFamily: 'Avenir Next',
     color: '#1D2029',
   },
   image: {

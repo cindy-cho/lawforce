@@ -82,6 +82,7 @@ export default function HomeScreen() {
           </TouchableOpacity>
         </View>
       </Modal>
+      <ScrollView>
 
       <View style={Global.container}>
         <View style={{paddingBottom: 10}}>
@@ -138,7 +139,6 @@ export default function HomeScreen() {
           </View>
           
           <Text style={[Global.text, {color:'white',fontSize: 18, marginTop: 10, marginBottom:15}]}>근로기준법상 근로자의 판단기준</Text>
-          <ScrollView>
           <Text style={[Global.text, {marginTop:25, marginBottom: 30, fontSize: 13}]}>근로기준법상 근로자에 해당하는지 여부는 계약의 형식이
            고용계약인지 도급계약인지보다 그 실질에 있어 근로자가 사업 또는 사업장에 임금을 목적으로 종속적인 관계에서 사용자에게 근로를 제공하였는지 여부에 따라
            판단하여야하고, 여기에서 종속적인 관계가 있는지 여부는 업무 내용을 사용자가 정하고 취업규칙 또는 복무규정 등의 적용을 받으며, 업무 수행과정에서
@@ -149,19 +149,12 @@ export default function HomeScreen() {
            다만, 기본급이나 고정급이 정하여졌는지, 근로소득세를 원천징수 하는지, 사회보장제도에 관하여 근로자로 인정받는지 등의 사정은 사용자가 경제적으로 우월한 지위를 이용하여
            임의로 결정 할 여지가 크기 때문에 그러한 점들이 인정되지 않는다는 것만으로 근로자성을 쉽게 부정하여서는 안된다.
         </Text>          
-          </ScrollView>
-          <Text style={{color: '#D7595A', marginTop: 100, marginBottom: 30}}>나의 북마크 확인하기 {'>'}</Text>
         </View>
       </View>
-      <View>
-          <MaterialCommunityIcons
-            name='star-face'
-            color='white'
-            size={35}
-            style={Global.modalToggle}
-            onPress={() => setModalOpen(true)}
-          />
-      </View>
+
+      
+      </ScrollView>
+
   </SafeAreaView>
   );
 }

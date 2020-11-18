@@ -18,53 +18,23 @@ const moveToStudy = () => {
 export default function PartBasic({ label }) {
   return (
     <View style={[Global.container, {backgroundColor: '#2E2E2E'}]}>
-      <View>
-        <TouchableOpacity
-          onPress={payAlert}
-          style={Global.adContainer}
-          activeOpacity={1}
-          
-        >
-          <Text style={[Global.text, {fontSize: 13}]}>{label} 학습을 하고 싶다면 ?</Text>
-          <Ionicons name="ios-arrow-forward" size={15} color="white" style={{position: 'absolute', right: 30}}/>
-        </TouchableOpacity>
-      </View>
       
-       <View style={styles.contents}>
-        <ImageBackground source={require('../assets/waveBackground.png')} style={styles.image}>
-          <View style={styles.up}>
-            <View style={styles.name}>
-              <Text style={styles.text}>진도상황 : 0%</Text>
-              <Text style={styles.text}>{label}</Text>
-            </View>
-            <TouchableOpacity
-              onPress={payAlert}
-              activeOpacity={1}
-              style={styles.study}
-            >
-              <View>
-                <Text style={styles.studyText}>학습하기</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.down}>
-            <View style={styles.premium}>
-              <Text style={styles.premiumText}>매일 무료로</Text>
-              <Text style={styles.premiumText}>10문제가 제공됩니다.</Text>
-            </View>
-          </View>
-        </ImageBackground>
+      <ScrollView>
+       <View style={[styles.contents, {backgroundColor: '#2E2E2E'}]}>
+        
+              <Text style={[styles.text, {alignSelf: 'center'}]}>{label}</Text>
+            
       </View> 
       <View style={styles.Container}>
         <View style={styles.bodyContainer}>
           <Text style={styles.bodyTitle}>9개 주제</Text>
           <View style={styles.chapterContainer}>
-            <ScrollView>
-              <ChapterList/>
-            </ScrollView>
+            <ChapterList/>
+            
           </View>
         </View>
      </View>
+     </ScrollView>
     </View>
   );
 }
@@ -89,6 +59,7 @@ export default function PartBasic({ label }) {
   },
   chapterContainer:{
     marginTop: 20,
+    paddingBottom: 30,
     borderRadius: 15,
     width: '90%',
     height: '100%',
@@ -152,7 +123,6 @@ export default function PartBasic({ label }) {
   },
   contents: {
     backgroundColor: '#242424',
-    height: 290,
  },
   study: {
     marginTop: 10,

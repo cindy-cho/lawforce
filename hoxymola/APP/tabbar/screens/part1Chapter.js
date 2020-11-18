@@ -4,58 +4,32 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 const ChapterList = () =>  {
     return(
         <View>
+
             <View style={styles.container}>
-                <TouchableOpacity>
-                    <View style={styles.circle}/>
-                </TouchableOpacity>
                 <Text style={styles.text}>노동법의 법원</Text>
             </View>
             <View style={styles.container}>
-                <TouchableOpacity>
-                    <View style={styles.circle}/>
-                </TouchableOpacity>
                 <Text style={styles.text}>노동법의 권리, 의무의 주체</Text>
             </View>
             <View style={styles.container}>
-                <TouchableOpacity>
-                    <View style={styles.circle}/>
-                </TouchableOpacity>
                 <Text style={styles.text}>근로기준법상 근로자</Text>
             </View>
             <View style={styles.container}>
-                <TouchableOpacity>
-                    <View style={styles.circle}/>
-                </TouchableOpacity>
                 <Text style={styles.text}>임원의 근로기준법상 근로자성</Text>
             </View>
             <View style={styles.container}>
-                <TouchableOpacity>
-                    <View style={styles.circle}/>
-                </TouchableOpacity>
                 <Text style={styles.text}>노동조합법상 근로자</Text>
             </View>
             <View style={styles.container}>
-                <TouchableOpacity>
-                    <View style={styles.circle}/>
-                </TouchableOpacity>
                 <Text style={styles.text}>특수형태근로종사자</Text>
             </View>
             <View style={styles.container}>
-                <TouchableOpacity>
-                    <View style={styles.circle}/>
-                </TouchableOpacity>
                 <Text style={styles.text}>취업자격을 가지지 않은 외국인 근로자</Text>
             </View>
             <View style={styles.container}>
-                <TouchableOpacity>
-                    <View style={styles.circle}/>
-                </TouchableOpacity>
                 <Text style={styles.text}>근로기준법상 사용자</Text>
             </View>
             <View style={styles.container}>
-                <TouchableOpacity>
-                    <View style={styles.circle}/>
-                </TouchableOpacity>
                 <Text style={styles.text}>노동조합법상 사용자</Text>
             </View>
         </View>

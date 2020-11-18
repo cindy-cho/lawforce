@@ -70,6 +70,7 @@ export default function App() {
             <Part1 tabLabel={{label: "  제2편  "}} label="개별적 근로관계법"/>
             <Part1 tabLabel={{label: "  제3편  "}} label="비정규 근로자에 관한 특별법"/>
             <Part1 tabLabel={{label: "  제4편  "}} label="집단적 노사관계법"/>
+            <Part1 tabLabel={{label: "  진단평가  "}} label="집단적 노사관계법"/>
           </ScrollableTabView>
         </SafeAreaView>
         <StatusBar style={'light'}/>
