@@ -6,19 +6,24 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 import Home from './screens/todayStudy';
-import Part1 from './screens/part1';
 import Global from './shared/Global';
 import { StatusBar } from 'expo-status-bar';
 
 
 import {createStackNavigator} from 'react-navigation-stack';
 import todayStudy from './screens/todayStudy';
-import part1 from './screens/part1';
+import Part from './screens/part';
+import Test from './screens/test';
 import {createAppContainer} from 'react-navigation'
+import { NDBCR } from './data/NDBCR';
+import { GBJ_GRGGB } from './data/GBJ_GRGGB';
+import { BGGT } from './data/BGGT';
+import { JN } from './data/JN';
+
 const stackNav = createStackNavigator(
 {
   today:{screen:todayStudy},
-  part:{screen:part1},
+  part:{screen:Part},
 }
 );
 
@@ -66,11 +71,11 @@ export default function App() {
               />}
           >
             <Home tabLabel={{label: "  HOME  "}} label="오늘의 학습"/>
-            <Part1 tabLabel={{label: "  제1편  "}} label="노동법총론"/>
-            <Part1 tabLabel={{label: "  제2편  "}} label="개별적 근로관계법"/>
-            <Part1 tabLabel={{label: "  제3편  "}} label="비정규 근로자에 관한 특별법"/>
-            <Part1 tabLabel={{label: "  제4편  "}} label="집단적 노사관계법"/>
-            <Part1 tabLabel={{label: "  진단평가  "}} label="집단적 노사관계법"/>
+            <Part tabLabel={{label: "  제1편  "}} label="노동법총론" data={NDBCR}/>
+            <Part tabLabel={{label: "  제2편  "}} label="개별적 근로관계법" data={GBJ_GRGGB}/>
+            <Part tabLabel={{label: "  제3편  "}} label="비정규 근로자에 관한 특별법" data={BGGT}/>
+            <Part tabLabel={{label: "  제4편  "}} label="집단적 노사관계법" data={JN}/>
+            <Test tabLabel={{label: "  진단평가  "}} />
           </ScrollableTabView>
         </SafeAreaView>
         <StatusBar style={'light'}/>
