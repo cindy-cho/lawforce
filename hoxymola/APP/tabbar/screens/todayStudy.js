@@ -3,6 +3,7 @@ import { View, Text, Alert, SafeAreaView, StyleSheet } from 'react-native';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import Global from '../shared/Global';
 import Quote from './todayQuote';
+import Today from './todaySample';
 
 export default function HomeScreen() {
   var now = new Date();
@@ -33,10 +34,9 @@ export default function HomeScreen() {
         <View style={[Global.container, {paddingHorizontal: 20, marginTop : '2.5%'}]}>
           <View style={{justifyContent: 'space-between', marginBottom:10}}>
             <Text style={[Global.text, {fontSize: 20, color:'lightblue'}]}>{'<'}오늘의 주요 판례{'>'}</Text>
-            <Text style={[Global.text, {color:'white',fontSize: 18, marginTop: 10}]}>{todayTitle}</Text>
-          </View>
+          </View>  
           <ScrollView>
-            <Text style={[Global.text, {fontSize: 15, lineHeight : 25, color:'#D1D0CE'}]}>{todayContent}</Text>
+            <Today/>
           </ScrollView>          
         </View>
       </View>
