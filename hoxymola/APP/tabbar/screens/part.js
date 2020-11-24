@@ -2,7 +2,6 @@ import React from 'react';
 import {View, Text, Alert, ScrollView } from 'react-native';
 import Global from '../shared/Global';
 import ChapterList from './partChapter';
-//import styles from './partStyle';
 
 const payAlert = () => {
   Alert.alert('PREMIUM UPGRADE', '596402-01-383562 국민 조재국', [

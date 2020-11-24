@@ -9,25 +9,12 @@ import Home from './screens/todayStudy';
 import Global from './shared/Global';
 import { StatusBar } from 'expo-status-bar';
 
-
-import {createStackNavigator} from 'react-navigation-stack';
-import todayStudy from './screens/todayStudy';
 import Part from './screens/part';
 import Test from './screens/test';
-import {createAppContainer} from 'react-navigation'
 import { NDBCR } from './data/NDBCR';
 import { GBJ_GRGGB } from './data/GBJ_GRGGB';
 import { BGGT } from './data/BGGT';
 import { JN } from './data/JN';
-
-const stackNav = createStackNavigator(
-{
-  today:{screen:todayStudy},
-  part:{screen:Part},
-}
-);
-
-const container=createAppContainer(stackNav);
 
 const getFonts = () => Font.loadAsync({
   'gothic': require('./assets/fonts/NanumBarunGothic.ttf'),
