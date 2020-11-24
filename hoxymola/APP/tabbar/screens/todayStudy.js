@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, Alert, SafeAreaView, StyleSheet } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import Global from '../shared/Global';
+import Quote from './todayQuote';
 
 export default function HomeScreen() {
   var now = new Date();
@@ -24,7 +25,7 @@ export default function HomeScreen() {
               <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 17, marginTop: '5%', color: '#D7595A'}]}>D-{gap}</Text>
             </View>
             <View style={styles.card}>
-              <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 11, marginTop: '13%'}]}>오늘의 한마디</Text>
+              <Quote/>
             </View>
           </View>
         </View>
@@ -43,6 +44,8 @@ export default function HomeScreen() {
   );
 }
 
+
+
 const styles = StyleSheet.create({
   card: {
       marginVertical: '3%',
@@ -56,8 +59,5 @@ const styles = StyleSheet.create({
       width: '45%',
       marginHorizontal : '1.5%', 
       paddingHorizontal : '2%'
-  },
-  cardContent: {
-      alignItems: 'center'
-  },
+  }
 });
