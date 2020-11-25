@@ -28,7 +28,7 @@ const payAlert = () => {
       {text: '송금하기'}
   ]);
 };
-
+ 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
