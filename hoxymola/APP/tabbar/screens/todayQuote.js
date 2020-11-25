@@ -1,6 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, SafeAreaView} from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
+import { View, Text } from 'react-native';
 import Global from '../shared/Global';
 import { QuoteLists } from '../data/QuoteText';
 

@@ -32,6 +32,7 @@ export default StyleSheet.create({
         paddingLeft: 30,
     },
     modalContent: {
+        flex: 1,
         top: screen.height / 10,
         backgroundColor: '#EFEFEF',
         width: screen.width * 3 / 4,

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Text, View, Alert, SafeAreaView } from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import TabBar from "react-native-underline-tabbar";
-import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+import { MaterialCommunityIcons, Entypo } from '@expo/vector-icons'; 
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 import Home from './screens/todayStudy';
@@ -36,7 +36,7 @@ export default function App() {
     return (
       <View style={[Global.container]}>
         <SafeAreaView style={Global.header}>
-          <MaterialCommunityIcons name='menu' size={23} style={Global.icon} />
+          <Entypo name='flower' size={23} style={Global.icon} />
           <View>
               <Text style={[Global.text, {fontSize: 25}]}>노동법</Text>
           </View>
