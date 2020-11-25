@@ -10,6 +10,7 @@ export default function PartBasic({ label, data }) {
   const [flag, setFlag] = useState(false);
   const [contentIndex, setContentIndex] = useState(0);
   const [eye, setEye] = useState('eye');
+  const [title, setTitle] =useState('bb');
 
   const triger = () => {
     if (!flag) {
@@ -27,6 +28,7 @@ export default function PartBasic({ label, data }) {
       setContentIndex( (contentIndex + 1) )
       setText(data[index - 1].content[contentIndex + 1][0].text)
       setFlag(true)
+      setEye('eye')
     }
   }
   const prev = () => {
@@ -34,6 +36,7 @@ export default function PartBasic({ label, data }) {
       setContentIndex( (contentIndex - 1) )
       setText(data[index - 1].content[contentIndex - 1][0].text)
       setFlag(true)
+      setEye('eye')
     }
   }
 
@@ -43,43 +46,44 @@ export default function PartBasic({ label, data }) {
       <Modal
           visible={modalOpen}
       >
-        <View style={{flex: 1, padding: 20}}>
-          <Text style={[Global.Text, {fontWeight: 'bold', fontSize: 18}]}>{text}</Text>
-          <Text style={Global.Text}>{contentIndex + 1}/{data[index-1].content.length}</Text>
+        <View style={[Global.container, {padding: 30}]}>
+          <Text style={[Global.text, {color: '#515151', fontSize: 18, fontWeight: 'bold', paddingVertical: 10}]}>{title}</Text>
+          <Text style={[Global.text, {fontFamily: 'gothic', fontSize: 16, color: '#515151'}]}>{text}</Text>
+          <Text style={[Global.text, {color: '#515151'}]}>{contentIndex + 1}/{data[index-1].content.length}</Text>
         </View>
-        <View style={Global.modalButtonContainer}>
+        <View style={[Global.modalButtonContainer, {flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}]}>
           
         <TouchableOpacity
             activeOpacity={1}
             onPress={prev} 
           >
-            <View style={[Global.modalButton, {backgroundColor: 'skyblue'}]}>
-              <Text style={[Global.text, {fontSize: 20}]}>이전</Text>
+            <Entypo name='arrow-with-circle-left' size={80}/>
+          </TouchableOpacity>
+          <TouchableOpacity
+            activeOpacity={1}
+            onPress={triger} 
+          >
+            <View style={{borderWidth: 8, borderRadius: 50, width: 78, height: 78, justifyContent: 'center', alignItems: 'center'}}>
+              <Entypo name={eye} size={40} />
             </View>
           </TouchableOpacity>
           <TouchableOpacity
             activeOpacity={1}
             onPress={next} 
           >
-            <View style={[Global.modalButton, {backgroundColor: 'skyblue'}]}>
-              <Text style={[Global.text, {fontSize: 20}]}>다음</Text>
-            </View>
+             <Entypo name='arrow-with-circle-right' size={80}/>
           </TouchableOpacity>
-          <TouchableOpacity
+          
+          
+        </View>
+        <TouchableOpacity
             activeOpacity={1}
-            onPress={triger} 
-          >
-            <Entypo name={eye} size={20} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            activeOpacity={1}
-            onPress={() => setModalOpen(false)} 
+            onPress={() => setModalOpen(false)}
           >
             <View style={[Global.modalButton, {backgroundColor: 'skyblue'}]}>
               <Text style={[Global.text, {fontSize: 20}]}>닫기</Text>
             </View>
           </TouchableOpacity>
-        </View>
       </Modal> 
 
       <View style={{backgroundColor: '#242424', padding: 20}}>
@@ -98,6 +102,7 @@ export default function PartBasic({ label, data }) {
                       setIndex(item.key)
                       setFlag(true)
                       setContentIndex(0);
+                      setTitle(item.title)
                     }
                   }
                 >
