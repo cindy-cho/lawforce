@@ -46,6 +46,7 @@ export default function PartBasic({ label, data }) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <SafeAreaView style={{flex:1}}>
           <StatusBar style={'dark'}/>
 
@@ -72,13 +73,20 @@ export default function PartBasic({ label, data }) {
 =======
         <View style={[Global.container, {padding: 30}]}>
 >>>>>>> parent of 81b17174... Merge branch 'master' of https://github.com/cindy-cho/lawforce
+=======
+        <View style={[Global.container, {padding: 30}]}>
+>>>>>>> parent of 81b17174... Merge branch 'master' of https://github.com/cindy-cho/lawforce
           <Text style={[Global.text, {color: '#515151', fontSize: 18, fontWeight: 'bold', paddingVertical: 10}]}>{title}</Text>
           <Text style={[Global.text, {fontFamily: 'gothic', fontSize: 16, color: '#515151'}]}>{text}</Text>
           <Text style={[Global.text, {color: '#515151'}]}>{contentIndex + 1}/{data[index-1].content.length}</Text>
         </View>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <View style={[Global.modalButtonContainer, {justifyContent: 'space-between',flexDirection: 'row', alignItems: 'center'}]}>
 >>>>>>> parent of 4b25c8ab... 12/2  회의때 수정한거
+=======
+        <View style={[Global.modalButtonContainer, {flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}]}>
+>>>>>>> parent of 81b17174... Merge branch 'master' of https://github.com/cindy-cho/lawforce
 =======
         <View style={[Global.modalButtonContainer, {flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}]}>
 >>>>>>> parent of 81b17174... Merge branch 'master' of https://github.com/cindy-cho/lawforce
