@@ -8,12 +8,12 @@ export default StyleSheet.create({
     },
     header: {
         width: '100%',
-        height: 100,
+        height: 70,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
         backgroundColor: '#242424',
-        paddingTop: '10%',
+        paddingTop: 20,
     },
     text: {
         fontFamily: 'gothic-bold',

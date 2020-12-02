@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Text, Modal, FlatList, SafeAreaView, TouchableOpacity, Alert } from 'react-native';
 import Global from '../shared/Global';
 import { Entypo } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
-import { ScrollView } from 'react-native-gesture-handler';
 
 export default function PartBasic({ label, data }) {
   const [modalOpen, setModalOpen] = useState(false);
@@ -47,6 +45,7 @@ export default function PartBasic({ label, data }) {
       >
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <SafeAreaView style={{flex:1}}>
           <StatusBar style={'dark'}/>
 
@@ -70,35 +69,39 @@ export default function PartBasic({ label, data }) {
 =======
         <View style={[Global.container, {paddingTop:60,paddingLeft:50,paddingRight:50}]}>
           <Text style={[Global.text, {textAlign : 'right',color: '#515151'}]}>{contentIndex + 1}/{data[index-1].content.length}</Text>
+=======
+        <View style={[Global.container, {padding: 30}]}>
+>>>>>>> parent of 81b17174... Merge branch 'master' of https://github.com/cindy-cho/lawforce
           <Text style={[Global.text, {color: '#515151', fontSize: 18, fontWeight: 'bold', paddingVertical: 10}]}>{title}</Text>
-          <ScrollView>
-            <Text style={[Global.text, {lineHeight : '30', fontFamily: 'gothic', fontSize: 16, color: '#515151'}]}>{text}</Text>
-          </ScrollView>
+          <Text style={[Global.text, {fontFamily: 'gothic', fontSize: 16, color: '#515151'}]}>{text}</Text>
+          <Text style={[Global.text, {color: '#515151'}]}>{contentIndex + 1}/{data[index-1].content.length}</Text>
         </View>
+<<<<<<< HEAD
         <View style={[Global.modalButtonContainer, {justifyContent: 'space-between',flexDirection: 'row', alignItems: 'center'}]}>
 >>>>>>> parent of 4b25c8ab... 12/2  회의때 수정한거
+=======
+        <View style={[Global.modalButtonContainer, {flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}]}>
+>>>>>>> parent of 81b17174... Merge branch 'master' of https://github.com/cindy-cho/lawforce
           
         <TouchableOpacity
             activeOpacity={1}
             onPress={prev} 
           >
-          <Ionicons name='md-arrow-dropleft-circle' color='#2E2E2E' size={70}/>
+            <Entypo name='arrow-with-circle-left' size={80}/>
           </TouchableOpacity>
-        
           <TouchableOpacity
             activeOpacity={1}
-            onPress={triger}
+            onPress={triger} 
           >
-            <View style={{borderColor:'#2E2E2E',borderWidth: 6, borderRadius: 50, width: 65, height: 65, justifyContent: 'center', alignItems: 'center'}}>
-              <Entypo name={eye} size='40' color='#2E2E2E' />
+            <View style={{borderWidth: 8, borderRadius: 50, width: 78, height: 78, justifyContent: 'center', alignItems: 'center'}}>
+              <Entypo name={eye} size={40} />
             </View>
           </TouchableOpacity>
-  
           <TouchableOpacity
             activeOpacity={1}
             onPress={next} 
           >
-             <Ionicons color='#2E2E2E' name='md-arrow-dropright-circle' size={70}/>
+             <Entypo name='arrow-with-circle-right' size={80}/>
           </TouchableOpacity>
           
           
@@ -107,7 +110,7 @@ export default function PartBasic({ label, data }) {
             activeOpacity={1}
             onPress={() => setModalOpen(false)}
           >
-            <View style={[Global.modalButton, {marginLeft:'10%',width:'80%',marginBottom:60,backgroundColor: 'skyblue'}]}>
+            <View style={[Global.modalButton, {backgroundColor: 'skyblue'}]}>
               <Text style={[Global.text, {fontSize: 20}]}>닫기</Text>
             </View>
           </TouchableOpacity>

@@ -15,7 +15,6 @@ import { NDBCR } from './data/NDBCR';
 import { GBJ_GRGGB } from './data/GBJ_GRGGB';
 import { BGGT } from './data/BGGT';
 import { JN } from './data/JN';
-import { color } from 'react-native-reanimated';
 
 const getFonts = () => Font.loadAsync({
   'gothic': require('./assets/fonts/NanumBarunGothic.ttf'),
@@ -51,11 +50,10 @@ export default function App() {
             renderTabBar={() => 
               <TabBar 
                 underlineColor='white' 
-                tabBarStyle={{backgroundColor: '#242424', marginBottom: -2}}
+                tabBarStyle={{marginBottom: -2}}
                 tabBarTextStyle={{fontFamily: 'gothic-bold', fontSize: 15, paddingTop: 10, paddingBottom: 10}}
                 tabMargin={18}
                 underlineHeight={3}
-                color='#2E2E2E'
                 tabBadgeColor='red'
               />}
           >
