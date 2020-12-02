@@ -13,7 +13,6 @@ export default function PartBasic({ label, data }) {
   const [flag, setFlag] = useState(false);
   const [contentIndex, setContentIndex] = useState(0);
   const [eye, setEye] = useState('eye');
-  const [title, setTitle] =useState('bb');
 
   const triger = () => {
     if (!flag) {
@@ -31,7 +30,6 @@ export default function PartBasic({ label, data }) {
       setContentIndex( (contentIndex + 1) )
       setText(data[index - 1].content[contentIndex + 1][0].text)
       setFlag(true)
-      setEye('eye')
     }
   }
   const prev = () => {
@@ -39,7 +37,6 @@ export default function PartBasic({ label, data }) {
       setContentIndex( (contentIndex - 1) )
       setText(data[index - 1].content[contentIndex - 1][0].text)
       setFlag(true)
-      setEye('eye')
     }
   }
 
@@ -48,6 +45,7 @@ export default function PartBasic({ label, data }) {
       <Modal
           visible={modalOpen}
       >
+<<<<<<< HEAD
         <SafeAreaView style={{flex:1}}>
           <StatusBar style={'dark'}/>
 
@@ -96,6 +94,45 @@ export default function PartBasic({ label, data }) {
             </View>
           </TouchableOpacity>
         </SafeAreaView>
+=======
+        <View style={{flex: 1, padding: 20}}>
+          <Text style={[Global.Text, {fontWeight: 'bold', fontSize: 18}]}>{text}</Text>
+          <Text style={Global.Text}>{contentIndex + 1}/{data[index-1].content.length}</Text>
+        </View>
+        <View style={Global.modalButtonContainer}>
+          
+        <TouchableOpacity
+            activeOpacity={1}
+            onPress={prev} 
+          >
+            <View style={[Global.modalButton, {backgroundColor: 'skyblue'}]}>
+              <Text style={[Global.text, {fontSize: 20}]}>이전</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            activeOpacity={1}
+            onPress={next} 
+          >
+            <View style={[Global.modalButton, {backgroundColor: 'skyblue'}]}>
+              <Text style={[Global.text, {fontSize: 20}]}>다음</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            activeOpacity={1}
+            onPress={triger} 
+          >
+            <Entypo name={eye} size={20} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            activeOpacity={1}
+            onPress={() => setModalOpen(false)} 
+          >
+            <View style={[Global.modalButton, {backgroundColor: 'skyblue'}]}>
+              <Text style={[Global.text, {fontSize: 20}]}>닫기</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+>>>>>>> parent of 54e084f1... 버튼모양 조금 수정함
       </Modal> 
 
       <View style={{backgroundColor: '#242424', padding: 20}}>
@@ -114,7 +151,6 @@ export default function PartBasic({ label, data }) {
                       setIndex(item.key)
                       setFlag(true)
                       setContentIndex(0);
-                      setTitle(item.title)
                     }
                   }
                 >
