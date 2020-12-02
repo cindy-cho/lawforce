@@ -17,9 +17,12 @@ export const NDBCR = [
         title: '노동법상 권리·의무의 주체',
         key: '2',
         content: [
-            {text : '판례없음'},
-            {}
+            [
+                {text : '판례없음'},
+                {text : '판례없음'}
+            ]
         ]
+    
     },
     {
         title: '근로기준법상 근로자',
