@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Text, Modal, FlatList, SafeAreaView, TouchableOpacity, Alert } from 'react-native';
 import Global from '../shared/Global';
 import { Entypo } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function PartBasic({ label, data }) {
   const [modalOpen, setModalOpen] = useState(false);
@@ -46,32 +48,36 @@ export default function PartBasic({ label, data }) {
       <Modal
           visible={modalOpen}
       >
-        <View style={[Global.container, {padding: 30}]}>
+        <View style={[Global.container, {paddingTop:60,paddingLeft:50,paddingRight:50}]}>
+          <Text style={[Global.text, {textAlign : 'right',color: '#515151'}]}>{contentIndex + 1}/{data[index-1].content.length}</Text>
           <Text style={[Global.text, {color: '#515151', fontSize: 18, fontWeight: 'bold', paddingVertical: 10}]}>{title}</Text>
-          <Text style={[Global.text, {fontFamily: 'gothic', fontSize: 16, color: '#515151'}]}>{text}</Text>
-          <Text style={[Global.text, {color: '#515151'}]}>{contentIndex + 1}/{data[index-1].content.length}</Text>
+          <ScrollView>
+            <Text style={[Global.text, {lineHeight : '30', fontFamily: 'gothic', fontSize: 16, color: '#515151'}]}>{text}</Text>
+          </ScrollView>
         </View>
-        <View style={[Global.modalButtonContainer, {flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}]}>
+        <View style={[Global.modalButtonContainer, {justifyContent: 'space-between',flexDirection: 'row', alignItems: 'center'}]}>
           
         <TouchableOpacity
             activeOpacity={1}
             onPress={prev} 
           >
-            <Entypo name='arrow-with-circle-left' size={80}/>
+          <Ionicons name='md-arrow-dropleft-circle' color='#2E2E2E' size={70}/>
           </TouchableOpacity>
+        
           <TouchableOpacity
             activeOpacity={1}
-            onPress={triger} 
+            onPress={triger}
           >
-            <View style={{borderWidth: 8, borderRadius: 50, width: 78, height: 78, justifyContent: 'center', alignItems: 'center'}}>
-              <Entypo name={eye} size={40} />
+            <View style={{borderColor:'#2E2E2E',borderWidth: 6, borderRadius: 50, width: 65, height: 65, justifyContent: 'center', alignItems: 'center'}}>
+              <Entypo name={eye} size='40' color='#2E2E2E' />
             </View>
           </TouchableOpacity>
+  
           <TouchableOpacity
             activeOpacity={1}
             onPress={next} 
           >
-             <Entypo name='arrow-with-circle-right' size={80}/>
+             <Ionicons color='#2E2E2E' name='md-arrow-dropright-circle' size={70}/>
           </TouchableOpacity>
           
           
@@ -80,7 +86,7 @@ export default function PartBasic({ label, data }) {
             activeOpacity={1}
             onPress={() => setModalOpen(false)}
           >
-            <View style={[Global.modalButton, {backgroundColor: 'skyblue'}]}>
+            <View style={[Global.modalButton, {marginLeft:'10%',width:'80%',marginBottom:60,backgroundColor: 'skyblue'}]}>
               <Text style={[Global.text, {fontSize: 20}]}>닫기</Text>
             </View>
           </TouchableOpacity>
