@@ -10,7 +10,7 @@ function TodayElement({todayElement}){
                 {todayElement.title}
             </Text>
             <Text style={[Global.text, {marginTop:10, fontSize: 15, lineHeight : 27, color:'#D1D0CE'}]}>
-                {todayElement.content[0].text}
+                {todayElement.content[0][0].text}
             </Text>
         </View>
     );
