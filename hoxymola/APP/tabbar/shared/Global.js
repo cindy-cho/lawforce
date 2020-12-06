@@ -17,11 +17,11 @@ export default StyleSheet.create({
     },
     text: {
         fontFamily: 'gothic-bold',
-        color: 'white',
+        color: '#D4D4D4',
         fontSize: 15
     },
     icon: {
-        color: 'white',
+        color: '#D4D4D4',
         padding: 16
     },
     adContainer: {

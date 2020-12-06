@@ -44,12 +44,12 @@ export default function App() {
         </SafeAreaView>
         <SafeAreaView style={[Global.container, {marginTop: -15}]}>
           <ScrollableTabView
-            tabBarActiveTextColor='white'
+            tabBarActiveTextColor='#D4D4D4'
             tabBarInactiveTextColor='#7B7B7B'
             tabBarBackgroundColor='#242424'
             renderTabBar={() => 
               <TabBar 
-                underlineColor='white' 
+                underlineColor='#D4D4D4' 
                 tabBarStyle={{marginBottom: -2}}
                 tabBarTextStyle={{fontFamily: 'gothic-bold', fontSize: 15, paddingTop: 10, paddingBottom: 10}}
                 tabMargin={18}
