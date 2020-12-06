@@ -53,7 +53,7 @@ export default function PartBasic({ label, data }) {
         visible={modalOpen}
         statusBarTranslucent={true}
       >
-        <View style={{paddingTop: 40, backgroundColor: '#242424'}}>
+        <View style={{paddingTop: 30, backgroundColor: '#242424'}}>
           <StatusBar style='light'/>
           <View style={{flexDirection: 'row', alignItems: 'center', justifyContent:'space-between', paddingBottom: 10, paddingHorizontal: 15}}>
             <TouchableOpacity
