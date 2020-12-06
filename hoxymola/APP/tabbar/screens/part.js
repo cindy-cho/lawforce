@@ -3,8 +3,7 @@ import { StyleSheet, View, Text, Modal, FlatList, SafeAreaView, TouchableOpacity
 import Global from '../shared/Global';
 import { Entypo, AntDesign } from '@expo/vector-icons';
 import GestureRecognizer from 'react-native-swipe-gestures';
-
-
+import { StatusBar } from 'expo-status-bar';
 
 export default function PartBasic({ label, data }) {
   const [modalOpen, setModalOpen] = useState(false);
@@ -52,10 +51,13 @@ export default function PartBasic({ label, data }) {
     <SafeAreaView style={[Global.container, {backgroundColor: '#2E2E2E'}]}>
       <Modal
         visible={modalOpen}
+        statusBarTranslucent={true}
       >
         <View style={{paddingTop: 40, backgroundColor: '#242424'}}>
+          <StatusBar style='light'/>
           <View style={{flexDirection: 'row', alignItems: 'center', justifyContent:'space-between', paddingBottom: 10, paddingHorizontal: 15}}>
             <TouchableOpacity
+              hitSlop={{top: 30, left: 30, bottom: 30, right: 30}}
               activeOpacity={1}
               onPress={() => setModalOpen(false)}
             >
@@ -101,7 +103,7 @@ export default function PartBasic({ label, data }) {
         </View>
       </Modal>  
 
-      <View style={{backgroundColor: '#242424', padding: 20}}>
+      <View style={{backgroundColor: '#242424', paddingHorizontal: 20, paddingTop: 10, paddingBottom: 5}}>
         <Text style={[Global.text, {fontSize: 25, fontWeight: 'bold', color: 'skyblue'}]}>{label}</Text>
         <Text style={[Global.text, {fontSize: 15, fontWeight: 'bold', alignSelf: 'flex-end'}]}>{data.length}개 주제</Text>
       </View> 

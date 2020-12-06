@@ -51,7 +51,7 @@ export default function App() {
               <TabBar 
                 underlineColor='#D4D4D4' 
                 tabBarStyle={{marginBottom: -2}}
-                tabBarTextStyle={{fontFamily: 'gothic-bold', fontSize: 15, paddingTop: 10, paddingBottom: 10}}
+                tabBarTextStyle={{fontFamily: 'gothic-bold', fontSize: 15, paddingTop: 10 }}
                 tabMargin={18}
                 underlineHeight={3}
                 tabBadgeColor='red'
