@@ -123,8 +123,9 @@ export default function PartBasic({ label, data }) {
                 setTitle(item.content[0].subtitle)
                 setEye('eye')
               }}
+              style={[Global.container, {borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: 'black', paddingVertical: 20, flexDirection: 'row'}]}
             >
-              <View style={[Global.container, {borderWidth: StyleSheet.hairlineWidth, borderBottomColor: '#2E2E2E', paddingVertical: 20, flexDirection: 'row'}]}>
+              <View >
                 <Text style={[Global.text, {fontSize: 17, paddingRight: 50, paddingLeft: 15}]}>{item.title}</Text>
               </View>
             </TouchableOpacity>
