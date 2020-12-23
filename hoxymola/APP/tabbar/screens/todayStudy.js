@@ -35,7 +35,9 @@ export default function HomeScreen() {
           <View style={{justifyContent: 'space-between', marginBottom:10}}>
             <Text style={[Global.text, {fontSize: 20, color:'lightblue'}]}>{'<'}오늘의 주요 판례{'>'}</Text>
           </View>  
-          <ScrollView>
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+          >
             <Today/>
           </ScrollView>          
         </View>
