@@ -22,12 +22,6 @@ const getFonts = () => Font.loadAsync({
   'gothic-light': require('./assets/fonts/NanumBarunGothicLight.ttf'),
   'gothic-ultralight': require('./assets/fonts/NanumBarunGothicUltraLight.ttf'),
 });
-
-const payAlert = () => {
-  Alert.alert('PREMIUM UPGRADE', '596402-01-383562 국민 조재국', [
-      {text: '송금하기'}
-  ]);
-};
  
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -36,11 +30,9 @@ export default function App() {
     return (
       <View style={[Global.container]}>
         <SafeAreaView style={Global.header}>
-          <Entypo name='flower' size={23} style={Global.icon} />
           <View>
               <Text style={[Global.text, {fontSize: 25}]}>노동법</Text>
           </View>
-          <MaterialCommunityIcons name='cash-usd' size={28} onPress={payAlert} style={Global.icon} />
         </SafeAreaView>
         <SafeAreaView style={[Global.container, {marginTop: -15}]}>
           <ScrollableTabView
@@ -62,7 +54,7 @@ export default function App() {
             <Part tabLabel={{label: "  제2편  "}} label="개별적 근로관계법" data={GBJ_GRGGB}/>
             <Part tabLabel={{label: "  제3편  "}} label="비정규 근로자에 관한 특별법" data={BGGT}/>
             <Part tabLabel={{label: "  제4편  "}} label="집단적 노사관계법" data={JN}/>
-            <Test tabLabel={{label: "  진단평가  "}} />
+            <Test tabLabel={{label: "  기출문제  "}} />
           </ScrollableTabView>
         </SafeAreaView>
         <StatusBar style={'light'}/>

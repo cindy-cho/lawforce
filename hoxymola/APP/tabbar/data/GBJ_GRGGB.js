@@ -1,7 +1,7 @@
 export const GBJ_GRGGB = [
     {
         title: '근로계약 당사자의 권리·의무',
-        key: '10',
+        key: '1',
         content: [
             {
                 subtitle: '경업금지특약의 유효성' ,
@@ -28,7 +28,7 @@ export const GBJ_GRGGB = [
     },
     {
         title: '근로자의 취업청구권',
-        key: '11',
+        key: '2',
         content: [
             {
                 subtitle: '취업청구권' ,
@@ -41,7 +41,7 @@ export const GBJ_GRGGB = [
     },
     {
         title: '근로계약의 효력',
-        key: '12',
+        key: '3',
         content: [
             {
                 subtitle: '취업규칙에 미달되는 근로계약서의 효력 (최신 판례)' ,
@@ -61,7 +61,7 @@ export const GBJ_GRGGB = [
     },
     {
         title: '근로계약서의 작성 및 교부의무',
-        key: '13',
+        key: '4',
         content: [
             {
                 subtitle: '근로자 일부에게 적용되는 취업규칙' ,
@@ -109,7 +109,7 @@ export const GBJ_GRGGB = [
     },
     {
         title: '취업규칙의 작성·불이익하지 않은 변경',
-        key: '14',
+        key: '5',
         content: [
             {
                 subtitle: '판례 없음' ,
@@ -122,7 +122,7 @@ export const GBJ_GRGGB = [
     },
     {
         title: '취업규칙 불이익변경',
-        key: '15',
+        key: '6',
         content: [
             {
                 subtitle: '취업규칙 불이익변경 판단' ,
@@ -156,7 +156,7 @@ export const GBJ_GRGGB = [
     },
     {
         title: '불이익 변경절차(동의)를 얻지 못한 취업규칙의 효력',
-        key: '16',
+        key: '7',
         content: [
             {
                 subtitle: '취업규칙 변경 동의절차 위반의 효과 (상대적 무효)' ,
@@ -190,7 +190,7 @@ export const GBJ_GRGGB = [
     },
     {
         title: '차별 금지(근로기준법·남녀고용평등법)',
-        key: '17',
+        key: '8',
         content: [
             {
                 subtitle: '남녀의 성을 이유로한 차별  (최신 판례)' ,

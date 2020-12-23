@@ -63,16 +63,16 @@ export default function PartBasic({ label, data }) {
             >
               <AntDesign name='close' color='#D4D4D4' size={20}/>
             </TouchableOpacity>
-            <Text style={[Global.text, {color: '#D4D4D4', fontSize: 20, fontWeight: 'bold' }]}>{title}</Text>
-            <Text style={[Global.text, {color: '#D4D4D4'}]}>{contentIndex + 1}/{data[index-1].content.length}</Text>
+            <Text style={[Global.text, {color: '#D4D4D4', fontSize: 20, lineHeight: 25 ,fontWeight: 'bold', paddingHorizontal: 15 }]}>{title}</Text>
+            <AntDesign name='close' color='#242424' size={20}/>
           </View>
         </View>
-        <View style={{flex: 1, backgroundColor: '#2E2E2E', paddingHorizontal: 15, borderTopWidth: 1, borderTopColor: '#D4D4D4', borderBottomWidth: 1, borderBottomColor: '#D4D4D4'}}>
+        <View style={{flex: 1, backgroundColor: '#2E2E2E', paddingHorizontal: 15, borderTopWidth: 1.5, borderTopColor: '#D4D4D4', borderBottomWidth: 1.5, borderBottomColor: '#D4D4D4'}}>
           <ScrollView 
-            bounces={false}
             showsVerticalScrollIndicator={false}
             ref={scrollRef}
             contentContainerStyle={{flexGrow: 1}}
+            bounces={false}
           >
             <GestureRecognizer
               onSwipeLeft={next}
@@ -87,18 +87,20 @@ export default function PartBasic({ label, data }) {
                 activeOpacity= {1}
                 style={{backgroundColor: '#2E2E2E', flex: 1}}
               >
-                <Text style={[Global.text, {paddingVertical: 15, lineHeight: 30, fontFamily: 'gothic', fontSize: 16, color: '#D4D4D4'}]}>{text}</Text>
+                <Text style={[Global.text, {paddingVertical: 15, lineHeight: 27, fontFamily: 'gothic', fontSize: 18, color: '#D4D4D4'}]}>{text}</Text>
               </TouchableOpacity>
             </GestureRecognizer> 
           </ScrollView>
         </View>
-        <View style={{backgroundColor: '#242424'}}>
+        <View style={{backgroundColor: '#242424', flexDirection: 'row', justifyContent:'space-between'}}>
+          <Entypo name={eye} size={30} color='#242424' style={{padding: 10}} />
+          <Text style={[Global.text, {fontSize: 18, color: '#D4D4D4', alignSelf: 'center'}]}>{contentIndex + 1}/{data[index-1].content.length}</Text>
           <TouchableOpacity
             activeOpacity={1}
             onPress={triger}
-            style={{alignSelf: 'flex-end', padding: 10}}
+            style={{padding: 10}}
           >
-            <Entypo name={eye} size={25} color='#D4D4D4' />
+            <Entypo name={eye} size={30} color='#D4D4D4' />
           </TouchableOpacity> 
         </View>
       </Modal>  
@@ -110,7 +112,6 @@ export default function PartBasic({ label, data }) {
       <View style={[Global.container]}>
         <FlatList
           data={data}
-          bounces='false'
           renderItem={({ item }) => 
             <TouchableOpacity
               onPress={() => {
@@ -123,7 +124,7 @@ export default function PartBasic({ label, data }) {
                 setEye('eye')
               }}
             >
-              <View style={[Global.container, {borderColor: 'black', borderWidth: StyleSheet.hairlineWidth, borderBottomColor: '#2E2E2E', paddingVertical: 20, flexDirection: 'row'}]}>
+              <View style={[Global.container, {borderWidth: StyleSheet.hairlineWidth, borderBottomColor: '#2E2E2E', paddingVertical: 20, flexDirection: 'row'}]}>
                 <Text style={[Global.text, {fontSize: 17, paddingRight: 50, paddingLeft: 15}]}>{item.title}</Text>
               </View>
             </TouchableOpacity>
