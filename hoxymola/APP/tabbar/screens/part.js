@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, Text, Modal, FlatList, SafeAreaView, TouchableOpacity } from 'react-native';
+import React, { useState, useRef } from 'react';
+import { StyleSheet, View, Text, Modal, FlatList, SafeAreaView, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import Global from '../shared/Global';
-import { Entypo } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
-import { ScrollView } from 'react-native-gesture-handler';
+import { Entypo, AntDesign } from '@expo/vector-icons';
+import GestureRecognizer from 'react-native-swipe-gestures';
 import { StatusBar } from 'expo-status-bar';
 
 export default function PartBasic({ label, data }) {
@@ -14,6 +13,7 @@ export default function PartBasic({ label, data }) {
   const [contentIndex, setContentIndex] = useState(0);
   const [eye, setEye] = useState('eye');
   const [title, setTitle] =useState('bb');
+  const scrollRef = useRef();
 
   const triger = () => {
     if (!flag) {
@@ -33,6 +33,7 @@ export default function PartBasic({ label, data }) {
       setFlag(true)
       setEye('eye')
       setTitle(data[index-1].content[contentIndex + 1].subtitle)
+      scrollRef.current.scrollTo({y: 0, animated: false});
     }
   }
   const prev = () => {
@@ -42,7 +43,7 @@ export default function PartBasic({ label, data }) {
       setFlag(true)
       setEye('eye')
       setTitle(data[index-1].content[contentIndex - 1].subtitle)
-
+      scrollRef.current.scrollTo({y: 0, animated: false});
     }
   }
 
@@ -50,52 +51,59 @@ export default function PartBasic({ label, data }) {
     <SafeAreaView style={[Global.container, {backgroundColor: '#2E2E2E'}]}>
       <Modal
         visible={modalOpen}
+        statusBarTranslucent={true}
       >
-        <SafeAreaView style={{ flex: 1 }}>
-          <StatusBar style={'dark'}/> 
-
-          <View style={[Global.container, {paddingTop: 60, paddingLeft: 50, paddingRight: 50 }]}>
-            <Text style={[Global.text, {textAlign: 'right', color: '#515151'}]}>{contentIndex + 1}/{data[index-1].content.length}</Text>
-            <Text style={[Global.text, {color: '#515151', fontSize: 18, fontWeight: 'bold', paddingVertical: 10}]}>{title}</Text>
-            <ScrollView showsVerticalScrollIndicator={false}>
-              <Text style={[Global.text, {lineHeight: 30, fontFamily: 'gothic', fontSize: 16, color: '#515151'}]}>{text}</Text>
-            </ScrollView>
-          </View> 
-
-          <View style={[Global.modalButtonContainer, {justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}]}>
+        <View style={{paddingTop: 30, backgroundColor: '#242424'}}>
+          <StatusBar style='light'/>
+          <View style={{flexDirection: 'row', alignItems: 'center', justifyContent:'space-between', paddingBottom: 10, paddingHorizontal: 15}}>
             <TouchableOpacity
+              hitSlop={{top: 30, left: 30, bottom: 30, right: 30}}
               activeOpacity={1}
-              onPress={prev} 
+              onPress={() => setModalOpen(false)}
             >
-              <Ionicons name='md-arrow-dropleft-circle' color='#2E2E2E' size={70}/>
+              <AntDesign name='close' color='#D4D4D4' size={20}/>
             </TouchableOpacity>
-            <TouchableOpacity
-              activeOpacity={1}
-              onPress={triger}
-            >
-              <View style={{borderColor:'#2E2E2E',borderWidth: 6, borderRadius: 50, width: 65, height: 65, justifyContent: 'center', alignItems: 'center'}}>
-                <Entypo name={eye} size={40} color='#2E2E2E' />
-              </View>
-            </TouchableOpacity> 
-            <TouchableOpacity
-              activeOpacity={1}
-              onPress={next} 
-            >
-              <Ionicons color='#2E2E2E' name='md-arrow-dropright-circle' size={70}/>
-            </TouchableOpacity> 
+            <Text style={[Global.text, {color: '#D4D4D4', fontSize: 20, fontWeight: 'bold' }]}>{title}</Text>
+            <Text style={[Global.text, {color: '#D4D4D4'}]}>{contentIndex + 1}/{data[index-1].content.length}</Text>
           </View>
+        </View>
+        <View style={{flex: 1, backgroundColor: '#2E2E2E', paddingHorizontal: 15, borderTopWidth: 1, borderTopColor: '#D4D4D4', borderBottomWidth: 1, borderBottomColor: '#D4D4D4'}}>
+          <ScrollView 
+            bounces={false}
+            showsVerticalScrollIndicator={false}
+            ref={scrollRef}
+            contentContainerStyle={{flexGrow: 1}}
+          >
+            <GestureRecognizer
+              onSwipeLeft={next}
+              onSwipeRight={prev}
+              config={{
+                velocityThreshold: 0.3,
+                directionalOffsetThreshold: 80,
+              }} 
+              style={{flex:1}}
+            >
+              <TouchableOpacity
+                activeOpacity= {1}
+                style={{backgroundColor: '#2E2E2E', flex: 1}}
+              >
+                <Text style={[Global.text, {paddingVertical: 15, lineHeight: 30, fontFamily: 'gothic', fontSize: 16, color: '#D4D4D4'}]}>{text}</Text>
+              </TouchableOpacity>
+            </GestureRecognizer> 
+          </ScrollView>
+        </View>
+        <View style={{backgroundColor: '#242424'}}>
           <TouchableOpacity
             activeOpacity={1}
-            onPress={() => setModalOpen(false)}
+            onPress={triger}
+            style={{alignSelf: 'flex-end', padding: 10}}
           >
-            <View style={[Global.modalButton, { marginLeft: '10%', width: '80%', marginBottom: 60, backgroundColor: 'skyblue'}]}>
-              <Text style={[Global.text, {fontSize: 20}]}>닫기</Text>
-            </View>
-          </TouchableOpacity>
-        </SafeAreaView>
+            <Entypo name={eye} size={25} color='#D4D4D4' />
+          </TouchableOpacity> 
+        </View>
       </Modal>  
 
-      <View style={{backgroundColor: '#242424', padding: 20}}>
+      <View style={{backgroundColor: '#242424', paddingHorizontal: 20, paddingTop: 10, paddingBottom: 5}}>
         <Text style={[Global.text, {fontSize: 25, fontWeight: 'bold', color: 'skyblue'}]}>{label}</Text>
         <Text style={[Global.text, {fontSize: 15, fontWeight: 'bold', alignSelf: 'flex-end'}]}>{data.length}개 주제</Text>
       </View> 

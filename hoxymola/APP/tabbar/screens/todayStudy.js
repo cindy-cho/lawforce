@@ -12,6 +12,8 @@ export default function HomeScreen() {
   var duedate = "2020. 12. 02";
   var gap = then.getTime() - now.getTime();
   gap = Math.floor(gap / (1000 * 60 * 60 * 24) + 1);
+  var pm = gap > 0 ? "D-"+gap : gap == 0 ? "D-Day" : "D+"+-gap;
+
 
   return (
     <SafeAreaView style={[Global.container, {backgroundColor: '#2E2E2E'}]}>
@@ -21,7 +23,7 @@ export default function HomeScreen() {
             <View style={styles.card}>
               <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 11, marginTop: '13%'}]}>{duetitle}</Text>
               <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 11, marginTop: '5%'}]}>{duedate}</Text>
-              <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 17, marginTop: '5%', color: '#D7595A'}]}>D-{gap}</Text>
+              <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 17, marginTop: '5%', color: '#D7595A'}]}>{pm}</Text>
             </View>
             <View style={styles.card}>
               <Quote/>
