@@ -5,15 +5,15 @@ const screen = Dimensions.get('window');
 export default StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#242424'
     },
     header: {
         width: '100%',
-        height: 70,
+        height: 100,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
         backgroundColor: '#242424',
-        paddingTop: 20,
     },
     text: {
         fontFamily: 'gothic-bold',
