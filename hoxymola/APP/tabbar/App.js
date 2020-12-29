@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Text, View, Alert, SafeAreaView } from 'react-native';
+import { Text, View, SafeAreaView } from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import TabBar from "react-native-underline-tabbar";
-import { MaterialCommunityIcons, Entypo } from '@expo/vector-icons'; 
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 import Home from './screens/todayStudy';
@@ -14,7 +13,7 @@ import Test from './screens/test';
 import { ChapterOne } from './data/ChapterOne';
 import { ChapterTwo } from './data/ChapterTwo';
 import { ChapterThree } from './data/ChapterThree';
-import { JN } from './data/JN';
+import { ChapterFour } from './data/ChapterFour';
 
 const getFonts = () => Font.loadAsync({
   'gothic': require('./assets/fonts/NanumBarunGothic.ttf'),
@@ -28,7 +27,7 @@ export default function App() {
 
   if (fontsLoaded) {
     return (
-      <View style={[Global.container]}>
+      <SafeAreaView style={[Global.container]}>
         <SafeAreaView style={Global.header}>
           <View>
               <Text style={[Global.text, {fontSize: 25}]}>노동법</Text>
@@ -58,7 +57,7 @@ export default function App() {
           </ScrollableTabView>
         </SafeAreaView>
         <StatusBar style={'light'}/>
-      </View>
+      </SafeAreaView>
     );
   } else {
     return (
