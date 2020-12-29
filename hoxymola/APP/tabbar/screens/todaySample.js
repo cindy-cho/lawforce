@@ -1,9 +1,9 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { View, Text } from 'react-native';
 import Global from '../shared/Global';
 import { ChapterThree } from '../data/ChapterThree';
 import { ChapterTwo } from '../data/ChapterTwo';
-import { JN } from '../data/ChapterFour';
+import { ChapterFour } from '../data/ChapterFour';
 import { ChapterOne } from '../data/ChapterOne';
 
 function TodayElement({todayElement}){
@@ -24,6 +24,7 @@ function TodayElement({todayElement}){
 
 function Today () {
 
+    
     // var TM;
     // var idx1 = Math.floor(Math.random()*4);
     // if(idx1 == 0){
