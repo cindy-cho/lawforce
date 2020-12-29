@@ -1,4 +1,4 @@
-export const JN = [
+export const ChapterFour = [
     {
         key: '58',
         title: '근로3권',

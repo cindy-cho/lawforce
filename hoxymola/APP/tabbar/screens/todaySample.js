@@ -1,10 +1,10 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import Global from '../shared/Global';
-import { BGGT } from '../data/BGGT';
-import { GBJ_GRGGB } from '../data/GBJ_GRGGB';
-import { JN } from '../data/JN';
-import { NDBCR } from '../data/NDBCR';
+import { ChapterThree } from '../data/ChapterThree';
+import { ChapterTwo } from '../data/ChapterTwo';
+import { JN } from '../data/ChapterFour';
+import { ChapterOne } from '../data/ChapterOne';
 
 function TodayElement({todayElement}){
     var len = todayElement.content.length;
@@ -27,21 +27,21 @@ function Today () {
     // var TM;
     // var idx1 = Math.floor(Math.random()*4);
     // if(idx1 == 0){
-    //     var idx = Math.floor(Math.random()*BGGT.length);
-    //     var TM = BGGT[idx];
+    //     var idx = Math.floor(Math.random()*ChapterThree.length);
+    //     var TM = ChapterThree[idx];
     // }else if(idx1 == 1){
-    //     var idx = Math.floor(Math.random()*GBJ_GRGGB.length);
-    //     var TM = GBJ_GRGGB[idx];
+    //     var idx = Math.floor(Math.random()*ChapterTwo.length);
+    //     var TM = ChapterTwo[idx];
     // }else if(idx1 == 2){
-    //     var idx = Math.floor(Math.random()*JN.length);
-    //     var TM = JN[idx];
+    //     var idx = Math.floor(Math.random()*ChapterFour.length);
+    //     var TM = ChapterFour[idx];
     // }else{
-    //     var idx = Math.floor(Math.random()*NDBCR.length);
-    //     var TM = NDBCR[idx];
+    //     var idx = Math.floor(Math.random()*ChapterOne.length);
+    //     var TM = ChapterOne[idx];
     // }
 
-    var idx = Math.floor(Math.random()*NDBCR.length);
-    var TM = NDBCR[idx];
+    var idx = Math.floor(Math.random()*ChapterOne.length);
+    var TM = ChapterOne[idx];
 
     return (
         <View style = {{flex:1, justifyContent : "center", alignItems :'center', paddingBottom: 10}}>
