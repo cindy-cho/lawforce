@@ -50,7 +50,7 @@ export default function App() {
               />}
           >
             <Home tabLabel={{label: "  HOME  "}} label="오늘의 학습"/>
-            <Part tabLabel={{label: "  제1편  "}} label="노동법총론" data={NDBCR}/>
+            <Part tabLabel={{label: "  제5편  "}} label="노동법총론" data={NDBCR}/>
             <Part tabLabel={{label: "  제2편  "}} label="개별적 근로관계법" data={GBJ_GRGGB}/>
             <Part tabLabel={{label: "  제3편  "}} label="비정규 근로자에 관한 특별법" data={BGGT}/>
             <Part tabLabel={{label: "  제4편  "}} label="집단적 노사관계법" data={JN}/>
