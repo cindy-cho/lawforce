@@ -92,7 +92,7 @@ export default function PartBasic({ label, data }) {
             </GestureRecognizer> 
           </ScrollView>
         </View>
-        <View style={{backgroundColor: '#242424', flexDirection: 'row', justifyContent:'space-between'}}>
+        <View style={{backgroundColor: '#242424', flexDirection: 'row', justifyContent:'space-between', height: '8%', alignItems: 'center'}}>
           <Entypo name={eye} size={30} color='#242424' style={{padding: 10}} />
           <Text style={[Global.text, {fontSize: 18, color: '#D4D4D4', alignSelf: 'center'}]}>{contentIndex + 1}/{data[index-1].content.length}</Text>
           <TouchableOpacity
