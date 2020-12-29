@@ -53,7 +53,7 @@ export default function PartBasic({ label, data }) {
         visible={modalOpen}
         statusBarTranslucent={true}
       >
-        <View style={{paddingTop: 30, backgroundColor: '#242424'}}>
+        <SafeAreaView style={{paddingTop: 30, backgroundColor: '#242424'}}>
           <StatusBar style='light'/>
           <View style={{flexDirection: 'row', alignItems: 'center', justifyContent:'space-between', paddingBottom: 10, paddingHorizontal: 15}}>
             <TouchableOpacity
@@ -66,7 +66,7 @@ export default function PartBasic({ label, data }) {
             <Text style={[Global.text, {color: '#D4D4D4', fontSize: 20, lineHeight: 25 ,fontWeight: 'bold', paddingHorizontal: 15 }]}>{title}</Text>
             <AntDesign name='close' color='#242424' size={20}/>
           </View>
-        </View>
+        </SafeAreaView>
         <View style={{flex: 1, backgroundColor: '#2E2E2E', paddingHorizontal: 15, borderTopWidth: 1.5, borderTopColor: '#D4D4D4', borderBottomWidth: 1.5, borderBottomColor: '#D4D4D4'}}>
           <ScrollView 
             showsVerticalScrollIndicator={false}

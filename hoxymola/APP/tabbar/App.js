@@ -27,7 +27,7 @@ export default function App() {
 
   if (fontsLoaded) {
     return (
-      <SafeAreaView style={[Global.container]}>
+      <SafeAreaView style={[Global.base]}>
         <SafeAreaView style={Global.header}>
           <View>
               <Text style={[Global.text, {fontSize: 25}]}>노동법</Text>
@@ -49,7 +49,7 @@ export default function App() {
               />}
           >
             <Home tabLabel={{label: "  HOME  "}} label="오늘의 학습"/>
-            <Part tabLabel={{label: "  제5편  "}} label="노동법총론" data={ChapterOne}/>
+            <Part tabLabel={{label: "  제1편  "}} label="노동법총론" data={ChapterOne}/>
             <Part tabLabel={{label: "  제2편  "}} label="개별적 근로관계법" data={ChapterTwo}/>
             <Part tabLabel={{label: "  제3편  "}} label="비정규 근로자에 관한 특별법" data={ChapterThree}/>
             <Part tabLabel={{label: "  제4편  "}} label="집단적 노사관계법" data={ChapterFour}/>
