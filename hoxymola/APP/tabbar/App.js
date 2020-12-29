@@ -11,9 +11,9 @@ import { StatusBar } from 'expo-status-bar';
 
 import Part from './screens/part';
 import Test from './screens/test';
-import { NDBCR } from './data/NDBCR';
-import { GBJ_GRGGB } from './data/GBJ_GRGGB';
-import { BGGT } from './data/BGGT';
+import { ChapterOne } from './data/ChapterOne';
+import { ChapterTwo } from './data/ChapterTwo';
+import { ChapterThree } from './data/ChapterThree';
 import { JN } from './data/JN';
 
 const getFonts = () => Font.loadAsync({
@@ -54,6 +54,7 @@ export default function App() {
             <Part tabLabel={{label: "  제2편  "}} label="개별적 근로관계법" data={GBJ_GRGGB}/>
             <Part tabLabel={{label: "  제3편  "}} label="비정규 근로자에 관한 특별법" data={BGGT}/>
             <Part tabLabel={{label: "  제4편  "}} label="집단적 노사관계법" data={JN}/>
+
             <Test tabLabel={{label: "  기출문제  "}} />
           </ScrollableTabView>
         </SafeAreaView>

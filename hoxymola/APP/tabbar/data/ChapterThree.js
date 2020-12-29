@@ -1,4 +1,4 @@
-export const BGGT = [
+export const ChapterThree = [
 {   key: '51', 
     title: '기간제 근로자 근로계약기간의 보호',
     content: [
