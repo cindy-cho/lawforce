@@ -27,11 +27,7 @@ export default function App() {
 
   if (fontsLoaded) {
     return (
-<<<<<<< Updated upstream
-      <SafeAreaView style={[Global.base]}>
-=======
       <SafeAreaView style={[Global.container, {backgroundColor: '#242424'}]}>
->>>>>>> Stashed changes
         <SafeAreaView style={Global.header}>
           <View>
               <Text style={[Global.text, {fontSize: 25}]}>노동법</Text>
