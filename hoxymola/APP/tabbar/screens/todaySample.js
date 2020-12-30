@@ -2,10 +2,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import Global from '../shared/Global';
-import { ChapterThree } from '../data/chapterThree';
-import { ChapterTwo } from '../data/chapterTwo';
-import { ChapterFour } from '../data/chapterFour';
-import { ChapterOne } from '../data/chapterOne';
+import { ChapterThree } from '../data/ChapterThree';
+import { ChapterTwo } from '../data/ChapterTwo';
+import { ChapterFour } from '../data/ChapterFour';
+import { ChapterOne } from '../data/ChapterOne';
 
 function TodayElement({todayElement}){
     var len = todayElement.content.length;

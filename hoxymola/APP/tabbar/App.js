@@ -10,10 +10,10 @@ import { StatusBar } from 'expo-status-bar';
 
 import Part from './screens/part';
 import Test from './screens/test';
-import { ChapterOne } from './data/chapterOne';
-import { ChapterTwo } from './data/chapterTwo';
-import { ChapterThree } from './data/chapterThree';
-import { ChapterFour } from './data/chapterFour';
+import { ChapterOne } from './data/ChapterOne';
+import { ChapterTwo } from './data/ChapterTwo';
+import { ChapterThree } from './data/ChapterThree';
+import { ChapterFour } from './data/ChapterFour';
 
 const getFonts = () => Font.loadAsync({
   'gothic': require('./assets/fonts/NanumBarunGothic.ttf'),
