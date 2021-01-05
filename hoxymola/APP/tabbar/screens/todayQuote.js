@@ -13,7 +13,7 @@ function QuoteElement({quoteElement}){
 
 function Quote () {
 
-    var idx = Math.floor(Math.random()*20);
+    var idx = Math.floor(Math.random()*50);
 
     return (
         <View style = {{flex:1, justifyContent : "center", alignItems :'center'}}>
