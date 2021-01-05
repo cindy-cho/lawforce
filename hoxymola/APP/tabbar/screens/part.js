@@ -63,7 +63,7 @@ export default function PartBasic({ label, data }) {
             >
               <AntDesign name='close' color='#D4D4D4' size={20}/>
             </TouchableOpacity>
-            <Text style={[Global.text, {color: '#D4D4D4', fontSize: 20, lineHeight: 25 ,fontWeight: 'bold', paddingHorizontal: 15 }]}>{title}</Text>
+            <Text style={[Global.text, {color: '#D4D4D4', fontSize: 20, lineHeight: 25 ,fontWeight: 'bold', paddingHorizontal: 15}]}>{title}</Text>
             <AntDesign name='close' color='#242424' size={20}/>
           </View>
         </SafeAreaView>
