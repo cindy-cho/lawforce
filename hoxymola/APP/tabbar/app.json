@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "tabbar",
-    "slug": "tabbar",
+    "name": "노동판례 300선",
+    "slug": "LABOR_LAW",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -17,7 +17,13 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.hoxymola.laborlaw",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.hoxymola.laborlaw",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"
