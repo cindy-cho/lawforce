@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
-import { Text, View, SafeAreaView } from 'react-native';
-import ScrollableTabView from 'react-native-scrollable-tab-view';
-import TabBar from "react-native-underline-tabbar";
+import React, { useState, } from 'react';
+import { Text, View, SafeAreaView, StyleSheet,  } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
-import Home from './screens/todayStudy';
 import Global from './shared/Global';
+import Quote from './screens/todayQuote';
+import Today from './screens/todaySample';
+import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
+
 import { StatusBar } from 'expo-status-bar';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Part from './screens/part';
-import Test from './screens/test';
 import { ChapterOne } from './data/PartOne';
 import { ChapterTwo } from './data/PartTwo';
 import { ChapterThree } from './data/PartThree';
@@ -22,6 +25,70 @@ const getFonts = () => Font.loadAsync({
   'gothic-ultralight': require('./assets/fonts/NanumBarunGothicUltraLight.ttf'),
 });
  
+function HomeScreen() {
+  var now = new Date();
+  var then = new Date("December 2, 2020");
+  var duetitle = "3차 발표일";
+  var duedate = "2020. 12. 02";
+  var gap = then.getTime() - now.getTime();
+  gap = Math.floor(gap / (1000 * 60 * 60 * 24) + 1);
+  var pm = gap > 0 ? "D-"+gap : gap == 0 ? "D-Day" : "D+"+-gap;
+
+
+  return (
+    <SafeAreaView style={[Global.container, {backgroundColor: '#2E2E2E'}]}>
+      <View style={Global.container}>
+        <View style={{paddingBottom: 10},{alignItems :'center'}}>
+          <View style={{flexDirection : 'row'}}>
+            <View style={styles.card}>
+              <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 11, marginTop: '13%'}]}>{duetitle}</Text>
+              <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 11, marginTop: '5%'}]}>{duedate}</Text>
+              <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 17, marginTop: '5%', color: '#D7595A'}]}>{pm}</Text>
+            </View>
+            <View style={styles.card}>
+              <Quote/>
+            </View>
+          </View>
+        </View>
+
+        <View style={[Global.container, {paddingHorizontal: 20, marginTop : '2.5%'}]}>
+          <View style={{justifyContent: 'space-between', marginBottom:10}}>
+            <Text style={[Global.text, {fontSize: 20, color:'lightblue'}]}>{'<'}오늘의 주요 판례{'>'}</Text>
+          </View>  
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+          >
+            <Today/>
+          </ScrollView>          
+        </View>
+      </View>
+  </SafeAreaView>
+  );
+}
+
+function chapterOne() {
+  return (
+    <Part label='노동법 총론' data={ChapterOne}/>
+  );
+}
+function chapterTwo() {
+  return (
+    <Part label='개별적 근로관계법' data={ChapterTwo}/>
+  );
+}
+function chapterThree() {
+  return (
+    <Part label='비정규 근로자에 관한 특별법' data={ChapterThree}/>
+  );
+}
+function chapterFour() {
+  return (
+    <Part label='집단적 노사관계법' data={ChapterFour}/>
+  );
+}
+
+const Tab = createBottomTabNavigator();
+
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
@@ -33,30 +100,30 @@ export default function App() {
               <Text style={[Global.text, {fontSize: 25}]}>노동법</Text>
           </View>
         </SafeAreaView>
-        <SafeAreaView style={[Global.container, {marginTop: -15}]}>
-          <ScrollableTabView
-            tabBarActiveTextColor='#D4D4D4'
-            tabBarInactiveTextColor='#7B7B7B'
-            tabBarBackgroundColor='#242424'
-            renderTabBar={() => 
-              <TabBar 
-                underlineColor='#D4D4D4' 
-                tabBarStyle={{marginBottom: -2}}
-                tabBarTextStyle={{fontFamily: 'gothic-bold', fontSize: 15, paddingTop: 10 }}
-                tabMargin={18}
-                underlineHeight={3}
-                tabBadgeColor='red'
-              />}
-          >
-            <Home tabLabel={{label: "  HOME  "}} label="오늘의 학습"/>
-            <Part tabLabel={{label: "  제1편  "}} label="노동법총론" data={ChapterOne}/>
-            <Part tabLabel={{label: "  제2편  "}} label="개별적 근로관계법" data={ChapterTwo}/>
-            <Part tabLabel={{label: "  제3편  "}} label="비정규 근로자에 관한 특별법" data={ChapterThree}/>
-            <Part tabLabel={{label: "  제4편  "}} label="집단적 노사관계법" data={ChapterFour}/>
+        
+        <NavigationContainer>
+          <Tab.Navigator
+            screenOptions={({ route }) => ({
+              tabBarIcon: ({ focused }) => {
+                let color = focused ? 'white' : 'gray';
 
-            <Test tabLabel={{label: "  기출문제  "}} />
-          </ScrollableTabView>
-        </SafeAreaView>
+                return <Text style={{color: color, fontWeight: 'bold', fontSize: 17}}>{route.name}</Text>;
+              },
+            })}
+            tabBarOptions={{
+              activeBackgroundColor: '#242424',
+              inactiveBackgroundColor: '#242424',
+              showLabel: false
+            }}
+          >
+            <Tab.Screen name="HOME" component={HomeScreen} />
+            <Tab.Screen name="1편" component={chapterOne} />
+            <Tab.Screen name="2편" component={chapterTwo} />
+            <Tab.Screen name="3편" component={chapterThree} />
+            <Tab.Screen name="4편" component={chapterFour} />
+          </Tab.Navigator>
+        </NavigationContainer>
+
         <StatusBar style={'light'}/>
       </SafeAreaView>
     );
@@ -69,3 +136,19 @@ export default function App() {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  card: {
+      marginVertical: '3%',
+      borderRadius: 6,
+      backgroundColor: '#202020',
+      shadowOffset: { width: 1, height: 1 },
+      shadowColor: '#333',
+      shadowOpacity: 0.3,
+      shadowRadius: 2,
+      height: 100,
+      width: '45%',
+      marginHorizontal : '1.5%', 
+      paddingHorizontal : '2%'
+  }
+});
