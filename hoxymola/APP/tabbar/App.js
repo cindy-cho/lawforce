@@ -1,12 +1,11 @@
 import React, { useState, } from 'react';
-import { Text, View, SafeAreaView, StyleSheet,  } from 'react-native';
+import { Text, View, SafeAreaView, StyleSheet, Dimensions  } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 import Global from './shared/Global';
 import Quote from './screens/todayQuote';
 import Today from './screens/todaySample';
-import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
@@ -24,7 +23,9 @@ const getFonts = () => Font.loadAsync({
   'gothic-light': require('./assets/fonts/NanumBarunGothicLight.ttf'),
   'gothic-ultralight': require('./assets/fonts/NanumBarunGothicUltraLight.ttf'),
 });
- 
+
+const screen = Dimensions.get('window');
+
 function HomeScreen() {
   var now = new Date();
   var then = new Date("December 2, 2020");
@@ -94,7 +95,7 @@ export default function App() {
 
   if (fontsLoaded) {
     return (
-      <SafeAreaView style={[Global.container, {backgroundColor: '#242424'}]}>
+      <SafeAreaView style={[Global.container, {backgroundColor: '#242424', }]}>
         <SafeAreaView style={Global.header}>
           <View>
               <Text style={[Global.text, {fontSize: 25}]}>노동법</Text>
@@ -105,7 +106,7 @@ export default function App() {
           <Tab.Navigator
             screenOptions={({ route }) => ({
               tabBarIcon: ({ focused }) => {
-                let color = focused ? 'white' : 'gray';
+                let color = focused ? '#D4D4D4' : 'gray';
 
                 return <Text style={{color: color, fontWeight: 'bold', fontSize: 17}}>{route.name}</Text>;
               },
@@ -113,7 +114,8 @@ export default function App() {
             tabBarOptions={{
               activeBackgroundColor: '#242424',
               inactiveBackgroundColor: '#242424',
-              showLabel: false
+              showLabel: false,
+              style: {height: screen.height / 12, borderTopColor: '#D4D4D4', borderTopWidth: StyleSheet.hairlineWidth}
             }}
           >
             <Tab.Screen name="HOME" component={HomeScreen} />
