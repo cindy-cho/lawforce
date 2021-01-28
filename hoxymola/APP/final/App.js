@@ -30,10 +30,10 @@ function HomeScreen() {
       <View style={Global.container}>
         <View style={{paddingBottom: 10},{alignItems :'center'}}>
           <View style={{flexDirection : 'row'}}>
-            <View style={styles.card}>
-              <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 11, marginTop: '13%'}]}>{duetitle}</Text>
-              <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 11, marginTop: '5%'}]}>{duedate}</Text>
-              <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 17, marginTop: '5%', color: '#D7595A'}]}>{pm}</Text>
+            <View style={[styles.card, {justifyContent: 'space-evenly', padding: 10}]}>
+              <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 11}]}>{duetitle}</Text>
+              <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 11}]}>{duedate}</Text>
+              <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 17, color: '#D7595A'}]}>{pm}</Text>
             </View>
             <View style={styles.card}>
               <Quote/>
@@ -81,7 +81,8 @@ function HowTo() {
     <View style={{backgroundColor: '#242424', alignItems: 'center', flex: 1}}>
       <Image 
         source={require('./assets/howto.png')}
-        style={{width: screen.width * 0.75, height: screen.height * 0.75}}
+        style={{flex: 1}}
+        resizeMode='contain'
       />
     </View>
   );
