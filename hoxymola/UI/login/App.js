@@ -12,7 +12,7 @@ export default class App extends React.Component{
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
           <Stack.Screen name="Home" component={Homescreen}/>
-          <Stack.Screen name="Login" component={Loginscreen}/>
+          
         </Stack.Navigator>
       </NavigationContainer>
     );
