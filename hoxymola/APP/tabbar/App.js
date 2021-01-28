@@ -3,6 +3,7 @@ import { Text, View, SafeAreaView, StyleSheet,  } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
+<<<<<<< Updated upstream
 import Global from './shared/Global';
 import Quote from './screens/todayQuote';
 import Today from './screens/todaySample';
@@ -17,6 +18,8 @@ import { ChapterOne } from './data/PartOne';
 import { ChapterTwo } from './data/PartTwo';
 import { ChapterThree } from './data/PartThree';
 import { ChapterFour } from './data/PartFour';
+=======
+>>>>>>> Stashed changes
 
 const getFonts = () => Font.loadAsync({
   'gothic': require('./assets/fonts/NanumBarunGothic.ttf'),
@@ -24,6 +27,7 @@ const getFonts = () => Font.loadAsync({
   'gothic-light': require('./assets/fonts/NanumBarunGothicLight.ttf'),
   'gothic-ultralight': require('./assets/fonts/NanumBarunGothicUltraLight.ttf'),
 });
+<<<<<<< Updated upstream
  
 function HomeScreen() {
   var now = new Date();
@@ -88,12 +92,15 @@ function chapterFour() {
 }
 
 const Tab = createBottomTabNavigator();
+=======
+>>>>>>> Stashed changes
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
   if (fontsLoaded) {
     return (
+<<<<<<< Updated upstream
       <SafeAreaView style={[Global.container, {backgroundColor: '#242424'}]}>
         <SafeAreaView style={Global.header}>
           <View>
@@ -126,6 +133,12 @@ export default function App() {
 
         <StatusBar style={'light'}/>
       </SafeAreaView>
+=======
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <Text style={{fontFamily: 'gothic-bold'}}>HI</Text>
+        <Text style={{fontFamily: 'gothic'}}>HI</Text>
+      </View>
+>>>>>>> Stashed changes
     );
   } else {
     return (
@@ -136,19 +149,3 @@ export default function App() {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  card: {
-      marginVertical: '3%',
-      borderRadius: 6,
-      backgroundColor: '#202020',
-      shadowOffset: { width: 1, height: 1 },
-      shadowColor: '#333',
-      shadowOpacity: 0.3,
-      shadowRadius: 2,
-      height: 100,
-      width: '45%',
-      marginHorizontal : '1.5%', 
-      paddingHorizontal : '2%'
-  }
-});
