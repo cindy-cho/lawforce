@@ -1,8 +1,8 @@
 {
   "expo": {
     "name": "노동판례 300선 체험판",
-    "slug": "labor_law_free",
-    "version": "1.0.1",
+    "slug": "labor_law_Lite",
+    "version": "1.2.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -18,15 +18,15 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "hoxymola.com.laborLawFree",
-      "buildNumber": "1.1.1"
+      "bundleIdentifier": "hoxymola.com.laborLawLite",
+      "buildNumber": "1.2.1"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "hoxymola.com.laborLawFree",
+      "package": "hoxymola.com.laborLawLite",
       "versionCode": 2
     },
     "web": {
