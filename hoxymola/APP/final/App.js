@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Image, Text, View, SafeAreaView, Dimensions, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { Image, Text, View, SafeAreaView, Dimensions, StyleSheet, ScrollView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as Font from 'expo-font';
@@ -13,45 +13,74 @@ import { ChapterOne } from './data/PartOne';
 import { ChapterTwo } from './data/PartTwo';
 import { ChapterThree } from './data/PartThree';
 import { ChapterFour } from './data/PartFour';
+import HTML from "react-native-render-html";
 
+const tag = `
+  <span style = "font-size: 18; color: #D4D4D4; font-family: gothic;">
+`
+const htmlContent = `
+
+<h3 data-ke-size="size23">관행의&nbsp;법원성&nbsp;<b>[규사명&nbsp;이사확]</b></h3>
+<p data-ke-size="size18">관행이&nbsp;근로계약의&nbsp;내용을&nbsp;이루고&nbsp;있다고&nbsp;하기&nbsp;위하여는&nbsp;그러한&nbsp;①&nbsp;<u>관행이&nbsp;기업사회에서&nbsp;일반적으로&nbsp;근로관계를&nbsp;규율하는&nbsp;<span style="color: #000000; background-color: #f3c000;"><b>규</b></span>범적인&nbsp;<b><span style="background-color: #f3c000;">사</span></b>실로서&nbsp;<span style="background-color: #f3c000;"><b>명</b></span>확히&nbsp;승인되거나</u>&nbsp;②&nbsp;<u>기업의&nbsp;구성원에&nbsp;의하여&nbsp;일반적으로&nbsp;아무도&nbsp;<span style="background-color: #f3c000;"><b>이</b></span>의를&nbsp;제기하지&nbsp;아니한&nbsp;채&nbsp;당연한&nbsp;것으로&nbsp;받아들여져서&nbsp;기업&nbsp;내에서&nbsp;<span style="background-color: #f3c000;"><b>사</b></span>실상의&nbsp;제도로서&nbsp;<span style="background-color: #f3c000;"><b>확</b></span>립되어&nbsp;있다고&nbsp;할&nbsp;수&nbsp;있을&nbsp;정도의&nbsp;규범의식에&nbsp;의하여&nbsp;지지되고&nbsp;있어야&nbsp;한다</u>&nbsp;<i>(대판&nbsp;2002.4.23.&nbsp;2000다50701).</i></p>
+`
+
+const tag2 = `
+  </span>
+`
 
 function HomeScreen() {
 
   var now = new Date();
-  var then = new Date("August 21, 2021");
-  var duetitle = "2차 시험일";
-  var duedate = "2021. 08. 21";
+  var then = new Date("May 8, 2021");
+  var duetitle = "1차 시험일";
+  var duedate = "2021. 05. 08";
   var gap = then.getTime() - now.getTime();
   gap = Math.floor(gap / (1000 * 60 * 60 * 24) + 1);
   var pm = gap > 0 ? "D-"+gap : gap == 0 ? "D-Day" : "D+"+-gap;
 
+  var then2 = new Date("August 21, 2021");
+  var duetitle2 = "2차 시험일";
+  var duedate2 = "2021. 08. 21";
+  var gap2 = then2.getTime() - now.getTime();
+  gap2 = Math.floor(gap2 / (1000 * 60 * 60 * 24) + 1);
+  var pm2 = gap2 > 0 ? "D-"+gap2 : gap2 == 0 ? "D-Day" : "D+"+-gap2;
+
   return (
     <SafeAreaView style={[Global.container, {backgroundColor: '#2E2E2E'}]}>
-      <View style={Global.container}>
-        <View style={{paddingBottom: 10},{alignItems :'center'}}>
-          <View style={{flexDirection : 'row'}}>
-            <View style={[styles.card, {justifyContent: 'space-evenly', padding: 10}]}>
-              <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 11}]}>{duetitle}</Text>
-              <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 11}]}>{duedate}</Text>
-              <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 17, color: '#D7595A'}]}>{pm}</Text>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+      >
+        <View style={Global.container}>
+          <View style={{paddingBottom: 10},{alignItems :'center'}}>
+            <View style={{flexDirection : 'row'}}>
+              <View style={[styles.card, {justifyContent: 'space-evenly', padding: 10}]}>
+                <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 11}]}>{duetitle}</Text>
+                <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 11}]}>{duedate}</Text>
+                <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 17, color: '#D7595A'}]}>{pm}</Text>
+              </View>
+              <View style={[styles.card, {justifyContent: 'space-evenly', padding: 10}]}>
+                <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 11}]}>{duetitle2}</Text>
+                <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 11}]}>{duedate2}</Text>
+                <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 17, color: '#D7595A'}]}>{pm2}</Text>
+              </View>
             </View>
-            <View style={styles.card}>
+            <View style={[styles.card, {marginTop: 0, width: '93%'}]}>
               <Quote/>
             </View>
+            <View style={{borderColor: 'white', borderWidth: 1, width: '100%', padding: 10, height: '30%', backgroundColor: 'white'}}>
+              <HTML source={{html: htmlContent }} />
+            </View>
+
+          </View>
+
+          <View style={[Global.container, {paddingHorizontal: 20, marginTop : '2.5%'}]}>
+            <View style={{justifyContent: 'space-between', marginBottom:10}}>
+              <Text style={[Global.text, {fontSize: 20, color:'lightblue'}]}>{'<'}오늘의 주요 판례{'>'}</Text>
+            </View>  
+              <Today/>
           </View>
         </View>
-
-        <View style={[Global.container, {paddingHorizontal: 20, marginTop : '2.5%'}]}>
-          <View style={{justifyContent: 'space-between', marginBottom:10}}>
-            <Text style={[Global.text, {fontSize: 20, color:'lightblue'}]}>{'<'}오늘의 주요 판례{'>'}</Text>
-          </View>  
-          <ScrollView
-            showsVerticalScrollIndicator={false}
-          >
-            <Today/>
-          </ScrollView>          
-        </View>
-      </View>
+      </ScrollView>          
   </SafeAreaView>
   );
 }

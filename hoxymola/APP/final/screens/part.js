@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { StyleSheet, View, Text, Modal, FlatList, SafeAreaView, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 import Global from '../shared/Global';
-import { Entypo, AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
+import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 
 export default function PartBasic({ label, data }) {
@@ -10,29 +10,29 @@ export default function PartBasic({ label, data }) {
   const [text, setText] = useState('aa');
   const [flag, setFlag] = useState(false);
   const [contentIndex, setContentIndex] = useState(0);
-  const [eye, setEye] = useState('eye');
+  //const [eye, setEye] = useState('eye');
   const [title, setTitle] =useState('bb');
   const scrollRef = useRef();
 
   const screen = Dimensions.get('window');
 
   const triger = () => {
-    if (!flag) {
-      setText(data[index-1].content[contentIndex].text[0])
-      setFlag(true)
-      setEye('eye')
-    } else {
+    if (flag) {
       setText(data[index-1].content[contentIndex].text[1])
       setFlag(false)
-      setEye('eye-with-line')
+      //setEye('eye')
+    } else {
+      setText(data[index-1].content[contentIndex].text[0])
+      setFlag(true)
+      //setEye('eye-with-line')
     }
   }
   const next = () => {
     if(contentIndex != data[index-1].content.length - 1) {
       setContentIndex( (contentIndex + 1) )
-      setText(data[index-1].content[contentIndex + 1].text[0])
-      setFlag(true)
-      setEye('eye')
+      setText(data[index-1].content[contentIndex + 1].text[1])
+      setFlag(false)
+      //setEye('eye')
       setTitle(data[index-1].content[contentIndex + 1].subtitle)
       scrollRef.current.scrollTo({y: 0, animated: false});
     }
@@ -40,9 +40,9 @@ export default function PartBasic({ label, data }) {
   const prev = () => {
     if(contentIndex != 0){
       setContentIndex( (contentIndex - 1) )
-      setText(data[index - 1].content[contentIndex - 1].text[0])
-      setFlag(true)
-      setEye('eye')
+      setText(data[index - 1].content[contentIndex - 1].text[1])
+      setFlag(false)
+      //setEye('eye')
       setTitle(data[index-1].content[contentIndex - 1].subtitle)
       scrollRef.current.scrollTo({y: 0, animated: false});
     }
@@ -75,7 +75,12 @@ export default function PartBasic({ label, data }) {
             ref={scrollRef}
             bounces={false}
           >
-            <Text style={[Global.text, {paddingVertical: 15, lineHeight: 27, fontFamily: 'gothic', fontSize: 18, color: '#D4D4D4', letterSpacing: 0}]}>{text}</Text>
+            <TouchableOpacity
+              activeOpacity={1}
+              onPress={triger}
+            >          
+              <Text style={[Global.text, {paddingVertical: 15, lineHeight: 27, fontFamily: 'gothic', fontSize: 18, color: '#D4D4D4', letterSpacing: 0}]}>{text}</Text>
+            </TouchableOpacity>
           </ScrollView>
         </View>
         <View style={{backgroundColor: '#242424', flexDirection: 'column', height: screen.height / 12, justifyContent: 'center'}}>
@@ -86,27 +91,18 @@ export default function PartBasic({ label, data }) {
                 activeOpacity={1}
                 onPress={prev}
               >
-                <MaterialCommunityIcons name='arrow-left' color='#D4D4D4' size={30} style={{paddingHorizontal: 10}}/>
+                <MaterialCommunityIcons name='arrow-left' color='#D4D4D4' size={30} style={{paddingHorizontal: 15}}/>
               </TouchableOpacity>
-              <TouchableOpacity
-                activeOpacity={1}
-                onPress={next}
-              >
-                <MaterialCommunityIcons name='arrow-right'color='#D4D4D4' size={30} style={{paddingHorizontal: 10}}/>
-              </TouchableOpacity>
+              
             </View>
 
             <Text style={[Global.text, {fontSize: 18, color: '#D4D4D4', alignSelf: 'center', }]}>{contentIndex + 1}/{data[index-1].content.length}</Text>
             <View style={{flexDirection: 'row'}}>
-              <View style={{paddingHorizontal: 10}}>
-                <Entypo name={eye} size={30} color='#242424' />
-              </View>
               <TouchableOpacity
                 activeOpacity={1}
-                onPress={triger}
-                style={{paddingHorizontal: 10}}
+                onPress={next}
               >
-                <Entypo name={eye} size={30} color='#D4D4D4' />
+                <MaterialCommunityIcons name='arrow-right'color='#D4D4D4' size={30} style={{paddingHorizontal: 15}}/>
               </TouchableOpacity>
             </View>
           </View>
@@ -124,12 +120,12 @@ export default function PartBasic({ label, data }) {
             <TouchableOpacity
               onPress={() => {
                 setModalOpen(true)
-                setText(item.content[0].text[0])
+                setText(item.content[0].text[1])
                 setIndex(item.key)
-                setFlag(true)
+                setFlag(false)
                 setContentIndex(0);
                 setTitle(item.content[0].subtitle)
-                setEye('eye')
+                //setEye('eye')
               }}
             >
               <View style={[Global.container, {borderWidth: StyleSheet.hairlineWidth, borderBottomColor: '#2E2E2E', paddingVertical: 20, flexDirection: 'row'}]}>
