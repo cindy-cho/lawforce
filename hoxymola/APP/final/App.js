@@ -14,7 +14,7 @@ import { ChapterTwo } from './data/PartTwo';
 import { ChapterThree } from './data/PartThree';
 import { ChapterFour } from './data/PartFour';
 import HTML from "react-native-render-html";
-
+import firebase from 'firebase';
 const tag = `
   <span style = "font-size: 18; color: #D4D4D4; font-family: gothic;">
 `
@@ -67,9 +67,10 @@ function HomeScreen() {
             <View style={[styles.card, {marginTop: 0, width: '93%'}]}>
               <Quote/>
             </View>
-            <View style={{borderColor: 'white', borderWidth: 1, width: '100%', padding: 10, height: '30%', backgroundColor: 'white'}}>
+            {/* <View style={{borderColor: 'white', borderWidth: 1, width: '100%', padding: 10, height: '30%', backgroundColor: 'white'}}>
+              
               <HTML source={{html: htmlContent }} />
-            </View>
+            </View> */}
 
           </View>
 
@@ -121,25 +122,53 @@ const Tab = createBottomTabNavigator();
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    
-    this.state = {isReady: false};
+    this.state = {data: [] }
   }
   
-  async componentDidMount() {
-    await Font.loadAsync({
-      'gothic': require('./assets/fonts/NanumBarunGothic.ttf'),
-      'gothic-bold': require('./assets/fonts/NanumBarunGothicBold.ttf'),
-      'gothic-light': require('./assets/fonts/NanumBarunGothicLight.ttf'),
-      'gothic-ultralight': require('./assets/fonts/NanumBarunGothicUltraLight.ttf'),
-    });
+   async componentDidMount() {
+     await Font.loadAsync({
+       'gothic': require('./assets/fonts/NanumBarunGothic.ttf'),
+       'gothic-bold': require('./assets/fonts/NanumBarunGothicBold.ttf'),
+       'gothic-light': require('./assets/fonts/NanumBarunGothicLight.ttf'),
+       'gothic-ultralight': require('./assets/fonts/NanumBarunGothicUltraLight.ttf'),
+     });
     
     this.setState({ isReady: true });
+
+    firebase.initializeApp({
+      apiKey: "AIzaSyBQtbIY7bAxgfZ-jfYWrP22mRFwaX2cG4g",
+      authDomain: "laborlaw2-2f10b.firebaseapp.com",
+      databaseURL: "https://laborlaw2-2f10b-default-rtdb.firebaseio.com",
+      projectId: "laborlaw2-2f10b",
+      storageBucket: "laborlaw2-2f10b.appspot.com",
+      messagingSenderId: "870016783930",
+      appId: "1:870016783930:web:1aaa93a9bd9909ec990703",
+      measurementId: "G-342J7W9K82"
+    });
+    const ref = firebase.database().ref();
+
+    ref.on("value", snapshot => {
+      this.setState({ data: snapshot.val() });
+      this.setState({ isReadytoo: true });
+    });
   }
   
   render() {
-    if (this.state.isReady) {
+    if (this.state.isReady && this.state.isReadytoo) {
       return (
         <SafeAreaView style={[Global.container, {backgroundColor: '#242424', }]}>
+          <View>
+            {
+              this.state.data.map(value => {
+                return (
+                  <View>
+                    <Text>{value.name}</Text>
+                   </View> 
+                )
+              })
+            }
+          </View>
+        
         <SafeAreaView style={[Global.header]}>
           <View>
               <Text style={[Global.text, {fontSize: 25}]}>노동법</Text>
