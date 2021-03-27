@@ -13,23 +13,8 @@ import { ChapterOne } from './data/PartOne';
 import { ChapterTwo } from './data/PartTwo';
 import { ChapterThree } from './data/PartThree';
 import { ChapterFour } from './data/PartFour';
-import HTML from "react-native-render-html";
-import firebase from 'firebase';
-const tag = `
-  <span style = "font-size: 18; color: #D4D4D4; font-family: gothic;">
-`
-const htmlContent = `
-
-<h3 data-ke-size="size23">관행의&nbsp;법원성&nbsp;<b>[규사명&nbsp;이사확]</b></h3>
-<p data-ke-size="size18">관행이&nbsp;근로계약의&nbsp;내용을&nbsp;이루고&nbsp;있다고&nbsp;하기&nbsp;위하여는&nbsp;그러한&nbsp;①&nbsp;<u>관행이&nbsp;기업사회에서&nbsp;일반적으로&nbsp;근로관계를&nbsp;규율하는&nbsp;<span style="color: #000000; background-color: #f3c000;"><b>규</b></span>범적인&nbsp;<b><span style="background-color: #f3c000;">사</span></b>실로서&nbsp;<span style="background-color: #f3c000;"><b>명</b></span>확히&nbsp;승인되거나</u>&nbsp;②&nbsp;<u>기업의&nbsp;구성원에&nbsp;의하여&nbsp;일반적으로&nbsp;아무도&nbsp;<span style="background-color: #f3c000;"><b>이</b></span>의를&nbsp;제기하지&nbsp;아니한&nbsp;채&nbsp;당연한&nbsp;것으로&nbsp;받아들여져서&nbsp;기업&nbsp;내에서&nbsp;<span style="background-color: #f3c000;"><b>사</b></span>실상의&nbsp;제도로서&nbsp;<span style="background-color: #f3c000;"><b>확</b></span>립되어&nbsp;있다고&nbsp;할&nbsp;수&nbsp;있을&nbsp;정도의&nbsp;규범의식에&nbsp;의하여&nbsp;지지되고&nbsp;있어야&nbsp;한다</u>&nbsp;<i>(대판&nbsp;2002.4.23.&nbsp;2000다50701).</i></p>
-`
-
-const tag2 = `
-  </span>
-`
 
 function HomeScreen() {
-
   var now = new Date();
   var then = new Date("May 8, 2021");
   var duetitle = "1차 시험일";
@@ -67,22 +52,17 @@ function HomeScreen() {
             <View style={[styles.card, {marginTop: 0, width: '93%'}]}>
               <Quote/>
             </View>
-            {/* <View style={{borderColor: 'white', borderWidth: 1, width: '100%', padding: 10, height: '30%', backgroundColor: 'white'}}>
-              
-              <HTML source={{html: htmlContent }} />
-            </View> */}
-
           </View>
 
           <View style={[Global.container, {paddingHorizontal: 20, marginTop : '2.5%'}]}>
             <View style={{justifyContent: 'space-between', marginBottom:10}}>
               <Text style={[Global.text, {fontSize: 20, color:'lightblue'}]}>{'<'}오늘의 주요 판례{'>'}</Text>
             </View>  
-              <Today/>
+            <Today/>
           </View>
         </View>
       </ScrollView>          
-  </SafeAreaView>
+    </SafeAreaView>
   );
 }
 function chapterOne() {
@@ -122,86 +102,56 @@ const Tab = createBottomTabNavigator();
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {data: [] }
+    this.state = {isReady: false};
   }
   
-   async componentDidMount() {
-     await Font.loadAsync({
-       'gothic': require('./assets/fonts/NanumBarunGothic.ttf'),
-       'gothic-bold': require('./assets/fonts/NanumBarunGothicBold.ttf'),
-       'gothic-light': require('./assets/fonts/NanumBarunGothicLight.ttf'),
-       'gothic-ultralight': require('./assets/fonts/NanumBarunGothicUltraLight.ttf'),
-     });
-    
+  async componentDidMount() {
+    await Font.loadAsync({
+      'gothic': require('./assets/fonts/NanumBarunGothic.ttf'),
+      'gothic-bold': require('./assets/fonts/NanumBarunGothicBold.ttf'),
+      'gothic-light': require('./assets/fonts/NanumBarunGothicLight.ttf'),
+      'gothic-ultralight': require('./assets/fonts/NanumBarunGothicUltraLight.ttf'),
+    });
     this.setState({ isReady: true });
-
-    firebase.initializeApp({
-      apiKey: "AIzaSyBQtbIY7bAxgfZ-jfYWrP22mRFwaX2cG4g",
-      authDomain: "laborlaw2-2f10b.firebaseapp.com",
-      databaseURL: "https://laborlaw2-2f10b-default-rtdb.firebaseio.com",
-      projectId: "laborlaw2-2f10b",
-      storageBucket: "laborlaw2-2f10b.appspot.com",
-      messagingSenderId: "870016783930",
-      appId: "1:870016783930:web:1aaa93a9bd9909ec990703",
-      measurementId: "G-342J7W9K82"
-    });
-    const ref = firebase.database().ref();
-
-    ref.on("value", snapshot => {
-      this.setState({ data: snapshot.val() });
-      this.setState({ isReadytoo: true });
-    });
   }
   
   render() {
-    if (this.state.isReady && this.state.isReadytoo) {
+    if (this.state.isReady) {
       return (
         <SafeAreaView style={[Global.container, {backgroundColor: '#242424', }]}>
-          <View>
-            {
-              this.state.data.map(value => {
-                return (
-                  <View>
-                    <Text>{value.name}</Text>
-                   </View> 
-                )
-              })
-            }
-          </View>
-        
-        <SafeAreaView style={[Global.header]}>
-          <View>
-              <Text style={[Global.text, {fontSize: 25}]}>노동법</Text>
-          </View>
+          <SafeAreaView style={[Global.header]}>
+            <View>
+                <Text style={[Global.text, {fontSize: 25}]}>노동법</Text>
+            </View>
+          </SafeAreaView>
+          
+          <NavigationContainer>
+            <Tab.Navigator
+              screenOptions={({ route }) => ({
+                tabBarIcon: ({ focused }) => {
+                  let color = focused ? '#D4D4D4' : 'gray';
+
+                  return <Text style={{color: color, fontWeight: 'bold', fontSize: 17}}>{route.name}</Text>;
+                },
+              })}
+              tabBarOptions={{
+                activeBackgroundColor: '#242424',
+                inactiveBackgroundColor: '#242424',
+                showLabel: false,
+                style: {height: screen.height / 12, borderTopColor: '#D4D4D4', borderTopWidth: StyleSheet.hairlineWidth}
+              }}
+            >
+              <Tab.Screen name="HOME" component={HomeScreen} />
+              <Tab.Screen name="1편" component={chapterOne} />
+              <Tab.Screen name="2편" component={chapterTwo} />
+              <Tab.Screen name="3편" component={chapterThree} />
+              <Tab.Screen name="4편" component={chapterFour} />
+              <Tab.Screen name="HELP" component={HowTo} />
+            </Tab.Navigator>
+          </NavigationContainer>
+
+          <StatusBar style={'light'}/>
         </SafeAreaView>
-        
-        <NavigationContainer>
-          <Tab.Navigator
-            screenOptions={({ route }) => ({
-              tabBarIcon: ({ focused }) => {
-                let color = focused ? '#D4D4D4' : 'gray';
-
-                return <Text style={{color: color, fontWeight: 'bold', fontSize: 17}}>{route.name}</Text>;
-              },
-            })}
-            tabBarOptions={{
-              activeBackgroundColor: '#242424',
-              inactiveBackgroundColor: '#242424',
-              showLabel: false,
-              style: {height: screen.height / 12, borderTopColor: '#D4D4D4', borderTopWidth: StyleSheet.hairlineWidth}
-            }}
-          >
-            <Tab.Screen name="HOME" component={HomeScreen} />
-            <Tab.Screen name="1편" component={chapterOne} />
-            <Tab.Screen name="2편" component={chapterTwo} />
-            <Tab.Screen name="3편" component={chapterThree} />
-            <Tab.Screen name="4편" component={chapterFour} />
-            <Tab.Screen name="HELP" component={HowTo} />
-          </Tab.Navigator>
-        </NavigationContainer>
-
-        <StatusBar style={'light'}/>
-      </SafeAreaView>
       );
     }
     else {
