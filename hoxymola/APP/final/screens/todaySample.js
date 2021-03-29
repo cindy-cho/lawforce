@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import HTML from 'react-native-render-html';
 import Global from '../shared/Global';
 import { ChapterThree } from '../data/PartThree';
 import { ChapterTwo } from '../data/PartTwo';
@@ -10,12 +11,7 @@ function TodayElement({todayElement}){
 
     return(
         <View>
-            <Text style={[Global.text, {color:'#D4D4D4',fontSize: 18, marginTop: 10}]}>
-                {todayElement.content[0].subtitle}
-            </Text>
-            <Text style={[Global.text, {marginTop:10, fontSize: 15, lineHeight : 27, color:'#D1D0CE'}]}>
-                {todayElement.content[0].text[0]}
-            </Text>
+            <HTML source={{html : todayElement.content[0].text[0]}}/>
         </View>
     );
 }
