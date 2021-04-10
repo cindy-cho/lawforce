@@ -4,11 +4,8 @@ import Global from '../shared/Global';
 import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import HTML from "react-native-render-html";
-import { StackRouter } from 'react-navigation';
-import { StackActions } from '@react-navigation/routers';
-import { Navigation } from 'react-native-navigation';
 
-export default function PartBasic({ label, data, navigation }) {
+export default function study({ label, data, navigation }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [index, setIndex] = useState(1);
   const [text, setText] = useState('aa');
@@ -16,21 +13,14 @@ export default function PartBasic({ label, data, navigation }) {
   const [contentIndex, setContentIndex] = useState(0);
   const [title, setTitle] =useState('bb');
   const scrollRef = useRef();
+
   const screen = Dimensions.get('window');
 
-  const triger = () => {
-    if (flag) {
-      setText(data[index-1].content[contentIndex].text[1])
-      setFlag(false)
-    } else {
-      setText(data[index-1].content[contentIndex].text[0])
-      setFlag(true)
-    }
-  }
+  
   const next = () => {
     if(contentIndex != data[index-1].content.length - 1) {
       setContentIndex( (contentIndex + 1) )
-      setText(data[index-1].content[contentIndex + 1].text[1])
+      setText(data[index-1].content[contentIndex + 1].text[0])
       setFlag(false)
       scrollRef.current.scrollTo({y: 0, animated: false});
     }
@@ -38,7 +28,7 @@ export default function PartBasic({ label, data, navigation }) {
   const prev = () => {
     if(contentIndex != 0){
       setContentIndex( (contentIndex - 1) )
-      setText(data[index - 1].content[contentIndex - 1].text[1])
+      setText(data[index - 1].content[contentIndex - 1].text[0])
       setFlag(false)
       scrollRef.current.scrollTo({y: 0, animated: false});
     }
@@ -70,14 +60,11 @@ export default function PartBasic({ label, data, navigation }) {
             showsVerticalScrollIndicator={false}
             ref={scrollRef}
           >
-            <TouchableOpacity
-              activeOpacity={1}
-              onPress={triger}
-            >       
+               
               <View style={{paddingVertical: 15}}>   
                 <HTML source={{html: text}} />
               </View>
-            </TouchableOpacity>
+            
           </ScrollView>
         </View>
         <View style={{backgroundColor: '#242424', flexDirection: 'column', height: screen.height / 12, justifyContent: 'center'}}>
@@ -108,13 +95,13 @@ export default function PartBasic({ label, data, navigation }) {
       </Modal>  
 
       <View style={{backgroundColor: '#242424', paddingLeft: 10, paddingRight: 20, paddingTop: 10, paddingBottom: 5}}>
-          <TouchableOpacity
+        <TouchableOpacity
               activeOpacity={1}
               onPress={() => navigation.goBack()}
               style={{flexDirection: 'row', alignItems: 'center'}}
             >
-              <AntDesign name='left' color='#D7595A' size={20}/>
-              <Text style={[Global.text, {fontSize: 25, fontWeight: 'bold', color: '#D7595A'}]}>{label}</Text>
+              <AntDesign name='left' color='skyblue' size={20}/>
+              <Text style={[Global.text, {fontSize: 25, fontWeight: 'bold', color: 'skyblue'}]}>{label}</Text>
           </TouchableOpacity>
         <Text style={[Global.text, {fontSize: 15, fontWeight: 'bold', alignSelf: 'flex-end'}]}>{data.length}개 주제</Text>
       </View> 
@@ -125,7 +112,7 @@ export default function PartBasic({ label, data, navigation }) {
             <TouchableOpacity
               onPress={() => {
                 setModalOpen(true)
-                setText(item.content[0].text[1])
+                setText(item.content[0].text[0])
                 setIndex(item.key)
                 setFlag(false)
                 setContentIndex(0);

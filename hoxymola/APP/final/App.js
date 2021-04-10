@@ -5,14 +5,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as Font from 'expo-font';
 
+import Test from './screens/test';
+import Study from './screens/study';
 import Global from './shared/Global';
-import Part from './screens/part'
 import Quote from './screens/todayQuote';
 import Today from './screens/todaySample';
-import { ChapterOne } from './data/PartOne';
-import { ChapterTwo } from './data/PartTwo';
-import { ChapterThree } from './data/PartThree';
-import { ChapterFour } from './data/PartFour';
 
 function HomeScreen() {
   var now = new Date();
@@ -65,24 +62,14 @@ function HomeScreen() {
     </SafeAreaView>
   );
 }
-function chapterOne() {
+function study() {
   return (
-    <Part label='노동법 총론' data={ChapterOne}/>
+    <Study />
   );
 }
-function chapterTwo() {
+function test() {
   return (
-    <Part label='개별적 근로관계법' data={ChapterTwo}/>
-  );
-}
-function chapterThree() {
-  return (
-    <Part label='비정규 근로자에 관한 특별법' data={ChapterThree}/>
-  );
-}
-function chapterFour() {
-  return (
-    <Part label='집단적 노사관계법' data={ChapterFour}/>
+    <Test />
   );
 }
 const screen = Dimensions.get('window');
@@ -142,10 +129,8 @@ export default class App extends React.Component {
               }}
             >
               <Tab.Screen name="HOME" component={HomeScreen} />
-              <Tab.Screen name="1편" component={chapterOne} />
-              <Tab.Screen name="2편" component={chapterTwo} />
-              <Tab.Screen name="3편" component={chapterThree} />
-              <Tab.Screen name="4편" component={chapterFour} />
+              <Tab.Screen name="STUDY" component={study} />
+              <Tab.Screen name="TEST" component={test} />
               <Tab.Screen name="HELP" component={HowTo} />
             </Tab.Navigator>
           </NavigationContainer>
