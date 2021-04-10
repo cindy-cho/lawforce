@@ -4,9 +4,6 @@ import Global from '../shared/Global';
 import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import HTML from "react-native-render-html";
-import { StackRouter } from 'react-navigation';
-import { StackActions } from '@react-navigation/routers';
-import { Navigation } from 'react-native-navigation';
 
 export default function PartBasic({ label, data, navigation }) {
   const [modalOpen, setModalOpen] = useState(false);
