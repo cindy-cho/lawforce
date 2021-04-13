@@ -20,7 +20,7 @@ export default function PartBasic({ label, data, navigation }) {
       setText(data[index-1].content[contentIndex].text[1])
       setFlag(false)
     } else {
-      setText(data[index-1].content[contentIndex].text[0])
+      setText(data[index-1].content[contentIndex].text[2])
       setFlag(true)
     }
   }
@@ -72,7 +72,7 @@ export default function PartBasic({ label, data, navigation }) {
               onPress={triger}
             >       
               <View style={{paddingVertical: 15}}>   
-                <HTML source={{html: text}} />
+                <Text style={[Global.text, {paddingVertical: 15, lineHeight: 30, fontFamily: 'gothic', fontSize: 18, color: '#CCCCCC'}]}>{text}</Text>
               </View>
             </TouchableOpacity>
           </ScrollView>
