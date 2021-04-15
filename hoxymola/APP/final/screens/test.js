@@ -9,8 +9,6 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import Part from '../screens/part'
 
-// 렌더링 할 컴포넌트. <div> => <View>
-// 'Go to Details' 버튼을 터치하면 'Details' 스크린으로 이동하게 된다.
 class HomeScreen extends React.Component {
   render() {
     return (

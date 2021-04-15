@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Image, Text, View, SafeAreaView, Dimensions, StyleSheet, ScrollView } from 'react-native';
+import { Text, View, SafeAreaView, Dimensions, StyleSheet, ScrollView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { SliderBox } from "react-native-image-slider-box";
 import * as Font from 'expo-font';
 
 import Test from './screens/test';
@@ -73,14 +74,25 @@ function test() {
   );
 }
 const screen = Dimensions.get('window');
+
 function HowTo() {
+  const [ph, setph] = useState(0);
+
   return (
-      <ScrollView horizontal={true} style={{flex: 1}}>
-        <Image 
-          source={require('./assets/howto.png')}
-          style={{minHeight: screen.height*0.5}}
-        />
-      </ScrollView>
+    <View style={{flex:1, backgroundColor: '#242424'}} onLayout={(event) => {
+      const {height} = event.nativeEvent.layout;
+      setph(height);
+    }}>
+      <SliderBox 
+        images={[require('./assets/howto1.png'),require('./assets/howto2.png')]}
+        sliderBoxHeight={ph}
+        resizeMode={'contain'}
+        dotColor={'skyblue'}
+        circleLoop={true}
+        autoplay={true}
+        ImageComponentStyle={{backgroundColor: '#242424'}}
+      />
+    </View>
   );
 }
 const Tab = createBottomTabNavigator();

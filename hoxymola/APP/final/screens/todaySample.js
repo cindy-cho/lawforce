@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import HTML from 'react-native-render-html';
-import Global from '../shared/Global';
 import { ChapterThree } from '../data/PartThree';
 import { ChapterTwo } from '../data/PartTwo';
 import { ChapterFour } from '../data/PartFour';

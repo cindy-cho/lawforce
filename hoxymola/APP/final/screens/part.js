@@ -3,7 +3,6 @@ import { StyleSheet, View, Text, Modal, FlatList, SafeAreaView, TouchableOpacity
 import Global from '../shared/Global';
 import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
-import HTML from "react-native-render-html";
 
 export default function PartBasic({ label, data, navigation }) {
   const [modalOpen, setModalOpen] = useState(false);
