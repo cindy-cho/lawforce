@@ -27,7 +27,7 @@
         "backgroundColor": "#EFC600"
       },
       "package": "com.hoxymola.laborlaw",
-      "versionCode": 3
+      "versionCode": 202104415
     },
     "web": {
       "favicon": "./assets/favicon.png"
