@@ -66,14 +66,15 @@ export default function PartBasic({ label, data, navigation }) {
           <ScrollView 
             showsVerticalScrollIndicator={false}
             ref={scrollRef}
+            style={{flex: 1}}
+            contentContainerStyle={{ flexGrow: 1 }}
           >
             <TouchableOpacity
               activeOpacity={1}
               onPress={triger}
+              style={{ flex: 1 }}
             >       
-              <View style={{paddingVertical: 15}}>   
-                <Text style={[Global.text, {paddingVertical: 15, lineHeight: 30, fontFamily: 'gothic', fontSize: 18, color: '#CCCCCC'}]}>{text}</Text>
-              </View>
+              <Text style={[Global.text, {paddingVertical: 15, lineHeight: 30, fontFamily: 'gothic', fontSize: 18, color: '#CCCCCC'}]}>{text}</Text>
             </TouchableOpacity>
           </ScrollView>
         </View>
