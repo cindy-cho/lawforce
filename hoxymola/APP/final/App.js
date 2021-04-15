@@ -75,13 +75,12 @@ function test() {
 const screen = Dimensions.get('window');
 function HowTo() {
   return (
-    <View style={{backgroundColor: '#242424', alignItems: 'center', flex: 1}}>
-      <Image 
-        source={require('./assets/howto.png')}
-        style={{flex: 1}}
-        resizeMode='contain'
-      />
-    </View>
+      <ScrollView horizontal={true} style={{flex: 1}}>
+        <Image 
+          source={require('./assets/howto.png')}
+          style={{minHeight: screen.height*0.5}}
+        />
+      </ScrollView>
   );
 }
 const Tab = createBottomTabNavigator();
