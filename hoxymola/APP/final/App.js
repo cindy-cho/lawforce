@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, SafeAreaView, Dimensions, StyleSheet, ScrollView } from 'react-native';
+import { Text, View, SafeAreaView, Dimensions, StyleSheet, ScrollView, Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SliderBox } from "react-native-image-slider-box";
@@ -11,6 +11,7 @@ import Study from './screens/study';
 import Global from './shared/Global';
 import Quote from './screens/todayQuote';
 import Today from './screens/todaySample';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 function HomeScreen() {
   var now = new Date();
@@ -116,7 +117,7 @@ export default class App extends React.Component {
   render() {
     if (this.state.isReady) {
       return (
-        <SafeAreaView style={[Global.container, {backgroundColor: '#242424', }]}>
+        <SafeAreaView style={[Global.container, {backgroundColor: '#242424', paddingTop: Platform.OS === `ios` ? 0 : getStatusBarHeight()}]}>
           <SafeAreaView style={[Global.header]}>
             <View>
                 <Text style={[Global.text, {fontSize: 25}]}>노동법</Text>
