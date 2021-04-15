@@ -17,17 +17,17 @@ export default function PartBasic({ label, data, navigation }) {
 
   const triger = () => {
     if (flag) {
-      setText(data[index-1].content[contentIndex].text[1])
+      setText(data[index-1].content[contentIndex].text[2])
       setFlag(false)
     } else {
-      setText(data[index-1].content[contentIndex].text[2])
+      setText(data[index-1].content[contentIndex].text[1])
       setFlag(true)
     }
   }
   const next = () => {
     if(contentIndex != data[index-1].content.length - 1) {
       setContentIndex( (contentIndex + 1) )
-      setText(data[index-1].content[contentIndex + 1].text[1])
+      setText(data[index-1].content[contentIndex + 1].text[2])
       setFlag(false)
       scrollRef.current.scrollTo({y: 0, animated: false});
     }
@@ -35,7 +35,7 @@ export default function PartBasic({ label, data, navigation }) {
   const prev = () => {
     if(contentIndex != 0){
       setContentIndex( (contentIndex - 1) )
-      setText(data[index - 1].content[contentIndex - 1].text[1])
+      setText(data[index - 1].content[contentIndex - 1].text[2])
       setFlag(false)
       scrollRef.current.scrollTo({y: 0, animated: false});
     }
@@ -123,7 +123,7 @@ export default function PartBasic({ label, data, navigation }) {
             <TouchableOpacity
               onPress={() => {
                 setModalOpen(true)
-                setText(item.content[0].text[1])
+                setText(item.content[0].text[2])
                 setIndex(item.key)
                 setFlag(false)
                 setContentIndex(0);
