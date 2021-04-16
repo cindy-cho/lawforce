@@ -55,6 +55,7 @@ export default function PartBasic({ label, data, navigation }) {
               activeOpacity={1}
               onPress={() => setModalOpen(false)}
             >
+              
               <AntDesign name='close' color='#D4D4D4' size={20}/>
             </TouchableOpacity>
             <Text style={[Global.text, {color: '#D4D4D4', fontSize: 20, lineHeight: 25 ,fontWeight: 'bold', paddingHorizontal: 15}]}>{title}</Text>
