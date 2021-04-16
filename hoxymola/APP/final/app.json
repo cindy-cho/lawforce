@@ -2,7 +2,7 @@
   "expo": {
     "name": "노동판례 300선",
     "slug": "LABOR_LAW",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
