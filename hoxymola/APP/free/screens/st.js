@@ -1,20 +1,38 @@
 import React, { useState, useRef } from 'react';
 import { StyleSheet, View, Text, Modal, FlatList, SafeAreaView, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 import Global from '../shared/Global';
-import { Entypo, AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
+import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
+import HTML from "react-native-render-html";
 
-export default function PartBasic2({ label, data }) {
+export default function study({ label, data, navigation }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [index, setIndex] = useState(1);
   const [text, setText] = useState('aa');
   const [flag, setFlag] = useState(false);
   const [contentIndex, setContentIndex] = useState(0);
-  const [eye, setEye] = useState('eye');
   const [title, setTitle] =useState('bb');
   const scrollRef = useRef();
 
   const screen = Dimensions.get('window');
+
+  
+  const next = () => {
+    if(contentIndex != data[index-1].content.length - 1) {
+      setContentIndex( (contentIndex + 1) )
+      setText(data[index-1].content[contentIndex + 1].text[0])
+      setFlag(false)
+      scrollRef.current.scrollTo({y: 0, animated: false});
+    }
+  }
+  const prev = () => {
+    if(contentIndex != 0){
+      setContentIndex( (contentIndex - 1) )
+      setText(data[index - 1].content[contentIndex - 1].text[0])
+      setFlag(false)
+      scrollRef.current.scrollTo({y: 0, animated: false});
+    }
+  }
 
   return (
     <SafeAreaView style={[Global.container, {backgroundColor: '#2E2E2E'}]}>
@@ -38,7 +56,16 @@ export default function PartBasic2({ label, data }) {
           </View>
         </SafeAreaView>
         <View style={{flex: 1, backgroundColor: '#2E2E2E', paddingHorizontal: 15, borderTopWidth: 0.8, borderTopColor: '#D4D4D4', borderBottomWidth: 0.8, borderBottomColor: '#D4D4D4'}}>
-            <Text style={[Global.text, {paddingVertical: 15, lineHeight: 27, fontFamily: 'gothic', fontSize: 18, color: '#D4D4D4', letterSpacing: 0}]}>해당 판례는 유료버전에서 이용하실 수 있습니다.</Text>
+          <ScrollView 
+            showsVerticalScrollIndicator={false}
+            ref={scrollRef}
+          >
+               
+              <View style={{paddingVertical: 15}}>   
+                <HTML source={{html: text}} />
+              </View>
+            
+          </ScrollView>
         </View>
         <View style={{backgroundColor: '#242424', flexDirection: 'column', height: screen.height / 12, justifyContent: 'center'}}>
           
@@ -46,37 +73,36 @@ export default function PartBasic2({ label, data }) {
             <View style={{justifyContent:'flex-start', flexDirection: 'row'}}>
               <TouchableOpacity
                 activeOpacity={1}
+                hitSlop={{top: 30, left: 30, bottom: 30, right: 30}}
+                onPress={prev}
               >
-                <MaterialCommunityIcons name='arrow-left' color='#D4D4D4' size={30} style={{paddingHorizontal: 10}}/>
-              </TouchableOpacity>
-              <TouchableOpacity
-                activeOpacity={1}
-              >
-                <MaterialCommunityIcons name='arrow-right'color='#D4D4D4' size={30} style={{paddingHorizontal: 10}}/>
+                <MaterialCommunityIcons name='arrow-left' color='#D4D4D4' size={30} style={{paddingHorizontal: 15}}/>
               </TouchableOpacity>
             </View>
 
-            <Text style={[Global.text, {fontSize: 18, color: '#D4D4D4', alignSelf: 'center', }]}>{contentIndex + 1}/{data[index-1].content.length}</Text>
-            <View style={{flexDirection: 'row'}}>
-              <View style={{paddingHorizontal: 10}}>
-                <Entypo name={eye} size={30} color='#242424' />
-              </View>
+            <Text style={[Global.text, {fontSize: 18, color: '#D4D4D4', alignSelf: 'center', paddingBottom: 15}]}>{contentIndex + 1}/{data[index-1].content.length}</Text>
+            <View style={{flexDirection: 'row', paddingBottom: 15}}>
               <TouchableOpacity
                 activeOpacity={1}
-                style={{paddingHorizontal: 10}}
+                hitSlop={{top: 30, left: 30, bottom: 30, right: 30}}
+                onPress={next}
               >
-                <Entypo name={eye} size={30} color='#D4D4D4' />
+                <MaterialCommunityIcons name='arrow-right'color='#D4D4D4' size={30} style={{paddingHorizontal: 15}}/>
               </TouchableOpacity>
             </View>
           </View>
         </View>
       </Modal>  
 
-      <View style={{backgroundColor: '#242424', paddingHorizontal: 20, paddingTop: 10, paddingBottom: 5}}>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-        <AntDesign name="lock1" size={24} color='white' />
-        <Text style={[Global.text, {fontSize: 25, fontWeight: 'bold', color: 'skyblue'}]}>{label}</Text>
-        </View>
+      <View style={{backgroundColor: '#242424', paddingLeft: 10, paddingRight: 20, paddingTop: 10, paddingBottom: 5}}>
+        <TouchableOpacity
+              activeOpacity={1}
+              onPress={() => navigation.goBack()}
+              style={{flexDirection: 'row', alignItems: 'center'}}
+            >
+              <AntDesign name='left' color='skyblue' size={20}/>
+              <Text style={[Global.text, {fontSize: 25, fontWeight: 'bold', color: 'skyblue'}]}>{label}</Text>
+          </TouchableOpacity>
         <Text style={[Global.text, {fontSize: 15, fontWeight: 'bold', alignSelf: 'flex-end'}]}>{data.length}개 주제</Text>
       </View> 
       <View style={[Global.container]}>
@@ -86,7 +112,11 @@ export default function PartBasic2({ label, data }) {
             <TouchableOpacity
               onPress={() => {
                 setModalOpen(true)
-                setTitle(item.content[0].subtitle)
+                setText(item.content[0].text[0])
+                setIndex(item.key)
+                setFlag(false)
+                setContentIndex(0);
+                setTitle(item.title)
               }}
             >
               <View style={[Global.container, {borderWidth: StyleSheet.hairlineWidth, borderBottomColor: '#2E2E2E', paddingVertical: 20, flexDirection: 'row'}]}>

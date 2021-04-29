@@ -2,7 +2,7 @@
   "expo": {
     "name": "노동판례 300선 체험판",
     "slug": "labor_law_Lite",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -24,10 +24,10 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#EFC600"
       },
       "package": "hoxymola.com.laborLawFreee",
-      "versionCode": 2
+      "versionCode": 20210429
     },
     "web": {
       "favicon": "./assets/favicon.png"

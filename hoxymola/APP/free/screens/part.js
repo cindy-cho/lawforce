@@ -1,49 +1,41 @@
 import React, { useState, useRef } from 'react';
 import { StyleSheet, View, Text, Modal, FlatList, SafeAreaView, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 import Global from '../shared/Global';
-import { Entypo, AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
+import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 
-export default function PartBasic({ label, data }) {
+export default function PartBasic({ label, data, navigation }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [index, setIndex] = useState(1);
   const [text, setText] = useState('aa');
   const [flag, setFlag] = useState(false);
   const [contentIndex, setContentIndex] = useState(0);
-  const [eye, setEye] = useState('eye');
   const [title, setTitle] =useState('bb');
   const scrollRef = useRef();
-
   const screen = Dimensions.get('window');
 
   const triger = () => {
-    if (!flag) {
-      setText(data[index-1].content[contentIndex].text[0])
-      setFlag(true)
-      setEye('eye')
+    if (flag) {
+      setText(data[index-1].content[contentIndex].text[2])
+      setFlag(false)
     } else {
       setText(data[index-1].content[contentIndex].text[1])
-      setFlag(false)
-      setEye('eye-with-line')
+      setFlag(true)
     }
   }
   const next = () => {
     if(contentIndex != data[index-1].content.length - 1) {
       setContentIndex( (contentIndex + 1) )
-      setText(data[index-1].content[contentIndex + 1].text[0])
-      setFlag(true)
-      setEye('eye')
-      setTitle(data[index-1].content[contentIndex + 1].subtitle)
+      setText(data[index-1].content[contentIndex + 1].text[2])
+      setFlag(false)
       scrollRef.current.scrollTo({y: 0, animated: false});
     }
   }
   const prev = () => {
     if(contentIndex != 0){
       setContentIndex( (contentIndex - 1) )
-      setText(data[index - 1].content[contentIndex - 1].text[0])
-      setFlag(true)
-      setEye('eye')
-      setTitle(data[index-1].content[contentIndex - 1].subtitle)
+      setText(data[index - 1].content[contentIndex - 1].text[2])
+      setFlag(false)
       scrollRef.current.scrollTo({y: 0, animated: false});
     }
   }
@@ -63,6 +55,7 @@ export default function PartBasic({ label, data }) {
               activeOpacity={1}
               onPress={() => setModalOpen(false)}
             >
+              
               <AntDesign name='close' color='#D4D4D4' size={20}/>
             </TouchableOpacity>
             <Text style={[Global.text, {color: '#D4D4D4', fontSize: 20, lineHeight: 25 ,fontWeight: 'bold', paddingHorizontal: 15}]}>{title}</Text>
@@ -73,9 +66,16 @@ export default function PartBasic({ label, data }) {
           <ScrollView 
             showsVerticalScrollIndicator={false}
             ref={scrollRef}
-            bounces={false}
+            style={{flex: 1}}
+            contentContainerStyle={{ flexGrow: 1 }}
           >
-            <Text style={[Global.text, {paddingVertical: 15, lineHeight: 27, fontFamily: 'gothic', fontSize: 18, color: '#D4D4D4', letterSpacing: 0}]}>{text}</Text>
+            <TouchableOpacity
+              activeOpacity={1}
+              onPress={triger}
+              style={{ flex: 1 }}
+            >       
+              <Text style={[Global.text, {paddingVertical: 15, lineHeight: 30, fontFamily: 'gothic', fontSize: 18, color: '#CCCCCC'}]}>{text}</Text>
+            </TouchableOpacity>
           </ScrollView>
         </View>
         <View style={{backgroundColor: '#242424', flexDirection: 'column', height: screen.height / 12, justifyContent: 'center'}}>
@@ -84,37 +84,36 @@ export default function PartBasic({ label, data }) {
             <View style={{justifyContent:'flex-start', flexDirection: 'row'}}>
               <TouchableOpacity
                 activeOpacity={1}
+                hitSlop={{top: 30, left: 30, bottom: 30, right: 30}}
                 onPress={prev}
               >
-                <MaterialCommunityIcons name='arrow-left' color='#D4D4D4' size={30} style={{paddingHorizontal: 10}}/>
-              </TouchableOpacity>
-              <TouchableOpacity
-                activeOpacity={1}
-                onPress={next}
-              >
-                <MaterialCommunityIcons name='arrow-right'color='#D4D4D4' size={30} style={{paddingHorizontal: 10}}/>
+                <MaterialCommunityIcons name='arrow-left' color='#D4D4D4' size={30} style={{paddingHorizontal: 15}}/>
               </TouchableOpacity>
             </View>
 
-            <Text style={[Global.text, {fontSize: 18, color: '#D4D4D4', alignSelf: 'center', }]}>{contentIndex + 1}/{data[index-1].content.length}</Text>
-            <View style={{flexDirection: 'row'}}>
-              <View style={{paddingHorizontal: 10}}>
-                <Entypo name={eye} size={30} color='#242424' />
-              </View>
+            <Text style={[Global.text, {fontSize: 18, color: '#D4D4D4', alignSelf: 'center', paddingBottom: 15}]}>{contentIndex + 1}/{data[index-1].content.length}</Text>
+            <View style={{flexDirection: 'row', paddingBottom: 15}}>
               <TouchableOpacity
                 activeOpacity={1}
-                onPress={triger}
-                style={{paddingHorizontal: 10}}
+                hitSlop={{top: 30, left: 30, bottom: 30, right: 30}}
+                onPress={next}
               >
-                <Entypo name={eye} size={30} color='#D4D4D4' />
+                <MaterialCommunityIcons name='arrow-right'color='#D4D4D4' size={30} style={{paddingHorizontal: 15}}/>
               </TouchableOpacity>
             </View>
           </View>
         </View>
       </Modal>  
 
-      <View style={{backgroundColor: '#242424', paddingHorizontal: 20, paddingTop: 10, paddingBottom: 5}}>
-        <Text style={[Global.text, {fontSize: 25, fontWeight: 'bold', color: 'skyblue'}]}>{label}</Text>
+      <View style={{backgroundColor: '#242424', paddingLeft: 10, paddingRight: 20, paddingTop: 10, paddingBottom: 5}}>
+          <TouchableOpacity
+              activeOpacity={1}
+              onPress={() => navigation.goBack()}
+              style={{flexDirection: 'row', alignItems: 'center'}}
+            >
+              <AntDesign name='left' color='#D7595A' size={20}/>
+              <Text style={[Global.text, {fontSize: 25, fontWeight: 'bold', color: '#D7595A'}]}>{label}</Text>
+          </TouchableOpacity>
         <Text style={[Global.text, {fontSize: 15, fontWeight: 'bold', alignSelf: 'flex-end'}]}>{data.length}개 주제</Text>
       </View> 
       <View style={[Global.container]}>
@@ -124,12 +123,11 @@ export default function PartBasic({ label, data }) {
             <TouchableOpacity
               onPress={() => {
                 setModalOpen(true)
-                setText(item.content[0].text[0])
+                setText(item.content[0].text[2])
                 setIndex(item.key)
-                setFlag(true)
+                setFlag(false)
                 setContentIndex(0);
-                setTitle(item.content[0].subtitle)
-                setEye('eye')
+                setTitle(item.title)
               }}
             >
               <View style={[Global.container, {borderWidth: StyleSheet.hairlineWidth, borderBottomColor: '#2E2E2E', paddingVertical: 20, flexDirection: 'row'}]}>
