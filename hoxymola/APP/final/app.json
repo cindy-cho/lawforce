@@ -2,7 +2,7 @@
   "expo": {
     "name": "노동판례 300선",
     "slug": "LABOR_LAW",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -27,7 +27,7 @@
         "backgroundColor": "#EFC600"
       },
       "package": "com.hoxymola.laborlaw",
-      "versionCode": 20210419
+      "versionCode": 20210504
     },
     "web": {
       "favicon": "./assets/favicon.png"
