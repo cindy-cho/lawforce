@@ -18,30 +18,6 @@ class HomeScreen extends React.Component {
             <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 17}]}>노동법 총론</Text>
             <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 17, color: 'skyblue'}]}>공부하러 가기</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('CHAP2')}
-            style={[styles.card, {justifyContent: 'space-evenly', padding: 10, width: '93%'}]}
-        >
-            <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 17}]}>CHAPTER 2</Text>
-            <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 17}]}>개별적 근로관계법</Text>
-            <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 17, color: 'skyblue'}]}>해당 챕터는 유료버전에서 이용 가능합니다.</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('CHAP3')}
-            style={[styles.card, {justifyContent: 'space-evenly', padding: 10, width: '93%'}]}
-        >
-            <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 17}]}>CHAPTER 3</Text>
-            <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 17}]}>비정규 근로자에 관한 특별법</Text>
-            <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 17, color: 'skyblue'}]}>해당 챕터는 유료버전에서 이용 가능합니다.</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('CHAP4')}
-            style={[styles.card, {justifyContent: 'space-evenly', padding: 10, width: '93%'}]}
-        >
-            <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 17}]}>CHAPTER 4</Text>
-            <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 17}]}>집단적 노사관계법</Text>
-            <Text style={[Global.text,{alignSelf: 'center'},{fontSize: 17, color: 'skyblue'}]}>해당 챕터는 유료버전에서 이용 가능합니다.</Text>
-        </TouchableOpacity>
   </View>
     );
   }

@@ -2,7 +2,7 @@
   "expo": {
     "name": "노동판례 300선",
     "slug": "LABOR_LAW",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -19,7 +19,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.hoxymola.laborlaw",
-      "buildNumber": "1.0.3"
+      "buildNumber": "1.0.4"
     },
     "android": {
       "adaptiveIcon": {
@@ -27,7 +27,7 @@
         "backgroundColor": "#EFC600"
       },
       "package": "com.hoxymola.laborlaw",
-      "versionCode": 20210418
+      "versionCode": 20210419
     },
     "web": {
       "favicon": "./assets/favicon.png"
